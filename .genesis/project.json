@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-04T13:13:17.685Z",
-    "updated_at": "2026-11-06T16:05:33.113Z"
+    "updated_at": "2026-11-06T16:52:22.212Z"
   },
   "policy": {
     "ponytail": "full",
@@ -34,10 +34,11 @@
     "type": "new-product",
     "started_at": "2026-11-04T13:13:17.696Z",
     "spec_check": {
-      "at": "2026-11-06T10:31:45.172Z",
-      "source_hash": "1bf58fc5dc12331fbe2278e80754ab9f360d55c90b1494352f63545f57e9b9af",
+      "at": "2026-11-06T16:34:51.037Z",
+      "source_hash": "7c895ae62e34567b95a11303eb36bb4410f48963c6d69b44cd0eed155d2f1870",
       "requirements": [
         "AC-1",
+        "AC-10",
         "AC-2",
         "AC-3",
         "AC-4",
@@ -52,6 +53,8 @@
         "FR-12",
         "FR-13",
         "FR-14",
+        "FR-15",
+        "FR-16",
         "FR-2",
         "FR-3",
         "FR-4",
@@ -70,14 +73,14 @@
       ]
     },
     "plan_check": {
-      "at": "2026-11-06T15:48:01.199Z",
-      "source_hash": "4c4a7cb84826c707ca79e246371d36a35503193811d3f855e2c989b8df1f5abc"
+      "at": "2026-11-06T16:51:22.945Z",
+      "source_hash": "4cc0df2d851d8e4dc10daa8b04d94bdc83a01333f5b90ad363839f6096819a94"
     },
     "plan_approval": {
       "human": "ChandrikaSethumadhavan",
-      "reason": "Approved in chat 2026-11-06: T-6b added, T-7b replaced by T-7c",
-      "at": "2026-11-06T15:49:38.676Z",
-      "source_hash": "4c4a7cb84826c707ca79e246371d36a35503193811d3f855e2c989b8df1f5abc"
+      "reason": "Approved in chat 2026-11-06: T-10 packaging entry point false positive",
+      "at": "2026-11-06T16:51:55.074Z",
+      "source_hash": "4cc0df2d851d8e4dc10daa8b04d94bdc83a01333f5b90ad363839f6096819a94"
     }
   },
   "artifacts": [
@@ -88,6 +91,7 @@
       "status": "approved",
       "requirements": [
         "AC-1",
+        "AC-10",
         "AC-2",
         "AC-3",
         "AC-4",
@@ -102,6 +106,8 @@
         "FR-12",
         "FR-13",
         "FR-14",
+        "FR-15",
+        "FR-16",
         "FR-2",
         "FR-3",
         "FR-4",
@@ -118,12 +124,12 @@
         "NFR-6",
         "NFR-7"
       ],
-      "source_hash": "1bf58fc5dc12331fbe2278e80754ab9f360d55c90b1494352f63545f57e9b9af",
+      "source_hash": "7c895ae62e34567b95a11303eb36bb4410f48963c6d69b44cd0eed155d2f1870",
       "approval": {
         "human": "ChandrikaSethumadhavan",
-        "reason": "Approved in chat 2026-11-06: added FR-14, NFR-7, AC-9",
-        "at": "2026-11-06T10:37:43.481Z",
-        "source_hash": "1bf58fc5dc12331fbe2278e80754ab9f360d55c90b1494352f63545f57e9b9af"
+        "reason": "Approved in chat 2026-11-06: README drops where-it-fails; FR-15, FR-16, AC-10 added",
+        "at": "2026-11-06T16:35:41.606Z",
+        "source_hash": "7c895ae62e34567b95a11303eb36bb4410f48963c6d69b44cd0eed155d2f1870"
       }
     }
   ],
@@ -212,9 +218,9 @@
           "status": "pass",
           "evidence": {
             "human": "ChandrikaSethumadhavan",
-            "reason": "Approved in chat 2026-11-06: added FR-14, NFR-7, AC-9",
-            "source_hash": "04e36c759e7f072111878a6e6fcc7d771454cfd179dff39949e4ee89e68e2da6",
-            "observed_at": "2026-11-06T10:37:43.481Z"
+            "reason": "Approved in chat 2026-11-06: README drops where-it-fails; FR-15, FR-16, AC-10 added",
+            "source_hash": "2cc40392de1ea32574a51ce496957108c0b6482d41ab282d5d70659411f3ae92",
+            "observed_at": "2026-11-06T16:35:41.606Z"
           },
           "kind": "review"
         }
@@ -225,7 +231,7 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-04T13:13:17.696Z",
-      "updated_at": "2026-11-06T10:37:43.481Z"
+      "updated_at": "2026-11-06T16:35:41.606Z"
     },
     {
       "id": "T-1",
@@ -1423,6 +1429,263 @@
         "tests/test_store.py": "529370d2fffddcd4a90228bbb03ab967c24c4349a317a1e65b655df515a6528b",
         "tests/test_triage.py": "0fa67be9e2ab2525e9f8b45b9444b88e5a43061c718673ca3022897eeaa28bec"
       }
+    },
+    {
+      "id": "T-8",
+      "outcome": "Installable and containerised: pyproject.toml with a secret-finder console command, a Dockerfile and .dockerignore for users without Python, a README rewritten for install and use without a where-it-fails section, and the architecture document and AI log updated to match",
+      "state": "done",
+      "risk": "low",
+      "owner": null,
+      "scope": [
+        "pyproject.toml",
+        "Dockerfile",
+        ".dockerignore",
+        "README.md",
+        "docs/architecture.html",
+        "docs/ai-log.md",
+        "tests/test_docs.py",
+        "tests/test_packaging.py"
+      ],
+      "dependencies": [],
+      "requirements": [
+        "FR-13",
+        "FR-15",
+        "FR-16",
+        "AC-10"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "unit",
+          "kind": "command",
+          "command": "python3 -m unittest tests.test_docs tests.test_packaging",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/T-8-unit-5f2058c1-ec9f-4be6-ac2a-3d3e240460f1.json",
+            "hash": "d807dccf5ca11d8edd9915251e724568aadf2207d3dde036f1ea30f0aa1c5745",
+            "source_hash": "3eb3c7b732fdf82a30eb546192b732c05f1dd1823950f6d2745086768488c65e",
+            "config_hash": "0064046fe301eb3ed579317a5bd5ea628b39a303ea5e0e0a7f6902b33a41399a",
+            "observed_at": "2026-11-06T16:37:18.095Z"
+          }
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-06T16:35:42.228Z",
+      "updated_at": "2026-11-06T16:37:28.383Z",
+      "base_manifest": {
+        ".gitignore": "28d6f5b6b176aa9ecb13c0ae2a71657d155cf008621d59daf7eec554d748eaf3",
+        "AGENTS.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "CLAUDE.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "README.md": "682bb4afff4bf80af86a020e673b7d0d7467f692a50ff27dea23efdd4d7548aa",
+        "SPEC.md": "0911f5b1c400be6ea09ba079cdab010092454dbb13f6b0fb63afe72c2bf4104c",
+        "docs/ai-log.md": "3500eaa9bc7ff09d321de20979368142ff3e9092c7e65220bae9e7448e7c4f82",
+        "docs/architecture.html": "606fa168d1ebaefe84c3817275c9f2e29a664dbc0eadebaeb4866a97c8ed5f99",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf": "1643bb609324b3f529cf4e1dcb0b06f4f5c2108dd021644ad619a197a0e1cdba",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf:Zone.Identifier": "333fe318e900399484601469768ae576bdc3461e12cc258e27bb64d2ad04c52b",
+        "prompts/triage.txt": "9de376d49e275d92894a642e3deed244db58336c4efe5a3f2d7ac38aea2682e6",
+        "secret_finder/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "secret_finder/__main__.py": "1e83fdc33fa81c618835aadf804ae88ffeced9eebe988124bb14a16973f67009",
+        "secret_finder/ai/__init__.py": "b8c197945b010a5f4d5a43e7d9221fd3f92ae08d57b30648cf1c098a63d0486b",
+        "secret_finder/ai/base.py": "9fb23ce5a7f0e8949557100bef9f126b1918408f340b3ab41a33cbc65fd730f9",
+        "secret_finder/ai/google.py": "1ed4b72cf322efb2d4d403ac478bd18fbf350d40e2d2ee7b37162ad6220d80c7",
+        "secret_finder/ai/http.py": "227a62a66e230e1bf257406cf90824d49b3ff075af9347c28fda55cfcb20bf3b",
+        "secret_finder/ai/openrouter.py": "801b58e4108bcdafcb72ab4e7f5abed78364a2ca7e647f3d0ac0ccbafbc20ace",
+        "secret_finder/cli.py": "c7c9bebba50948fd3c4b227901ad9ed26deac417cbc649e8eca132ce0993d840",
+        "secret_finder/detect.py": "cb6f9e8ef28ca61da44eaff99969d78e960745e8ccf77f301c2e0947abc7c6c6",
+        "secret_finder/diffparse.py": "2f7645306bd3462357622bdf65450fa28f9612276d7fe531d01e8344e307917c",
+        "secret_finder/entropy.py": "226687597242f26a3f96523696550b57426e3b41bd1b34fb98e4aeba97f8b6e2",
+        "secret_finder/inputs.py": "41017cf81dfaf2ff351b62c53ac1b5572c4b396f0d986b1eb29264cbfcfe0574",
+        "secret_finder/mask.py": "4440c3cbda28e181e7182d47eb243032fa3ac282ccb705bd2174bf577e9de86a",
+        "secret_finder/report.py": "890c9e682f4fbf34ce6890983b3bf06ad5d000d6cdb5fab1b673fb45dddcb7c6",
+        "secret_finder/rules.py": "476387ae387e895e228641d139bd84b38eb4f976ddec775907c45fd6ed9918b7",
+        "secret_finder/store.py": "10a5158b12099b8af68213ccee2681556d599d27ccd47678d4c8a0da26dce03f",
+        "secret_finder/triage.py": "0e50d2d381fbbe7c4ef803b35f2204feba1302aafcc34d1fd086db4ac64577f3",
+        "tests/test_cli.py": "4e038ee30965213cdcae8575fcd110767e70ec8dcf236eabd94afc3f6b180432",
+        "tests/test_detect.py": "ddbd4c93b1fd2063e3103f33025cdf0e5d69a0f3cdb137fcfaa510b5070ec4f6",
+        "tests/test_diffparse.py": "c94f4883146eec76c4cb1762efa765be6eea5ba7baf8d45b1d5faca0179199b3",
+        "tests/test_docs.py": "188240c901a7b2e282baec80bdab9a74301c8202797e57e559515e87b48e844b",
+        "tests/test_inputs.py": "ac12e3322f40a4bb7a5c2284475e2e1ea80e342699d38dd930bbe30c19f11d9f",
+        "tests/test_providers.py": "2c41fca9fc97adea42bd9e2e2bc552caeb6f5cbaebd05cfedeeb70390bc18c18",
+        "tests/test_remediation.py": "a3a93bc01c06b362fcfadc98d3bab27d527ea081d575e2acea26d77509e4bef5",
+        "tests/test_store.py": "529370d2fffddcd4a90228bbb03ab967c24c4349a317a1e65b655df515a6528b",
+        "tests/test_triage.py": "0fa67be9e2ab2525e9f8b45b9444b88e5a43061c718673ca3022897eeaa28bec"
+      }
+    },
+    {
+      "id": "T-9",
+      "outcome": "README gains a Gaps in this project section listing known limitations, with the docs test and AI log updated to match",
+      "state": "done",
+      "risk": "low",
+      "owner": null,
+      "scope": [
+        "README.md",
+        "tests/test_docs.py",
+        "docs/ai-log.md"
+      ],
+      "dependencies": [],
+      "requirements": [
+        "FR-13"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "docs",
+          "kind": "command",
+          "command": "python3 -m unittest tests.test_docs tests.test_packaging",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/T-9-docs-65840809-7468-456d-9669-c8a17cc34664.json",
+            "hash": "7b9a3cef2767ba9e4eadb3e993eb784d733a43ad71f44f574c49a3d9c1cc9718",
+            "source_hash": "44cfa26a2dc01212168eedb0565007c8f7534d5b88c5c82e51f2cc40987b9a3a",
+            "config_hash": "bf65027b551e2e45a93a5163fc7f138679f32ecb21b9470f71495c4d1a329ddc",
+            "observed_at": "2026-11-06T16:40:05.711Z"
+          }
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-06T16:39:45.666Z",
+      "updated_at": "2026-11-06T16:40:06.435Z",
+      "base_manifest": {
+        ".dockerignore": "a15359b59e3a8219572a5ea2bbe35347b91a39e89e4cff4216903ce188285c65",
+        ".gitignore": "28d6f5b6b176aa9ecb13c0ae2a71657d155cf008621d59daf7eec554d748eaf3",
+        "AGENTS.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "CLAUDE.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "Dockerfile": "eb3018f18597ba0b7b761b820b9a61b0f9d8da83c48eea7a06b675c5b652e36f",
+        "README.md": "1c617abad5e8fa16f6ef90e05b26874abb04b635567cc159dbfdab99ed9fc117",
+        "SPEC.md": "0911f5b1c400be6ea09ba079cdab010092454dbb13f6b0fb63afe72c2bf4104c",
+        "docs/ai-log.md": "ce633d01cbccf2ff3b232ab56c38dc4fd1fa758654bac47e7e6fa5587b39fbf3",
+        "docs/architecture.html": "79dd4a116044cfb90c7d60951fbf4953b93a885d5a9a8fd4ed7ddbeb3d790109",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf": "1643bb609324b3f529cf4e1dcb0b06f4f5c2108dd021644ad619a197a0e1cdba",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf:Zone.Identifier": "333fe318e900399484601469768ae576bdc3461e12cc258e27bb64d2ad04c52b",
+        "prompts/triage.txt": "9de376d49e275d92894a642e3deed244db58336c4efe5a3f2d7ac38aea2682e6",
+        "pyproject.toml": "373d94c65108a058911691c36e635eed2be1be7858a47b9a432bff07c0b6ec46",
+        "secret_finder/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "secret_finder/__main__.py": "1e83fdc33fa81c618835aadf804ae88ffeced9eebe988124bb14a16973f67009",
+        "secret_finder/ai/__init__.py": "b8c197945b010a5f4d5a43e7d9221fd3f92ae08d57b30648cf1c098a63d0486b",
+        "secret_finder/ai/base.py": "9fb23ce5a7f0e8949557100bef9f126b1918408f340b3ab41a33cbc65fd730f9",
+        "secret_finder/ai/google.py": "1ed4b72cf322efb2d4d403ac478bd18fbf350d40e2d2ee7b37162ad6220d80c7",
+        "secret_finder/ai/http.py": "227a62a66e230e1bf257406cf90824d49b3ff075af9347c28fda55cfcb20bf3b",
+        "secret_finder/ai/openrouter.py": "801b58e4108bcdafcb72ab4e7f5abed78364a2ca7e647f3d0ac0ccbafbc20ace",
+        "secret_finder/cli.py": "c7c9bebba50948fd3c4b227901ad9ed26deac417cbc649e8eca132ce0993d840",
+        "secret_finder/detect.py": "cb6f9e8ef28ca61da44eaff99969d78e960745e8ccf77f301c2e0947abc7c6c6",
+        "secret_finder/diffparse.py": "2f7645306bd3462357622bdf65450fa28f9612276d7fe531d01e8344e307917c",
+        "secret_finder/entropy.py": "226687597242f26a3f96523696550b57426e3b41bd1b34fb98e4aeba97f8b6e2",
+        "secret_finder/inputs.py": "41017cf81dfaf2ff351b62c53ac1b5572c4b396f0d986b1eb29264cbfcfe0574",
+        "secret_finder/mask.py": "4440c3cbda28e181e7182d47eb243032fa3ac282ccb705bd2174bf577e9de86a",
+        "secret_finder/report.py": "890c9e682f4fbf34ce6890983b3bf06ad5d000d6cdb5fab1b673fb45dddcb7c6",
+        "secret_finder/rules.py": "476387ae387e895e228641d139bd84b38eb4f976ddec775907c45fd6ed9918b7",
+        "secret_finder/store.py": "10a5158b12099b8af68213ccee2681556d599d27ccd47678d4c8a0da26dce03f",
+        "secret_finder/triage.py": "0e50d2d381fbbe7c4ef803b35f2204feba1302aafcc34d1fd086db4ac64577f3",
+        "tests/test_cli.py": "4e038ee30965213cdcae8575fcd110767e70ec8dcf236eabd94afc3f6b180432",
+        "tests/test_detect.py": "ddbd4c93b1fd2063e3103f33025cdf0e5d69a0f3cdb137fcfaa510b5070ec4f6",
+        "tests/test_diffparse.py": "c94f4883146eec76c4cb1762efa765be6eea5ba7baf8d45b1d5faca0179199b3",
+        "tests/test_docs.py": "edd2b8763cec842d460fc9dda242fbffbabcccd28905f37ce892e8e7f75f7c47",
+        "tests/test_inputs.py": "ac12e3322f40a4bb7a5c2284475e2e1ea80e342699d38dd930bbe30c19f11d9f",
+        "tests/test_packaging.py": "5a2daeaad7e6b2fb9f773705a63be65778f5f9d7f719b7f70c4792a7b54aa1d0",
+        "tests/test_providers.py": "2c41fca9fc97adea42bd9e2e2bc552caeb6f5cbaebd05cfedeeb70390bc18c18",
+        "tests/test_remediation.py": "a3a93bc01c06b362fcfadc98d3bab27d527ea081d575e2acea26d77509e4bef5",
+        "tests/test_store.py": "529370d2fffddcd4a90228bbb03ab967c24c4349a317a1e65b655df515a6528b",
+        "tests/test_triage.py": "0fa67be9e2ab2525e9f8b45b9444b88e5a43061c718673ca3022897eeaa28bec"
+      }
+    },
+    {
+      "id": "T-10",
+      "outcome": "The generic-assignment rule skips a console-script entry point (module.path:function) in pyproject.toml and setup.cfg, so the tool no longer flags its own packaging; credential-like pairs elsewhere stay flagged",
+      "state": "done",
+      "risk": "low",
+      "owner": null,
+      "scope": [
+        "secret_finder/detect.py",
+        "tests/test_detect.py",
+        "docs/ai-log.md"
+      ],
+      "dependencies": [],
+      "requirements": [
+        "FR-6",
+        "AC-2"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "unit",
+          "kind": "command",
+          "command": "python3 -m unittest tests.test_detect tests.test_cli tests.test_store tests.test_triage tests.test_remediation",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/T-10-unit-3393855f-a112-476c-ad8b-b4876da71c59.json",
+            "hash": "739cd8d35507a7392933047c0b62ea5999c0c5b48d5366c396f19330267002d4",
+            "source_hash": "5a626e636fa1e48e4dbf2994505a1ff91e6db913984f6930bc76e65c1105cd85",
+            "config_hash": "a4b6a58c80e85d96790db0b49b6f0afdbfd5ff9905c658e2525a8a2b465edca9",
+            "observed_at": "2026-11-06T16:52:14.492Z"
+          }
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-06T16:51:22.279Z",
+      "updated_at": "2026-11-06T16:52:21.494Z",
+      "base_manifest": {
+        ".dockerignore": "a15359b59e3a8219572a5ea2bbe35347b91a39e89e4cff4216903ce188285c65",
+        ".gitignore": "28d6f5b6b176aa9ecb13c0ae2a71657d155cf008621d59daf7eec554d748eaf3",
+        "AGENTS.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "CLAUDE.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "Dockerfile": "eb3018f18597ba0b7b761b820b9a61b0f9d8da83c48eea7a06b675c5b652e36f",
+        "README.md": "8ba615a88df231b3d5adc7e76e679a8f2d031aed263970f58e1e277fea0a5960",
+        "SPEC.md": "0911f5b1c400be6ea09ba079cdab010092454dbb13f6b0fb63afe72c2bf4104c",
+        "docs/ai-log.md": "ccb872809a0ad8b21fde095c6a4e01463c4f030009f4de052ab9774aaa811621",
+        "docs/architecture.html": "79dd4a116044cfb90c7d60951fbf4953b93a885d5a9a8fd4ed7ddbeb3d790109",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf": "1643bb609324b3f529cf4e1dcb0b06f4f5c2108dd021644ad619a197a0e1cdba",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf:Zone.Identifier": "333fe318e900399484601469768ae576bdc3461e12cc258e27bb64d2ad04c52b",
+        "prompts/triage.txt": "9de376d49e275d92894a642e3deed244db58336c4efe5a3f2d7ac38aea2682e6",
+        "pyproject.toml": "373d94c65108a058911691c36e635eed2be1be7858a47b9a432bff07c0b6ec46",
+        "secret_finder/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "secret_finder/__main__.py": "1e83fdc33fa81c618835aadf804ae88ffeced9eebe988124bb14a16973f67009",
+        "secret_finder/ai/__init__.py": "b8c197945b010a5f4d5a43e7d9221fd3f92ae08d57b30648cf1c098a63d0486b",
+        "secret_finder/ai/base.py": "9fb23ce5a7f0e8949557100bef9f126b1918408f340b3ab41a33cbc65fd730f9",
+        "secret_finder/ai/google.py": "1ed4b72cf322efb2d4d403ac478bd18fbf350d40e2d2ee7b37162ad6220d80c7",
+        "secret_finder/ai/http.py": "227a62a66e230e1bf257406cf90824d49b3ff075af9347c28fda55cfcb20bf3b",
+        "secret_finder/ai/openrouter.py": "801b58e4108bcdafcb72ab4e7f5abed78364a2ca7e647f3d0ac0ccbafbc20ace",
+        "secret_finder/cli.py": "c7c9bebba50948fd3c4b227901ad9ed26deac417cbc649e8eca132ce0993d840",
+        "secret_finder/detect.py": "cb6f9e8ef28ca61da44eaff99969d78e960745e8ccf77f301c2e0947abc7c6c6",
+        "secret_finder/diffparse.py": "2f7645306bd3462357622bdf65450fa28f9612276d7fe531d01e8344e307917c",
+        "secret_finder/entropy.py": "226687597242f26a3f96523696550b57426e3b41bd1b34fb98e4aeba97f8b6e2",
+        "secret_finder/inputs.py": "41017cf81dfaf2ff351b62c53ac1b5572c4b396f0d986b1eb29264cbfcfe0574",
+        "secret_finder/mask.py": "4440c3cbda28e181e7182d47eb243032fa3ac282ccb705bd2174bf577e9de86a",
+        "secret_finder/report.py": "890c9e682f4fbf34ce6890983b3bf06ad5d000d6cdb5fab1b673fb45dddcb7c6",
+        "secret_finder/rules.py": "476387ae387e895e228641d139bd84b38eb4f976ddec775907c45fd6ed9918b7",
+        "secret_finder/store.py": "10a5158b12099b8af68213ccee2681556d599d27ccd47678d4c8a0da26dce03f",
+        "secret_finder/triage.py": "0e50d2d381fbbe7c4ef803b35f2204feba1302aafcc34d1fd086db4ac64577f3",
+        "tests/test_cli.py": "4e038ee30965213cdcae8575fcd110767e70ec8dcf236eabd94afc3f6b180432",
+        "tests/test_detect.py": "ddbd4c93b1fd2063e3103f33025cdf0e5d69a0f3cdb137fcfaa510b5070ec4f6",
+        "tests/test_diffparse.py": "c94f4883146eec76c4cb1762efa765be6eea5ba7baf8d45b1d5faca0179199b3",
+        "tests/test_docs.py": "fa134ced8ef0653fd3099baf0b56df48159fa6e65bc87cda7102a740277eb32e",
+        "tests/test_inputs.py": "ac12e3322f40a4bb7a5c2284475e2e1ea80e342699d38dd930bbe30c19f11d9f",
+        "tests/test_packaging.py": "5a2daeaad7e6b2fb9f773705a63be65778f5f9d7f719b7f70c4792a7b54aa1d0",
+        "tests/test_providers.py": "2c41fca9fc97adea42bd9e2e2bc552caeb6f5cbaebd05cfedeeb70390bc18c18",
+        "tests/test_remediation.py": "a3a93bc01c06b362fcfadc98d3bab27d527ea081d575e2acea26d77509e4bef5",
+        "tests/test_store.py": "529370d2fffddcd4a90228bbb03ab967c24c4349a317a1e65b655df515a6528b",
+        "tests/test_triage.py": "0fa67be9e2ab2525e9f8b45b9444b88e5a43061c718673ca3022897eeaa28bec"
+      }
     }
   ],
   "learning_proposals": [],
@@ -2164,6 +2427,78 @@
       "cost": null,
       "stop_reason": null,
       "ended_at": "2026-11-06T16:05:17.296Z"
+    },
+    {
+      "id": "5f2058c1-ec9f-4be6-ac2a-3d3e240460f1",
+      "task": "T-8",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_docs tests.test_packaging",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 35321,
+      "child_pid": 35354,
+      "started_at": "2026-11-06T16:37:17.148Z",
+      "status": "passed",
+      "before_hash": "3eb3c7b732fdf82a30eb546192b732c05f1dd1823950f6d2745086768488c65e",
+      "config_hash": "0064046fe301eb3ed579317a5bd5ea628b39a303ea5e0e0a7f6902b33a41399a",
+      "environment": {
+        "node": "v24.20.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-06T16:37:18.095Z"
+    },
+    {
+      "id": "65840809-7468-456d-9669-c8a17cc34664",
+      "task": "T-9",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_docs tests.test_packaging",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 36034,
+      "child_pid": 36084,
+      "started_at": "2026-11-06T16:40:04.758Z",
+      "status": "passed",
+      "before_hash": "44cfa26a2dc01212168eedb0565007c8f7534d5b88c5c82e51f2cc40987b9a3a",
+      "config_hash": "bf65027b551e2e45a93a5163fc7f138679f32ecb21b9470f71495c4d1a329ddc",
+      "environment": {
+        "node": "v24.20.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-06T16:40:05.711Z"
+    },
+    {
+      "id": "3393855f-a112-476c-ad8b-b4876da71c59",
+      "task": "T-10",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_detect tests.test_cli tests.test_store tests.test_triage tests.test_remediation",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 38059,
+      "child_pid": 38094,
+      "started_at": "2026-11-06T16:52:12.539Z",
+      "status": "passed",
+      "before_hash": "5a626e636fa1e48e4dbf2994505a1ff91e6db913984f6930bc76e65c1105cd85",
+      "config_hash": "a4b6a58c80e85d96790db0b49b6f0afdbfd5ff9905c658e2525a8a2b465edca9",
+      "environment": {
+        "node": "v24.20.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-06T16:52:14.492Z"
     }
   ],
   "authorizations": [],
@@ -2171,11 +2506,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-06T16:05:33.063Z",
+    "at": "2026-11-06T16:52:22.164Z",
     "revision": {
-      "commit": "4a9a1a0d60201589355d5766135c56518ee13f86",
+      "commit": "c5b8fc4475c87885b49a47ca5cdbd14acb364db9",
       "dirty": true,
-      "source_hash": "7d13909490fb921a65acd25a6fb80ffdaa2bdcc6bd9c7bee9be6b7a59377af91"
+      "source_hash": "5a626e636fa1e48e4dbf2994505a1ff91e6db913984f6930bc76e65c1105cd85"
     },
     "active_task": null,
     "next_action": "Review completed work and choose the next bounded outcome."

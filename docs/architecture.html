@@ -132,8 +132,8 @@ svg.diagram{display:block;width:100%;min-width:860px;height:auto;color:var(--fg)
       <tr><td>Input: current changes in the working directory</td><td>Input resolver + git adapter</td><td><code>git diff HEAD</code> covers staged and unstaged edits. Untracked files are listed as a known limit, with <code>--include-untracked</code> as an extension.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Output: file and line for each finding</td><td>Diff parser</td><td>Reads <code>@@ -a,b +c,d @@</code> hunk headers and counts new-file line numbers. Only <code>+</code> lines are scanned.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Output: a short reason for each finding</td><td>Detector, then AI triage</td><td>Every rule carries a fixed reason string. With <code>--ai</code>, the model refines it and flags likely false positives.</td><td><span class="tag mvp">MVP</span> <span class="tag opt">Optional</span></td></tr>
-      <tr><td>CLI only, any language, any tools</td><td>Python entry point</td><td>One command, <code>python3 -m secret_finder scan</code>. No runtime dependencies.</td><td><span class="tag mvp">MVP</span></td></tr>
-      <tr><td>README with how to run and where it fails</td><td>Docs</td><td>README lists the commands and the failure modes in this document.</td><td><span class="tag mvp">MVP</span></td></tr>
+      <tr><td>CLI only, any language, any tools</td><td>Python entry point</td><td>One command, <code>secret-finder scan</code>, installed with pipx or run from a Docker image. <code>python3 -m secret_finder scan</code> works from a clone. No runtime dependencies.</td><td><span class="tag mvp">MVP</span></td></tr>
+      <tr><td>README with how to run and where it fails</td><td>Docs</td><td>README covers install, use, hooks, AI and the allowlist. Where it fails is documented in the failure modes table in this document.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>2 to 3 tests</td><td>Test suite</td><td>See the test plan below.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Include AI prompts or logs</td><td><code>docs/ai-log.md</code></td><td>Prompts and key outputs from the build are kept in the repo. Runtime prompts are in <code>prompts/triage.txt</code>.</td><td><span class="tag mvp">MVP</span></td></tr>
     </tbody>
@@ -308,10 +308,10 @@ svg.diagram{display:block;width:100%;min-width:860px;height:auto;color:var(--fg)
   <div class="scroll"><table>
     <thead><tr><th>Mode</th><th>Invocation</th><th>Mechanism</th><th>Edge cases handled</th></tr></thead>
     <tbody>
-      <tr><td>Diff file</td><td><code>python3 -m secret_finder scan change.diff</code></td><td>Read the file as text.</td><td>Missing file gives exit 2.</td></tr>
-      <tr><td>stdin</td><td><code>git diff | python3 -m secret_finder scan -</code></td><td>Read stdin to the end.</td><td>Empty input gives exit 0.</td></tr>
-      <tr><td>Commit</td><td><code>python3 -m secret_finder scan --commit &lt;hash&gt;</code></td><td><code>git show --format= -m --first-parent -U0 &lt;hash&gt; --</code></td><td>Root commit works. Merge commits show only the first-parent change, which is stated in the README.</td></tr>
-      <tr><td>Working directory</td><td><code>python3 -m secret_finder scan</code></td><td><code>git diff HEAD</code></td><td>Staged and unstaged are both covered. Untracked files are not. A repo with no commits yet falls back to <code>git diff --cached</code>.</td></tr>
+      <tr><td>Diff file</td><td><code>secret-finder scan change.diff</code></td><td>Read the file as text.</td><td>Missing file gives exit 2.</td></tr>
+      <tr><td>stdin</td><td><code>git diff | secret-finder scan -</code></td><td>Read stdin to the end.</td><td>Empty input gives exit 0.</td></tr>
+      <tr><td>Commit</td><td><code>secret-finder scan --commit &lt;hash&gt;</code></td><td><code>git show --format= -m --first-parent -U0 &lt;hash&gt; --</code></td><td>Root commit works. Merge commits show only the first-parent change, which is stated in the README.</td></tr>
+      <tr><td>Working directory</td><td><code>secret-finder scan</code></td><td><code>git diff HEAD</code></td><td>Staged and unstaged are both covered. Untracked files are not. A repo with no commits yet falls back to <code>git diff --cached</code>.</td></tr>
     </tbody>
   </table></div>
   <h3>Diff parsing rules</h3>
@@ -453,7 +453,7 @@ SF_AI_API_KEY=&lt;key for the chosen provider&gt;
 
 <section id="fail">
   <h2>Failure modes <span class="tag mvp">MVP</span></h2>
-  <p>These go into the README under "where it fails". Stating them is part of the design.</p>
+  <p>This table is where known limitations are documented. Stating them is part of the design.</p>
   <div class="scroll"><table>
     <thead><tr><th>Failure</th><th>Why it happens</th><th>Mitigation or status</th></tr></thead>
     <tbody>
@@ -463,7 +463,10 @@ SF_AI_API_KEY=&lt;key for the chosen provider&gt;
       <tr><td>False positives on hashes, UUIDs, test fixtures, lock files</td><td>They look random.</td><td>Filters for UUIDs and git hashes, an allowlist, and optional AI triage.</td></tr>
       <tr><td>Untracked files in working-directory mode</td><td><code>git diff HEAD</code> only covers tracked files.</td><td>Documented. <code>--include-untracked</code> is an extension.</td></tr>
       <tr><td>Secrets already in history</td><td>Only the given change is scanned.</td><td>Out of scope. Use <code>--commit</code> per commit, or a history scan tool.</td></tr>
-      <tr><td>Unquoted values (<code>.env</code>, YAML)</td><td>The generic rule needs a quoted value.</td><td>Known miss. Listed in the README.</td></tr>
+      <tr><td>Random hex keys</td><td>The random-string rule needs entropy of at least 4.2, and hex tops out near 4.0.</td><td>Known miss.</td></tr>
+      <tr><td>Merge commits</td><td>A commit scan shows the change against the first parent only.</td><td>By design.</td></tr>
+      <tr><td>Working-directory mode outside a git repository</td><td>git prints its usage text instead of a short error.</td><td>Exits 2. Known rough edge.</td></tr>
+      <tr><td>Unquoted values (<code>.env</code>, YAML)</td><td>The generic rule needs a quoted value.</td><td>Known miss.</td></tr>
       <tr><td>Very long names or values</td><td>The generic rule bounds names to 64 and values to 1024 characters to stay linear-time.</td><td>Long base64-style values are still caught by the random-string rule.</td></tr>
       <tr><td>Very large diffs</td><td>The diff is read into memory.</td><td>Stream line by line in the parser so memory stays flat.</td></tr>
       <tr><td>Model unavailable, rate-limited or wrong</td><td>Free tiers throttle. Models can misjudge.</td><td>Timeout, one retry, fallback to rules. High-confidence rules cannot be suppressed by the model.</td></tr>
@@ -496,6 +499,8 @@ SF_AI_API_KEY=&lt;key for the chosen provider&gt;
   triage.py       # AI triage policy, prompt, reply validation
   ai/{base,http,google,openrouter}.py
   store.py        # local files: allowlist, cache, salt
+pyproject.toml    # the secret-finder command
+Dockerfile        # runs it without Python on the host
 tests/            # one module per area, plus test_docs
 prompts/triage.txt
 docs/{architecture.html, ai-log.md}
@@ -515,7 +520,7 @@ README.md</code></pre>
       <tr><td>After 30</td><td>Stage A: local verdict cache and allowlist. Stage B: <code>--ai</code> with masker and one provider. Stage C: second provider. Stage D: Redis or Tiger Cloud store.</td><td>Each stage ships behind a flag, with its own test.</td></tr>
     </tbody>
   </table></div>
-  <p><b>Build status.</b> Stages A to C were built: the local cache and allowlist, <code>--ai</code> with the masker and the Google AI Studio adapter, and the OpenRouter adapter. Redis and Tiger Cloud remain a design option only.</p>
+  <p><b>Build status.</b> Stages A to C were built: the local cache and allowlist, <code>--ai</code> with the masker and the Google AI Studio adapter, and the OpenRouter adapter. Redis and Tiger Cloud remain a design option only. Packaging is done: <code>pyproject.toml</code> adds the <code>secret-finder</code> command, and a <code>Dockerfile</code> runs it on a machine without Python.</p>
   <h3>AI build log</h3>
   <p>The brief asks for prompts or logs. <code>docs/ai-log.md</code> records the prompts, the tasks, and each security review with what it found and how it was resolved. The runtime triage prompt is in <code>prompts/triage.txt</code>, and a test keeps it identical to the one in the code.</p>
   <h3>Open questions for the reviewers</h3>

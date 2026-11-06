@@ -19,6 +19,7 @@ How AI was used to build Detective-cli, what it produced, and what was checked. 
 | 4 | Approve the spec, then the plan. | Seven tasks, later extended to 15 task records (see below). |
 | 5 | Add a remediation step to each finding as a natural part of the tool. | FR-14, NFR-7, AC-9 and task T-2a: a fixed fix string per rule with exact revoke or rotate commands. |
 | 6 | Approve each task after review, one at a time. | Each medium-risk task needed the author's independent-review approval. |
+| 7 | Make it easy for others to run, including people without Python. Simplify the README and drop its where-it-fails section. | `pyproject.toml` console command, `Dockerfile`, a rewritten README, and a spec amendment (FR-13, FR-15, FR-16, AC-10). Known limitations now live in the failure modes table of `docs/architecture.html`. The development machine has neither Docker nor pip, so the image build and a real install were checked statically only. |
 
 ## Tasks
 
@@ -31,6 +32,9 @@ How AI was used to build Detective-cli, what it produced, and what was checked. 
 | T-5, T-5a, T-5c | Masker, triage policy, salted fingerprints, parser and store hardening |
 | T-6, T-6a, T-6b | Google AI Studio and OpenRouter adapters, snippet masking, linear-time regexes |
 | T-7c | README, this log, runtime prompt, documentation update |
+| T-8 | pyproject.toml, Dockerfile, README rewrite, documentation update |
+| T-9 | README section "Gaps in this project" restored at the author's request, listing known limitations |
+| T-10 | The tool flagged its own `pyproject.toml` entry point. The generic rule now skips a lowercase `module.path:function` value in `pyproject.toml` and `setup.cfg` only. A shape-only rule would have hidden pairs such as `john.smith:letmein`, so it is limited to those files. |
 
 T-5b and T-7 and T-7b were rejected and re-created as T-5c, T-7b and T-7c without code changes. Genesis fixes a task's file baseline when the task is first activated, so adding tasks to an approved plan made baselines stale. Re-creating the task was the supported way to refresh it.
 

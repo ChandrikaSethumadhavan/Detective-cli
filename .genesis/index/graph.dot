@@ -23,6 +23,7 @@ digraph genesis {
   "file:tests/test_diffparse.py" [label="tests/test_diffparse.py",class="file"];
   "file:tests/test_docs.py" [label="tests/test_docs.py",class="file"];
   "file:tests/test_inputs.py" [label="tests/test_inputs.py",class="file"];
+  "file:tests/test_packaging.py" [label="tests/test_packaging.py",class="file"];
   "file:tests/test_providers.py" [label="tests/test_providers.py",class="file"];
   "file:tests/test_remediation.py" [label="tests/test_remediation.py",class="file"];
   "file:tests/test_store.py" [label="tests/test_store.py",class="file"];
@@ -68,6 +69,7 @@ digraph genesis {
   "symbol:secret_finder/cli.py#function:_parser" [label="_parser",class="symbol"];
   "symbol:secret_finder/cli.py#function:main" [label="main",class="symbol"];
   "symbol:secret_finder/detect.py#class:Finding" [label="Finding",class="symbol"];
+  "symbol:secret_finder/detect.py#function:_is_entry_point" [label="_is_entry_point",class="symbol"];
   "symbol:secret_finder/detect.py#function:_is_noise" [label="_is_noise",class="symbol"];
   "symbol:secret_finder/detect.py#function:_scan_line" [label="_scan_line",class="symbol"];
   "symbol:secret_finder/detect.py#function:detect" [label="detect",class="symbol"];
@@ -117,6 +119,7 @@ digraph genesis {
   "symbol:tests/test_cli.py#function:CliTest.test_tool_errors_exit_2" [label="CliTest.test_tool_errors_exit_2",class="symbol"];
   "symbol:tests/test_cli.py#function:run" [label="run",class="symbol"];
   "symbol:tests/test_detect.py#class:DetectTest" [label="DetectTest",class="symbol"];
+  "symbol:tests/test_detect.py#function:DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests" [label="DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests",class="symbol"];
   "symbol:tests/test_detect.py#function:DetectTest.test_diff_yields_only_the_two_real_secrets" [label="DetectTest.test_diff_yields_only_the_two_real_secrets",class="symbol"];
   "symbol:tests/test_detect.py#function:DetectTest.test_each_finding_snippet_comes_from_its_own_value" [label="DetectTest.test_each_finding_snippet_comes_from_its_own_value",class="symbol"];
   "symbol:tests/test_detect.py#function:DetectTest.test_entropy_and_laziness" [label="DetectTest.test_entropy_and_laziness",class="symbol"];
@@ -136,7 +139,7 @@ digraph genesis {
   "symbol:tests/test_docs.py#class:DocsTest" [label="DocsTest",class="symbol"];
   "symbol:tests/test_docs.py#function:DocsTest.test_log_exists_and_architecture_lists_every_rule" [label="DocsTest.test_log_exists_and_architecture_lists_every_rule",class="symbol"];
   "symbol:tests/test_docs.py#function:DocsTest.test_prompt_file_matches_the_prompt_in_code" [label="DocsTest.test_prompt_file_matches_the_prompt_in_code",class="symbol"];
-  "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_running_ai_and_failures" [label="DocsTest.test_readme_covers_running_ai_and_failures",class="symbol"];
+  "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai" [label="DocsTest.test_readme_covers_install_use_and_ai",class="symbol"];
   "symbol:tests/test_docs.py#function:read" [label="read",class="symbol"];
   "symbol:tests/test_inputs.py#class:InputsTest" [label="InputsTest",class="symbol"];
   "symbol:tests/test_inputs.py#function:git" [label="git",class="symbol"];
@@ -148,6 +151,10 @@ digraph genesis {
   "symbol:tests/test_inputs.py#function:InputsTest.test_working_dir_covers_staged_and_unstaged" [label="InputsTest.test_working_dir_covers_staged_and_unstaged",class="symbol"];
   "symbol:tests/test_inputs.py#function:InputsTest.test_working_dir_without_commits_uses_index" [label="InputsTest.test_working_dir_without_commits_uses_index",class="symbol"];
   "symbol:tests/test_inputs.py#function:scan" [label="scan",class="symbol"];
+  "symbol:tests/test_packaging.py#class:PackagingTest" [label="PackagingTest",class="symbol"];
+  "symbol:tests/test_packaging.py#function:PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed" [label="PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed",class="symbol"];
+  "symbol:tests/test_packaging.py#function:PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint" [label="PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint",class="symbol"];
+  "symbol:tests/test_packaging.py#function:read" [label="read",class="symbol"];
   "symbol:tests/test_providers.py#class:Net" [label="Net",class="symbol"];
   "symbol:tests/test_providers.py#class:ProviderTest" [label="ProviderTest",class="symbol"];
   "symbol:tests/test_providers.py#class:Resp" [label="Resp",class="symbol"];
@@ -221,6 +228,7 @@ digraph genesis {
   "symbol:secret_finder/cli.py#function:main" -> "symbol:secret_finder/store.py#class:LocalStore" [label="calls"];
   "symbol:secret_finder/cli.py#function:main" -> "symbol:secret_finder/triage.py#function:blocks" [label="calls"];
   "symbol:secret_finder/cli.py#function:main" -> "symbol:secret_finder/triage.py#function:triage" [label="calls"];
+  "symbol:secret_finder/detect.py#function:_scan_line" -> "symbol:secret_finder/detect.py#function:_is_entry_point" [label="calls"];
   "symbol:secret_finder/detect.py#function:_scan_line" -> "symbol:secret_finder/detect.py#function:_is_noise" [label="calls"];
   "symbol:secret_finder/detect.py#function:_scan_line" -> "symbol:secret_finder/entropy.py#function:shannon" [label="calls"];
   "symbol:secret_finder/detect.py#function:_scan_line" -> "symbol:tests/test_triage.py#function:find" [label="calls"];
@@ -265,6 +273,7 @@ digraph genesis {
   "symbol:tests/test_cli.py#function:CliTest.test_stdin_leak_and_clean" -> "symbol:tests/test_cli.py#function:run" [label="calls"];
   "symbol:tests/test_cli.py#function:CliTest.test_tool_errors_exit_2" -> "symbol:tests/test_cli.py#function:run" [label="calls"];
   "symbol:tests/test_cli.py#function:run" -> "symbol:secret_finder/cli.py#function:main" [label="calls"];
+  "symbol:tests/test_detect.py#function:DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests" -> "symbol:tests/test_detect.py#function:run" [label="calls"];
   "symbol:tests/test_detect.py#function:DetectTest.test_diff_yields_only_the_two_real_secrets" -> "symbol:secret_finder/detect.py#function:detect" [label="calls"];
   "symbol:tests/test_detect.py#function:DetectTest.test_diff_yields_only_the_two_real_secrets" -> "symbol:secret_finder/diffparse.py#function:parse" [label="calls"];
   "symbol:tests/test_detect.py#function:DetectTest.test_each_finding_snippet_comes_from_its_own_value" -> "symbol:tests/test_detect.py#function:run" [label="calls"];
@@ -290,7 +299,7 @@ digraph genesis {
   "symbol:tests/test_diffparse.py#function:ParseTest.test_no_newline_marker_is_ignored" -> "symbol:secret_finder/diffparse.py#function:parse" [label="calls"];
   "symbol:tests/test_docs.py#function:DocsTest.test_log_exists_and_architecture_lists_every_rule" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
   "symbol:tests/test_docs.py#function:DocsTest.test_prompt_file_matches_the_prompt_in_code" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
-  "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_running_ai_and_failures" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
+  "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
   "symbol:tests/test_docs.py#function:read" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
   "symbol:tests/test_inputs.py#function:git" -> "symbol:tests/test_cli.py#function:run" [label="calls"];
   "symbol:tests/test_inputs.py#function:InputsTest.commit" -> "symbol:tests/test_inputs.py#function:git" [label="calls"];
@@ -311,6 +320,9 @@ digraph genesis {
   "symbol:tests/test_inputs.py#function:InputsTest.test_working_dir_without_commits_uses_index" -> "symbol:tests/test_inputs.py#function:scan" [label="calls"];
   "symbol:tests/test_inputs.py#function:scan" -> "symbol:secret_finder/diffparse.py#function:parse" [label="calls"];
   "symbol:tests/test_inputs.py#function:scan" -> "symbol:secret_finder/inputs.py#function:read_diff" [label="calls"];
+  "symbol:tests/test_packaging.py#function:PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
+  "symbol:tests/test_packaging.py#function:PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
+  "symbol:tests/test_packaging.py#function:read" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
   "symbol:tests/test_providers.py#function:ProviderTest.test_failures_become_provider_errors_without_leaking_the_key" -> "symbol:secret_finder/ai/base.py#function:Provider.complete" [label="calls"];
   "symbol:tests/test_providers.py#function:ProviderTest.test_failures_become_provider_errors_without_leaking_the_key" -> "symbol:secret_finder/ai/openrouter.py#class:OpenRouter" [label="calls"];
   "symbol:tests/test_providers.py#function:ProviderTest.test_failures_become_provider_errors_without_leaking_the_key" -> "symbol:tests/test_providers.py#class:Net" [label="calls"];
@@ -421,6 +433,7 @@ digraph genesis {
   "file:secret_finder/cli.py" -> "symbol:secret_finder/cli.py#function:_parser" [label="defines"];
   "file:secret_finder/cli.py" -> "symbol:secret_finder/cli.py#function:main" [label="defines"];
   "file:secret_finder/detect.py" -> "symbol:secret_finder/detect.py#class:Finding" [label="defines"];
+  "file:secret_finder/detect.py" -> "symbol:secret_finder/detect.py#function:_is_entry_point" [label="defines"];
   "file:secret_finder/detect.py" -> "symbol:secret_finder/detect.py#function:_is_noise" [label="defines"];
   "file:secret_finder/detect.py" -> "symbol:secret_finder/detect.py#function:_scan_line" [label="defines"];
   "file:secret_finder/detect.py" -> "symbol:secret_finder/detect.py#function:detect" [label="defines"];
@@ -470,6 +483,7 @@ digraph genesis {
   "file:tests/test_cli.py" -> "symbol:tests/test_cli.py#function:CliTest.test_tool_errors_exit_2" [label="defines"];
   "file:tests/test_cli.py" -> "symbol:tests/test_cli.py#function:run" [label="defines"];
   "file:tests/test_detect.py" -> "symbol:tests/test_detect.py#class:DetectTest" [label="defines"];
+  "file:tests/test_detect.py" -> "symbol:tests/test_detect.py#function:DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests" [label="defines"];
   "file:tests/test_detect.py" -> "symbol:tests/test_detect.py#function:DetectTest.test_diff_yields_only_the_two_real_secrets" [label="defines"];
   "file:tests/test_detect.py" -> "symbol:tests/test_detect.py#function:DetectTest.test_each_finding_snippet_comes_from_its_own_value" [label="defines"];
   "file:tests/test_detect.py" -> "symbol:tests/test_detect.py#function:DetectTest.test_entropy_and_laziness" [label="defines"];
@@ -489,7 +503,7 @@ digraph genesis {
   "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#class:DocsTest" [label="defines"];
   "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_log_exists_and_architecture_lists_every_rule" [label="defines"];
   "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_prompt_file_matches_the_prompt_in_code" [label="defines"];
-  "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_running_ai_and_failures" [label="defines"];
+  "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai" [label="defines"];
   "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:read" [label="defines"];
   "file:tests/test_inputs.py" -> "symbol:tests/test_inputs.py#class:InputsTest" [label="defines"];
   "file:tests/test_inputs.py" -> "symbol:tests/test_inputs.py#function:git" [label="defines"];
@@ -501,6 +515,10 @@ digraph genesis {
   "file:tests/test_inputs.py" -> "symbol:tests/test_inputs.py#function:InputsTest.test_working_dir_covers_staged_and_unstaged" [label="defines"];
   "file:tests/test_inputs.py" -> "symbol:tests/test_inputs.py#function:InputsTest.test_working_dir_without_commits_uses_index" [label="defines"];
   "file:tests/test_inputs.py" -> "symbol:tests/test_inputs.py#function:scan" [label="defines"];
+  "file:tests/test_packaging.py" -> "symbol:tests/test_packaging.py#class:PackagingTest" [label="defines"];
+  "file:tests/test_packaging.py" -> "symbol:tests/test_packaging.py#function:PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed" [label="defines"];
+  "file:tests/test_packaging.py" -> "symbol:tests/test_packaging.py#function:PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint" [label="defines"];
+  "file:tests/test_packaging.py" -> "symbol:tests/test_packaging.py#function:read" [label="defines"];
   "file:tests/test_providers.py" -> "symbol:tests/test_providers.py#class:Net" [label="defines"];
   "file:tests/test_providers.py" -> "symbol:tests/test_providers.py#class:ProviderTest" [label="defines"];
   "file:tests/test_providers.py" -> "symbol:tests/test_providers.py#class:Resp" [label="defines"];
@@ -591,6 +609,7 @@ digraph genesis {
   "file:secret_finder/detect.py" -> "runtime:python:dataclasses" [label="imports"];
   "file:secret_finder/detect.py" -> "runtime:python:hashlib" [label="imports"];
   "file:secret_finder/detect.py" -> "runtime:python:hmac" [label="imports"];
+  "file:secret_finder/detect.py" -> "runtime:python:os" [label="imports"];
   "file:secret_finder/detect.py" -> "runtime:python:re" [label="imports"];
   "file:secret_finder/detect.py" -> "runtime:python:typing" [label="imports"];
   "file:secret_finder/diffparse.py" -> "runtime:python:re" [label="imports"];
@@ -652,6 +671,10 @@ digraph genesis {
   "file:tests/test_inputs.py" -> "runtime:python:subprocess" [label="imports"];
   "file:tests/test_inputs.py" -> "runtime:python:tempfile" [label="imports"];
   "file:tests/test_inputs.py" -> "runtime:python:unittest" [label="imports"];
+  "file:tests/test_packaging.py" -> "file:secret_finder/__init__.py" [label="imports"];
+  "file:tests/test_packaging.py" -> "runtime:python:os" [label="imports"];
+  "file:tests/test_packaging.py" -> "runtime:python:re" [label="imports"];
+  "file:tests/test_packaging.py" -> "runtime:python:unittest" [label="imports"];
   "file:tests/test_providers.py" -> "file:secret_finder/ai/__init__.py" [label="imports"];
   "file:tests/test_providers.py" -> "file:secret_finder/ai/base.py" [label="imports"];
   "file:tests/test_providers.py" -> "file:secret_finder/ai/google.py" [label="imports"];

@@ -13,10 +13,11 @@ def read(*parts):
 
 
 class DocsTest(unittest.TestCase):
-    def test_readme_covers_running_ai_and_failures(self):
+    def test_readme_covers_install_use_and_ai(self):
         text = read("README.md")
-        for needle in ("python3 -m secret_finder scan", "--commit", "--json", "SF_AI_API_KEY", "## Where it fails"):
+        for needle in ("## Install", "pipx install", "docker build", "secret-finder scan", "--commit", "--json", "SF_AI_API_KEY"):
             self.assertIn(needle, text)
+        self.assertIn("## Gaps in this project", text)
 
     def test_prompt_file_matches_the_prompt_in_code(self):
         self.assertEqual(read("prompts", "triage.txt").strip(), PROMPT.strip())

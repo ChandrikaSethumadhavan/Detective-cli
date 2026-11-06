@@ -1,0 +1,8 @@
+.git
+.genesis
+.secretfinder
+__pycache__
+*.pyc
+docs
+info
+tests

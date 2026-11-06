@@ -111,6 +111,14 @@ class DetectTest(unittest.TestCase):
                           key=lambda f: f.rule_id)
         self.assertEqual((aws.snippet, jwt.snippet), ('"AKIA****"', '"eyJh****"'))
 
+    def test_console_script_entry_points_are_skipped_only_in_packaging_manifests(self):
+        line = 'secret-finder = "secret_finder.cli:main"'
+        for manifest in ("pyproject.toml", "setup.cfg", "pkg/pyproject.toml"):
+            self.assertEqual(run(line, manifest), [], manifest)
+        self.assertEqual(len(run(line, "app.py")), 1)
+        for credential in ("admin:hunter2hunter2", "john.smith:Passw0rd", "hunter2hunter2"):
+            self.assertEqual(len(run(f'password = "{credential}"', "pyproject.toml")), 1, credential)
+
 
 if __name__ == "__main__":
     unittest.main()

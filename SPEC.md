@@ -25,8 +25,10 @@ Developers sometimes commit passwords or keys by mistake. Detective-cli (`secret
 - FR-10: Provider, model id and API key come from environment variables. No model id is hardcoded.
 - FR-11: A local verdict cache and allowlist live in `.secretfinder/`, keyed by a fingerprint of rule id, file and masked value, behind a small `Store` interface.
 - FR-12: With `--ai`, a medium or low confidence finding marked a false positive is still listed but does not count toward exit 1. High-confidence rule matches are never suppressed by the model.
-- FR-13: The repo contains a README (how to run, where it fails), `docs/ai-log.md` with prompts and logs, and the triage prompt in `prompts/triage.txt`.
+- FR-13: The repo contains a README (how to install and run), `docs/ai-log.md` with prompts and logs, and the triage prompt in `prompts/triage.txt`. Known limitations are documented in the failure modes table of `docs/architecture.html`.
 - FR-14: Each finding carries a rule-specific remediation step (`fix`) naming the action to take, such as revoking or rotating the credential and loading the replacement from the environment. Text output prints it on a `fix:` line under the finding and JSON output includes it as a `fix` key.
+- FR-15: The package installs a `secret-finder` console command (`pip install` or `pipx install` from the repository) with the same behaviour as `python3 -m secret_finder`.
+- FR-16: A Dockerfile builds an image with Python and git that runs `secret-finder`, so a user with neither can scan a mounted repository or a diff on stdin and pass `SF_AI_*` variables.
 
 ## Non-functional requirements
 
@@ -64,6 +66,7 @@ Developers sometimes commit passwords or keys by mistake. Detective-cli (`secret
 - AC-7: A cached verdict is reused on a second run without a provider call.
 - AC-8: A medium-confidence finding marked false positive by a stubbed provider is listed and does not set exit 1. A high-confidence one still does.
 - AC-9: Every rule has a non-empty `fix` of at most 300 characters, and no finding's `fix` contains the scanned secret value.
+- AC-10: `pyproject.toml` declares the `secret-finder` entry point `secret_finder.cli:main`, and the Dockerfile installs git, marks `/repo` as a safe git directory and uses `secret-finder` as its entrypoint.
 
 ## Risks
 

@@ -1,5 +1,6 @@
 import hashlib
 import hmac
+import os
 import re
 from dataclasses import dataclass
 from typing import Callable, Iterable, Iterator, Optional
@@ -15,6 +16,8 @@ UUID = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12
 HASH = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$", re.I)
 PLACEHOLDER = re.compile(
     r"^(?:change_?me|your[_-][a-z]+(?:[_-][a-z]+)*|<[a-z_ -]+>|\$\{[^}]*\}|\{\{[^}]*\}\}|%\([^)]*\)s?|x{4,}|example|placeholder|dummy|todo)$", re.I)
+MANIFESTS = ("pyproject.toml", "setup.cfg")
+ENTRY_POINT = re.compile(r"[a-z_][a-z0-9_]*(?:\.[a-z_][a-z0-9_]*)+:[a-z_][a-z0-9_]*")
 ENV_ARG = re.compile(r"""(?:\benviron\s*\[|\benviron\.get\(|\bgetenv\(|\bprocess\.env\[|\bENV\[|\bENV\.fetch\()\s*['"]$""")
 
 
@@ -44,7 +47,11 @@ def _is_noise(value: str) -> bool:
     )
 
 
-def _scan_line(text: str):
+def _is_entry_point(value: str, file: str) -> bool:
+    return os.path.basename(file) in MANIFESTS and ENTRY_POINT.fullmatch(value) is not None
+
+
+def _scan_line(text: str, file: str = ""):
     covered = bytearray(len(text))
     for rule in RULES:
         for m in rule.pattern.finditer(text):
@@ -54,7 +61,7 @@ def _scan_line(text: str):
             value = text[start:end]
             ent = None
             if rule.confidence != "high":
-                if _is_noise(value) or ENV_ARG.search(text[max(0, start - 64):start]):
+                if _is_noise(value) or ENV_ARG.search(text[max(0, start - 64):start]) or _is_entry_point(value, file):
                     continue
                 if rule.id == "high-entropy-string":
                     ent = shannon(value)
@@ -72,7 +79,7 @@ def detect(added: Iterable[Added], allow: Optional[Callable[[Finding], bool]] = 
     for item in added:
         if IGNORE in item.text:
             continue
-        for rule, start, end, ent in _scan_line(item.text):
+        for rule, start, end, ent in _scan_line(item.text, item.file):
             snippet = own_snippet(item.text, start, end, rule)
             msg = f"{rule.id}|{item.file}|{snippet}|{item.text[start:end]}".encode("utf-8", "replace")
             finding = Finding(item.file, item.line, rule.id, rule.confidence, rule.reason, rule.fix, snippet,

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "project": "Detective-cli",
-  "revision": "4a9a1a0d60201589355d5766135c56518ee13f86",
-  "sourceHash": "02a418af5cc685a7e5274bbb5382b90302b916f8b581a662e27037263b893d62",
+  "revision": "c5b8fc4475c87885b49a47ca5cdbd14acb364db9",
+  "sourceHash": "766c1858026dd28f1fdceed7c5ca1e39f8054ced3ba8a9aa7c0ecd6fd21a8b58",
   "provenance": {
     "tool": "genesis-graphizer",
     "method": "static-analysis",
@@ -97,7 +97,7 @@
       "language": "python",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "e59add499d3cbcbe5f0f53de08de386f1fe7feee12ec62a866f953266802791e"
+      "contentHash": "5fabdf2f550eb212d8a4257df826e7342a080ddf01d3938dfa805b8fe59cc969"
     },
     {
       "id": "file:secret_finder/diffparse.py",
@@ -197,7 +197,7 @@
       "language": "python",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "a0ff42d39d15f3520a023a93638b8734a73c1c56de603efa893eb1879a99dfc3"
+      "contentHash": "0b6ea1215a8ef5be9502104b3971d1112586b3f7c1ab5dfc39fcaf2ab1ba2540"
     },
     {
       "id": "file:tests/test_diffparse.py",
@@ -217,7 +217,7 @@
       "language": "python",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "4407f2e2578a4d8a3546289b665f7d08dddd607fe6fead173069016c89f82a45"
+      "contentHash": "eb06ffa750c8d3e8fa59b445adef89261fb1acb8155de879464349d4f5169afd"
     },
     {
       "id": "file:tests/test_inputs.py",
@@ -228,6 +228,16 @@
       "confidence": 1,
       "extractor": "filesystem",
       "contentHash": "7f2ba2cbf222f5be286d7bb5651947c8ad53e680b2108cfcd0bc8d8e47a4aedd"
+    },
+    {
+      "id": "file:tests/test_packaging.py",
+      "type": "file",
+      "label": "tests/test_packaging.py",
+      "path": "tests/test_packaging.py",
+      "language": "python",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "cadb18184224434073287b1d90ca7585fd7413d19069e13c2475ff256145f972"
     },
     {
       "id": "file:tests/test_providers.py",
@@ -687,10 +697,22 @@
       "name": "Finding",
       "label": "Finding",
       "path": "secret_finder/detect.py",
-      "line": 22,
+      "line": 25,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "edd52cecbf9ff9826d67e296952d5de359b8ea7d9fcdb2806a1e81a4018b3eed"
+    },
+    {
+      "id": "symbol:secret_finder/detect.py#function:_is_entry_point",
+      "type": "symbol",
+      "kind": "function",
+      "name": "_is_entry_point",
+      "label": "_is_entry_point",
+      "path": "secret_finder/detect.py",
+      "line": 50,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "dbf3fdb50c935dc166e6a7d220f6e90e3ba5c2e755843a8e806f495a6fcbc0f4"
     },
     {
       "id": "symbol:secret_finder/detect.py#function:_is_noise",
@@ -699,7 +721,7 @@
       "name": "_is_noise",
       "label": "_is_noise",
       "path": "secret_finder/detect.py",
-      "line": 36,
+      "line": 39,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "5713b69c0a8825ab6640547b60506bd68b42daf44877899bef61ed781d289b66"
@@ -711,7 +733,7 @@
       "name": "_scan_line",
       "label": "_scan_line",
       "path": "secret_finder/detect.py",
-      "line": 47,
+      "line": 54,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "b3a5f7544fb32f84474dc803b8845fd8a6904197d53b82cfa39e03eb6b53a9ce"
@@ -723,7 +745,7 @@
       "name": "detect",
       "label": "detect",
       "path": "secret_finder/detect.py",
-      "line": 67,
+      "line": 74,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "2917d2ec7b214606897978f722a3b801e358b9790485bc3a75a5a73f7e6519c3"
@@ -1281,6 +1303,18 @@
       "contentHash": "81a40af186987b4b6d41586d1c014d0bb4250a98aab4cb887334daae2fafc1a3"
     },
     {
+      "id": "symbol:tests/test_detect.py#function:DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests",
+      "type": "symbol",
+      "kind": "function",
+      "name": "DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests",
+      "label": "DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests",
+      "path": "tests/test_detect.py",
+      "line": 114,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "4907482faa4c346c074e9e5aa97d6bbf68985fb361fe56abe25227ed3e58ab62"
+    },
+    {
       "id": "symbol:tests/test_detect.py#function:DetectTest.test_diff_yields_only_the_two_real_secrets",
       "type": "symbol",
       "kind": "function",
@@ -1491,7 +1525,7 @@
       "name": "DocsTest.test_log_exists_and_architecture_lists_every_rule",
       "label": "DocsTest.test_log_exists_and_architecture_lists_every_rule",
       "path": "tests/test_docs.py",
-      "line": 24,
+      "line": 25,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "de8dd62904030dbedce5280835caf136ba602b767c18c0db4194cca9c5ab8b48"
@@ -1503,22 +1537,22 @@
       "name": "DocsTest.test_prompt_file_matches_the_prompt_in_code",
       "label": "DocsTest.test_prompt_file_matches_the_prompt_in_code",
       "path": "tests/test_docs.py",
-      "line": 21,
+      "line": 22,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "a37b672a55e0bfc78dd3a88ce7b243206047c428c6b7ac1dfb0286e30e53da6a"
     },
     {
-      "id": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_running_ai_and_failures",
+      "id": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai",
       "type": "symbol",
       "kind": "function",
-      "name": "DocsTest.test_readme_covers_running_ai_and_failures",
-      "label": "DocsTest.test_readme_covers_running_ai_and_failures",
+      "name": "DocsTest.test_readme_covers_install_use_and_ai",
+      "label": "DocsTest.test_readme_covers_install_use_and_ai",
       "path": "tests/test_docs.py",
       "line": 16,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
-      "contentHash": "5d8ed06eae5ace7a6fd9803ade0ce4f853e27e858e690682bbffdbe6bc788940"
+      "contentHash": "6d919e0b41ecfb23cb317e1c4acd8834ecb4d56544192a6e066294b557408d2a"
     },
     {
       "id": "symbol:tests/test_docs.py#function:read",
@@ -1651,6 +1685,54 @@
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "831a638ee26b16b0d1b9eb690c0301f6c63a5f7c340cdda795d5903c7e5dff2d"
+    },
+    {
+      "id": "symbol:tests/test_packaging.py#class:PackagingTest",
+      "type": "symbol",
+      "kind": "class",
+      "name": "PackagingTest",
+      "label": "PackagingTest",
+      "path": "tests/test_packaging.py",
+      "line": 15,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "ab424bea048873fbddf159c785d8d2d8162976391a644ccc02fd256de16f2795"
+    },
+    {
+      "id": "symbol:tests/test_packaging.py#function:PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed",
+      "type": "symbol",
+      "kind": "function",
+      "name": "PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed",
+      "label": "PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed",
+      "path": "tests/test_packaging.py",
+      "line": 16,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "9cf6a2a71f4c17400beae0f09feb4040aea76c0fe708b1913b776a561789b78a"
+    },
+    {
+      "id": "symbol:tests/test_packaging.py#function:PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint",
+      "type": "symbol",
+      "kind": "function",
+      "name": "PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint",
+      "label": "PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint",
+      "path": "tests/test_packaging.py",
+      "line": 27,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "efe2c201b854d964a12017037d2c78ec9886ee9ed7eb08ab757dc41fad0599d2"
+    },
+    {
+      "id": "symbol:tests/test_packaging.py#function:read",
+      "type": "symbol",
+      "kind": "function",
+      "name": "read",
+      "label": "read",
+      "path": "tests/test_packaging.py",
+      "line": 10,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "6d99b65e1c99b9890c7326471bd44285c61eeaf3da793f12de10c02c00f34fe3"
     },
     {
       "id": "symbol:tests/test_providers.py#class:Net",
@@ -2331,6 +2413,7 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read"
       ],
       "resolved": false,
@@ -2475,6 +2558,15 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/detect.py#function:_scan_line",
+      "target": "symbol:secret_finder/detect.py#function:_is_entry_point",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/detect.py#function:_scan_line",
       "target": "symbol:secret_finder/detect.py#function:_is_noise",
       "tier": "proven",
       "resolved": true,
@@ -2572,6 +2664,7 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read"
       ],
       "resolved": false,
@@ -2585,8 +2678,8 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:tests/test_cli.py#function:run",
-        "symbol:tests/test_detect.py#function:run",
-        "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run"
+        "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
+        "symbol:tests/test_detect.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -2680,6 +2773,7 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read"
       ],
       "resolved": false,
@@ -2693,6 +2787,7 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read"
       ],
       "resolved": false,
@@ -2908,6 +3003,15 @@
       "tier": "proven",
       "resolved": true,
       "confidence": 0.7,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_detect.py#function:DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests",
+      "target": "symbol:tests/test_detect.py#function:run",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
       "extractor": "python-stdlib-ast-calls"
     },
     {
@@ -3137,7 +3241,7 @@
     },
     {
       "type": "calls",
-      "source": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_running_ai_and_failures",
+      "source": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai",
       "target": "symbol:tests/test_docs.py#function:read",
       "tier": "proven",
       "resolved": true,
@@ -3160,8 +3264,8 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:tests/test_cli.py#function:run",
-        "symbol:tests/test_detect.py#function:run",
-        "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run"
+        "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
+        "symbol:tests/test_detect.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3330,6 +3434,33 @@
       ],
       "resolved": false,
       "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_packaging.py#function:PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed",
+      "target": "symbol:tests/test_packaging.py#function:read",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_packaging.py#function:PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint",
+      "target": "symbol:tests/test_packaging.py#function:read",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_packaging.py#function:read",
+      "target": "symbol:tests/test_packaging.py#function:read",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
       "extractor": "python-stdlib-ast-calls"
     },
     {
@@ -3791,6 +3922,7 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read"
       ],
       "resolved": false,
@@ -3840,6 +3972,7 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read"
       ],
       "resolved": false,
@@ -4371,7 +4504,16 @@
       "type": "defines",
       "source": "file:secret_finder/detect.py",
       "target": "symbol:secret_finder/detect.py#class:Finding",
-      "line": 22,
+      "line": 25,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/detect.py",
+      "target": "symbol:secret_finder/detect.py#function:_is_entry_point",
+      "line": 50,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -4380,7 +4522,7 @@
       "type": "defines",
       "source": "file:secret_finder/detect.py",
       "target": "symbol:secret_finder/detect.py#function:_is_noise",
-      "line": 36,
+      "line": 39,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -4389,7 +4531,7 @@
       "type": "defines",
       "source": "file:secret_finder/detect.py",
       "target": "symbol:secret_finder/detect.py#function:_scan_line",
-      "line": 47,
+      "line": 54,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -4398,7 +4540,7 @@
       "type": "defines",
       "source": "file:secret_finder/detect.py",
       "target": "symbol:secret_finder/detect.py#function:detect",
-      "line": 67,
+      "line": 74,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -4820,6 +4962,15 @@
     {
       "type": "defines",
       "source": "file:tests/test_detect.py",
+      "target": "symbol:tests/test_detect.py#function:DetectTest.test_console_script_entry_points_are_skipped_only_in_packaging_manifests",
+      "line": 114,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_detect.py",
       "target": "symbol:tests/test_detect.py#function:DetectTest.test_diff_yields_only_the_two_real_secrets",
       "line": 31,
       "resolved": true,
@@ -4974,7 +5125,7 @@
       "type": "defines",
       "source": "file:tests/test_docs.py",
       "target": "symbol:tests/test_docs.py#function:DocsTest.test_log_exists_and_architecture_lists_every_rule",
-      "line": 24,
+      "line": 25,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -4983,7 +5134,7 @@
       "type": "defines",
       "source": "file:tests/test_docs.py",
       "target": "symbol:tests/test_docs.py#function:DocsTest.test_prompt_file_matches_the_prompt_in_code",
-      "line": 21,
+      "line": 22,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -4991,7 +5142,7 @@
     {
       "type": "defines",
       "source": "file:tests/test_docs.py",
-      "target": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_running_ai_and_failures",
+      "target": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai",
       "line": 16,
       "resolved": true,
       "confidence": 1,
@@ -5092,6 +5243,42 @@
       "source": "file:tests/test_inputs.py",
       "target": "symbol:tests/test_inputs.py#function:scan",
       "line": 23,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_packaging.py",
+      "target": "symbol:tests/test_packaging.py#class:PackagingTest",
+      "line": 15,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_packaging.py",
+      "target": "symbol:tests/test_packaging.py#function:PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed",
+      "line": 16,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_packaging.py",
+      "target": "symbol:tests/test_packaging.py#function:PackagingTest.test_dockerfile_has_python_git_safe_directory_and_entrypoint",
+      "line": 27,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_packaging.py",
+      "target": "symbol:tests/test_packaging.py#function:read",
+      "line": 10,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5870,7 +6057,7 @@
       "source": "file:secret_finder/detect.py",
       "target": "file:secret_finder/diffparse.py",
       "specifier": ".diffparse",
-      "line": 7,
+      "line": 8,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -5880,7 +6067,7 @@
       "source": "file:secret_finder/detect.py",
       "target": "file:secret_finder/entropy.py",
       "specifier": ".entropy",
-      "line": 8,
+      "line": 9,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -5890,7 +6077,7 @@
       "source": "file:secret_finder/detect.py",
       "target": "file:secret_finder/mask.py",
       "specifier": ".mask",
-      "line": 9,
+      "line": 10,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -5900,7 +6087,7 @@
       "source": "file:secret_finder/detect.py",
       "target": "file:secret_finder/rules.py",
       "specifier": ".rules",
-      "line": 10,
+      "line": 11,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -5910,7 +6097,7 @@
       "source": "file:secret_finder/detect.py",
       "target": "file:secret_finder/store.py",
       "specifier": ".store",
-      "line": 11,
+      "line": 12,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -5920,7 +6107,7 @@
       "source": "file:secret_finder/detect.py",
       "target": "runtime:python:dataclasses",
       "specifier": "dataclasses",
-      "line": 4,
+      "line": 5,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -5948,9 +6135,19 @@
     {
       "type": "imports",
       "source": "file:secret_finder/detect.py",
+      "target": "runtime:python:os",
+      "specifier": "os",
+      "line": 3,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:secret_finder/detect.py",
       "target": "runtime:python:re",
       "specifier": "re",
-      "line": 3,
+      "line": 4,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -5960,7 +6157,7 @@
       "source": "file:secret_finder/detect.py",
       "target": "runtime:python:typing",
       "specifier": "typing",
-      "line": 5,
+      "line": 6,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -6557,6 +6754,46 @@
     },
     {
       "type": "imports",
+      "source": "file:tests/test_packaging.py",
+      "target": "file:secret_finder/__init__.py",
+      "specifier": "secret_finder",
+      "line": 5,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_packaging.py",
+      "target": "runtime:python:os",
+      "specifier": "os",
+      "line": 1,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_packaging.py",
+      "target": "runtime:python:re",
+      "specifier": "re",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_packaging.py",
+      "target": "runtime:python:unittest",
+      "specifier": "unittest",
+      "line": 3,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
       "source": "file:tests/test_providers.py",
       "target": "file:secret_finder/ai/__init__.py",
       "specifier": "secret_finder.ai",
@@ -6968,6 +7205,6 @@
   ],
   "warnings": [],
   "stats": {
-    "unresolvedCalls": 399
+    "unresolvedCalls": 423
   }
 }

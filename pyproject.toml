@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "detective-cli"
+version = "0.1.0"
+description = "Find passwords, keys and tokens accidentally committed in a git change."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+secret-finder = "secret_finder.cli:main"
+
+[tool.setuptools]
+packages = ["secret_finder", "secret_finder.ai"]

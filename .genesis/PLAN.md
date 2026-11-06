@@ -4,7 +4,7 @@
 
 - workflow: new-product
 - phase: verify
-- plan approval: ChandrikaSethumadhavan at 2026-11-06T15:49:38.676Z
+- plan approval: ChandrikaSethumadhavan at 2026-11-06T16:51:55.074Z
 
 ## Tasks
 
@@ -126,5 +126,29 @@
 - requirements: FR-13, NFR-6
 - scope: README.md, docs/ai-log.md, docs/architecture.html, prompts/triage.txt, tests/test_docs.py
 - gates: docs: python3 -m unittest tests.test_docs
+- next: Run the task pre-flight.
+
+### T-8 — Installable and containerised: pyproject.toml with a secret-finder console command, a Dockerfile and .dockerignore for users without Python, a README rewritten for install and use without a where-it-fails section, and the architecture document and AI log updated to match
+
+- state/risk: done / low
+- requirements: FR-13, FR-15, FR-16, AC-10
+- scope: pyproject.toml, Dockerfile, .dockerignore, README.md, docs/architecture.html, docs/ai-log.md, tests/test_docs.py, tests/test_packaging.py
+- gates: unit: python3 -m unittest tests.test_docs tests.test_packaging
+- next: Run the task pre-flight.
+
+### T-9 — README gains a Gaps in this project section listing known limitations, with the docs test and AI log updated to match
+
+- state/risk: done / low
+- requirements: FR-13
+- scope: README.md, tests/test_docs.py, docs/ai-log.md
+- gates: docs: python3 -m unittest tests.test_docs tests.test_packaging
+- next: Run the task pre-flight.
+
+### T-10 — The generic-assignment rule skips a console-script entry point (module.path:function) in pyproject.toml and setup.cfg, so the tool no longer flags its own packaging; credential-like pairs elsewhere stay flagged
+
+- state/risk: done / low
+- requirements: FR-6, AC-2
+- scope: secret_finder/detect.py, tests/test_detect.py, docs/ai-log.md
+- gates: unit: python3 -m unittest tests.test_detect tests.test_cli tests.test_store tests.test_triage tests.test_remediation
 - next: Run the task pre-flight.
 
