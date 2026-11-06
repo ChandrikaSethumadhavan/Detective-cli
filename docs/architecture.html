@@ -132,6 +132,7 @@ svg.diagram{display:block;width:100%;min-width:860px;height:auto;color:var(--fg)
       <tr><td>Input: current changes in the working directory</td><td>Input resolver + git adapter</td><td><code>git diff HEAD</code> covers staged and unstaged edits. Untracked files are listed as a known limit, with <code>--include-untracked</code> as an extension.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Output: file and line for each finding</td><td>Diff parser</td><td>Reads <code>@@ -a,b +c,d @@</code> hunk headers and counts new-file line numbers. Only <code>+</code> lines are scanned.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Output: a short reason for each finding</td><td>Detector, then AI triage</td><td>Every rule carries a fixed reason string. With <code>--ai</code>, the model refines it and flags likely false positives.</td><td><span class="tag mvp">MVP</span> <span class="tag opt">Optional</span></td></tr>
+      <tr><td>Try it without a real repository</td><td>Demo command</td><td><code>secret-finder demo</code> builds a throwaway repo with made-up secrets, scans it, explains the result and deletes it. It works in Docker with no mounted repo.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>CLI only, any language, any tools</td><td>Python entry point</td><td>One command, <code>secret-finder scan</code>, installed with pipx or run from a Docker image. <code>python3 -m secret_finder scan</code> works from a clone. No runtime dependencies.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>README with how to run and where it fails</td><td>Docs</td><td>README covers install, use, hooks, AI and the allowlist. Where it fails is documented in the failure modes table in this document.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>2 to 3 tests</td><td>Test suite</td><td>See the test plan below.</td><td><span class="tag mvp">MVP</span></td></tr>
@@ -300,6 +301,8 @@ svg.diagram{display:block;width:100%;min-width:860px;height:auto;color:var(--fg)
       <tr><td><code>2</code></td><td>Tool error: not a git repository, unknown commit, unreadable file, bad flags. AI errors never produce 2.</td><td>Tells a human the scan did not run.</td></tr>
     </tbody>
   </table></div>
+  <h3>Notices, status line and demo</h3>
+  <p>Every scan starts with a privacy notice on stderr: the scan runs locally and nothing is uploaded. With <code>--ai</code> the notice names the provider that will receive masked findings. After the scan, a status line on stderr says what was scanned, how many added lines and files were examined, and the findings by confidence, or that nothing was found. Stdout carries only the findings, so pipes, <code>--json</code> and hooks are unaffected. <code>--quiet</code> hides both lines. <code>secret-finder demo</code> runs the same scan against a throwaway repo with made-up credentials, including a placeholder and an environment lookup that must not be reported.</p>
 </section>
 
 <section id="inputs">

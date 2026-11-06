@@ -29,6 +29,9 @@ Developers sometimes commit passwords or keys by mistake. Detective-cli (`secret
 - FR-14: Each finding carries a rule-specific remediation step (`fix`) naming the action to take, such as revoking or rotating the credential and loading the replacement from the environment. Text output prints it on a `fix:` line under the finding and JSON output includes it as a `fix` key.
 - FR-15: The package installs a `secret-finder` console command (`pip install` or `pipx install` from the repository) with the same behaviour as `python3 -m secret_finder`.
 - FR-16: A Dockerfile builds an image with Python and git that runs `secret-finder`, so a user with neither can scan a mounted repository or a diff on stdin and pass `SF_AI_*` variables.
+- FR-17: Every scan prints a short privacy notice to stderr before any other output: the scan runs locally and nothing leaves the machine; with `--ai` the notice instead names the configured provider and says that masked findings will be sent to it. `--quiet` suppresses the notice and the status line.
+- FR-18: `secret-finder demo` creates a throwaway git repository with planted fake secrets, scans it, prints the findings with file, line, reason and fix, deletes the repository, and exits 0, so the tool can be tried without scanning a real repository. It needs only git and works in the Docker image without a mounted repository.
+- FR-19: After a scan, a status line on stderr says what was scanned (working directory, commit, file or stdin), how many added lines and files were examined, and the number of findings by confidence, or that no secrets were found. Stdout keeps only the findings, so pipes, `--json` and hooks are unaffected.
 
 ## Non-functional requirements
 
@@ -67,6 +70,9 @@ Developers sometimes commit passwords or keys by mistake. Detective-cli (`secret
 - AC-8: A medium-confidence finding marked false positive by a stubbed provider is listed and does not set exit 1. A high-confidence one still does.
 - AC-9: Every rule has a non-empty `fix` of at most 300 characters, and no finding's `fix` contains the scanned secret value.
 - AC-10: `pyproject.toml` declares the `secret-finder` entry point `secret_finder.cli:main`, and the Dockerfile installs git, marks `/repo` as a safe git directory and uses `secret-finder` as its entrypoint.
+- AC-11: A clean scan prints nothing on stdout and a stderr status line that says no secrets were found and how many lines were scanned. `--quiet` prints neither the privacy notice nor the status line.
+- AC-12: `demo` exits 0, prints at least one high and one medium confidence finding with file, line, reason and fix, leaves no temporary repository behind, and does not change the current directory.
+- AC-13: Without `--ai` the notice says nothing is sent anywhere; with `--ai` it names the provider.
 
 ## Risks
 

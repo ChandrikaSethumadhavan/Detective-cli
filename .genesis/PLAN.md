@@ -4,7 +4,7 @@
 
 - workflow: new-product
 - phase: verify
-- plan approval: ChandrikaSethumadhavan at 2026-11-06T16:51:55.074Z
+- plan approval: ChandrikaSethumadhavan at 2026-11-06T17:08:25.670Z
 
 ## Tasks
 
@@ -150,5 +150,13 @@
 - requirements: FR-6, AC-2
 - scope: secret_finder/detect.py, tests/test_detect.py, docs/ai-log.md
 - gates: unit: python3 -m unittest tests.test_detect tests.test_cli tests.test_store tests.test_triage tests.test_remediation
+- next: Run the task pre-flight.
+
+### T-11 — Privacy notice, scan status line and a demo command: every scan starts with a stderr privacy notice (naming the provider with --ai), ends with a status line of what was scanned and the findings by confidence, --quiet silences both, and secret-finder demo scans a throwaway repo with planted fake secrets; README, architecture document and AI log updated
+
+- state/risk: done / low
+- requirements: FR-17, FR-18, FR-19, AC-11, AC-12, AC-13
+- scope: secret_finder/cli.py, secret_finder/demo.py, tests/test_cli.py, tests/test_demo.py, tests/test_docs.py, README.md, docs/architecture.html, docs/ai-log.md
+- gates: unit: python3 -m unittest tests.test_cli tests.test_demo tests.test_docs tests.test_providers tests.test_triage tests.test_store
 - next: Run the task pre-flight.
 

@@ -4,12 +4,23 @@ Finds passwords, keys and tokens in a git change before they get committed. For 
 
 ```
 $ secret-finder scan
+secret-finder: runs locally on your machine. Your code is not uploaded and secrets are masked in the output.
 cfg.py:1  high  aws-access-key  Matches the AWS access key id format.
     "AKIA****"
     fix: Deactivate it: aws iam update-access-key --access-key-id <KEY_ID> --status Inactive. Create a replacement, then load the new one from an environment variable or a secrets manager.
+secret-finder: scanned 1 added line in 1 file from working-directory changes: 1 finding (1 high).
 ```
 
 Secrets are never printed in full. The exit code is `0` when nothing is found and `1` when something is, so it can block a commit or fail a CI job.
+
+## Try it first
+
+You do not need a repo of your own. The demo builds a throwaway repo with made-up credentials, scans it, shows what it found and why, and deletes it:
+
+```
+secret-finder demo
+docker run --rm secret-finder demo     # with Docker only, nothing to mount
+```
 
 ## Install
 
@@ -49,7 +60,10 @@ secret-finder scan --commit <hash>     # the change made by one commit
 git diff main | secret-finder scan -   # any diff on stdin
 secret-finder scan change.diff         # a saved diff file
 secret-finder scan --json              # JSON instead of text
+secret-finder scan --quiet             # findings only, no notice or status line
 ```
+
+Every scan starts with a privacy notice and ends with a status line saying what was scanned and what was found. Both go to stderr, so the output you pipe or parse (`--json` included) holds only the findings. With `--ai` the notice names the provider that will receive masked findings.
 
 Exit codes: `0` nothing found, `1` findings, `2` could not run (not a git repo, bad commit, unreadable file, bad flags).
 

@@ -47,7 +47,28 @@ class CliTest(unittest.TestCase):
         self.assertIn("aws-access-key", out)
         self.assertIn("fix: Deactivate it", out)
         self.assertNotIn(AWS, out)
-        self.assertEqual(run(["scan", "-"], CLEAN), (0, "", ""))
+        code, out, err = run(["scan", "-"], CLEAN)
+        self.assertEqual((code, out), (0, ""))
+        self.assertIn("no secrets found", err)
+        self.assertIn("scanned 1 added line in 1 file from stdin", err)
+
+    def test_privacy_notice_comes_first_and_status_counts_findings(self):
+        _, _, err = run(["scan", "-"], LEAK)
+        lines = err.splitlines()
+        self.assertTrue(lines[0].startswith("secret-finder: runs locally"))
+        self.assertIn("1 finding (1 high)", lines[-1])
+
+    def test_quiet_hides_notice_and_status_but_not_findings(self):
+        self.assertEqual(run(["scan", "-", "-q"], CLEAN), (0, "", ""))
+        code, out, err = run(["scan", "-", "--quiet"], LEAK)
+        self.assertEqual((code, err), (1, ""))
+        self.assertIn("cfg.py:1", out)
+
+    def test_ai_notice_names_the_provider_and_json_stdout_stays_pure(self):
+        with mock.patch.dict(os.environ, {"SF_AI_PROVIDER": "google"}):
+            code, out, err = run(["scan", "-", "--ai", "--json"], LEAK)
+        self.assertIn("will be sent to google", err.splitlines()[0])
+        self.assertEqual(json.loads(out)[0]["rule_id"], "aws-access-key")
 
     def test_json_output_has_fix_and_no_raw_secret(self):
         code, out, _ = run(["scan", "-", "--json"], LEAK)
