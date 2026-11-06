@@ -1,0 +1,52 @@
+# AI log
+
+How AI was used to build Detective-cli, what it produced, and what was checked. The runtime prompt the tool sends to a model is in `prompts/triage.txt`.
+
+## Tools and roles
+
+- Claude Code with Sonnet 5.5 wrote the plan, the code and the tests.
+- Opus reviewed the security-critical parts read-only (masker, provider adapters, detection regexes). It did not write product code.
+- Genesis (a spec, plan, task and gate workflow) held the specification, the task list, the proof for each gate and every approval. Approvals were given by the author in chat and recorded under the author's name.
+- Standing instruction from the author: do not commit or push without asking, keep code comments sparse, use smaller models for small tasks and Opus only for critical ones.
+
+## Prompts, in order
+
+| # | Prompt (summarized) | Result |
+|---|---|---|
+| 1 | Read the case study PDF. Plan the architecture, write a detailed HTML document with flow diagrams, consider Redis or Tiger Cloud for storage, use Google AI Studio or OpenRouter free models for the AI part. | `docs/architecture.html`: component diagram, event flow, input modes, detection rules, AI trust boundary, data model, storage decision table, failure modes, test plan. Storage conclusion: local files for the build, Redis and Tiger Cloud as optional extensions. |
+| 2 | Install and use Genesis for this repo, with the goal: follow `docs/*.html`, no commit or push without asking, few comments, route small tasks to smaller models. | Genesis initialized, `SPEC.md` drafted from the architecture document. |
+| 3 | Scope answer: MVP plus local cache and AI triage. | Spec fixed at 30 requirements (FR, NFR, AC identifiers). |
+| 4 | Approve the spec, then the plan. | Seven tasks, later extended to 15 task records (see below). |
+| 5 | Add a remediation step to each finding as a natural part of the tool. | FR-14, NFR-7, AC-9 and task T-2a: a fixed fix string per rule with exact revoke or rotate commands. |
+| 6 | Approve each task after review, one at a time. | Each medium-risk task needed the author's independent-review approval. |
+
+## Tasks
+
+| Task | Delivered |
+|---|---|
+| T-1 | Diff parser and the four input modes |
+| T-2, T-2a | Rules, entropy, filters, fix steps |
+| T-3 | CLI, text and JSON output, exit codes |
+| T-4 | Local allowlist and verdict cache |
+| T-5, T-5a, T-5c | Masker, triage policy, salted fingerprints, parser and store hardening |
+| T-6, T-6a, T-6b | Google AI Studio and OpenRouter adapters, snippet masking, linear-time regexes |
+| T-7c | README, this log, runtime prompt, documentation update |
+
+T-5b and T-7 and T-7b were rejected and re-created as T-5c, T-7b and T-7c without code changes. Genesis fixes a task's file baseline when the task is first activated, so adding tasks to an approved plan made baselines stale. Re-creating the task was the supported way to refresh it.
+
+## Security reviews and what changed
+
+| Review | Findings | Resolution |
+|---|---|---|
+| Masker, first pass | A one-line JSON private key was printed in full. Unmatched secrets on the same line reached the prompt and the output. A committed cache could inject terminal escapes. Fingerprints ignored the secret, so different secrets collided. | Cut everything after a private key header. Snippets and prompts reduced to key name plus masked token. Replies and cached reasons cleaned and capped. Fingerprints became an HMAC of the value with a per-clone salt. |
+| Fingerprint and salt | The environment-read skip hid real secrets. Other secrets on a line were unmasked in snippets. Bad bytes crashed fingerprinting. The salt file accepted bad values and was not written atomically. | Skip only when the value is the first argument of an environment read. Mask every match. Replace invalid bytes. Validate the salt and publish it atomically. |
+| Provider adapters | Provider exceptions could escape or print server text. No total time limit on a response. Model ids needed stricter validation. | Every failure becomes one fixed-message error. 30 second read deadline, 1 MB cap, exact model id check. Redirects refused and checked against a loopback server. |
+| Masker window | URL credentials on the same line as a JWT reached the prompt. | Snippet reduced to the masked token and a credential-looking key name. |
+| Regexes and snippets | The generic rule was cubic on long lines. The JWT rule and the per-line overlap check were quadratic. Hostnames could appear as key names. | Bounded repeats, a covered-bytes array, and key names limited to plain letter segments. 1 MB lines now scan in under a second. |
+
+Some auditor claims did not hold and were corrected after reproducing them. For example, `os.environ.get("X", "R3alS3cret99")` was reported as a hidden finding, but no rule matches that line, so it is a plain detection gap and is listed in the README.
+
+## Checks the author can repeat
+
+- `python3 -m unittest` on the test modules listed in the README.
+- `genesis status .` and `.genesis/PLAN.md` show every task, gate and approval.

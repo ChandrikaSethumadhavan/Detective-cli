@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# secret-finder local state
+.secretfinder/cache.json
+.secretfinder/salt
