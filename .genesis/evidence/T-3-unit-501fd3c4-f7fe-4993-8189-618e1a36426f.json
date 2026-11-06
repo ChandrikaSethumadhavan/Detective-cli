@@ -1,0 +1,30 @@
+{
+  "task": "T-3",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "501fd3c4-f7fe-4993-8189-618e1a36426f",
+  "command": "python3 -m unittest tests.test_cli",
+  "started_at": "2026-11-06T10:46:54.204Z",
+  "observed_at": "2026-11-06T10:46:55.058Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.285s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "4a9a1a0d60201589355d5766135c56518ee13f86",
+    "dirty": true
+  },
+  "source_hash": "7029c81b4a200dab55bacbc3e27e08b7b7be25bf1933ab310718bb29cf6fb989",
+  "before_hash": "7029c81b4a200dab55bacbc3e27e08b7b7be25bf1933ab310718bb29cf6fb989",
+  "config_hash": "d8e0f814ac7b1b76de5a05e9b60d026f74ce1488ce8eb0f77c45c546a999af57",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "31096535b784fce6ac2417a73ef85614f15acef84407c362c9daa13c32933b4f"
+}

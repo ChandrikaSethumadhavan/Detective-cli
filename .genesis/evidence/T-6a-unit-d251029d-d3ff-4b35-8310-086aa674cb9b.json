@@ -1,0 +1,30 @@
+{
+  "task": "T-6a",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "d251029d-d3ff-4b35-8310-086aa674cb9b",
+  "command": "python3 -m unittest tests.test_triage tests.test_cli tests.test_providers",
+  "started_at": "2026-11-06T15:49:39.728Z",
+  "observed_at": "2026-11-06T15:49:41.082Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": "...secret-finder: AI triage skipped: boom\n..................\n----------------------------------------------------------------------\nRan 21 tests in 0.603s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "4a9a1a0d60201589355d5766135c56518ee13f86",
+    "dirty": true
+  },
+  "source_hash": "50005a94f5a07a36dafbe055965ac353a7bebbc35b526993070cc24acbea7400",
+  "before_hash": "50005a94f5a07a36dafbe055965ac353a7bebbc35b526993070cc24acbea7400",
+  "config_hash": "39f967bdfb26172d5fba76cd072c03baaadc49d32124cd3bf8657ba1387e3a6d",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "4fe691e73a47313cc66586d59264e9249b67db69a380ee22259f515ac8a810eb"
+}

@@ -1,0 +1,30 @@
+{
+  "task": "T-6a",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "0c206ef4-505c-412d-a39d-e12ccaf5b09e",
+  "command": "python3 -m unittest tests.test_triage tests.test_cli tests.test_providers",
+  "started_at": "2026-11-06T15:47:17.962Z",
+  "observed_at": "2026-11-06T15:47:19.287Z",
+  "exit_code": 1,
+  "signal": null,
+  "stdout": "",
+  "stderr": "...secret-finder: AI triage skipped: boom\n...F..............\n======================================================================\nFAIL: test_provider_record_is_only_the_key_name_and_masked_token (tests.test_triage.TriageTest.test_provider_record_is_only_the_key_name_and_masked_token)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/chan/Detective-cli/tests/test_triage.py\", line 133, in test_provider_record_is_only_the_key_name_and_masked_token\n    self.assertEqual(safe_snippet(find(line)[0].snippet), expected)\nAssertionError: '\"AKIA****\"' != 'k = \"AKIA****\"'\n- \"AKIA****\"\n+ k = \"AKIA****\"\n? ++++\n\n\n----------------------------------------------------------------------\nRan 21 tests in 0.570s\n\nFAILED (failures=1)\n",
+  "failure": "command-failed",
+  "receipt": null,
+  "revision": {
+    "commit": "4a9a1a0d60201589355d5766135c56518ee13f86",
+    "dirty": true
+  },
+  "source_hash": "3c820cc7c2d14f07b59fa7a30254bab1e914930fef5812b288bd71bb008ed398",
+  "before_hash": "3c820cc7c2d14f07b59fa7a30254bab1e914930fef5812b288bd71bb008ed398",
+  "config_hash": "1973d1d3a704ce0833b8d099df09b07cc6a3891330460079fdb91eaebff092e5",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "cb0c28af0d48a3271e2cad07c2d86d469f5cfc91ea51b9f7d80ebf6994281fdd"
+}

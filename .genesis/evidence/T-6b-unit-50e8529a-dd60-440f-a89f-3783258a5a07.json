@@ -1,0 +1,30 @@
+{
+  "task": "T-6b",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "50e8529a-dd60-440f-a89f-3783258a5a07",
+  "command": "python3 -m unittest tests.test_detect tests.test_triage tests.test_cli tests.test_store tests.test_remediation tests.test_providers",
+  "started_at": "2026-11-06T15:52:12.169Z",
+  "observed_at": "2026-11-06T15:52:13.564Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": "............secret-finder: AI triage skipped: boom\n............secret-finder: replacing invalid /tmp/tmp54vctsc4/.secretfinder/salt; fingerprint allowlist entries must be regenerated\nsecret-finder: replacing invalid /tmp/tmp54vctsc4/.secretfinder/salt; fingerprint allowlist entries must be regenerated\nsecret-finder: replacing invalid /tmp/tmp54vctsc4/.secretfinder/salt; fingerprint allowlist entries must be regenerated\n.....secret-finder: replacing invalid /tmp/tmp5a6lfc35/.secretfinder/salt; fingerprint allowlist entries must be regenerated\n..........\n----------------------------------------------------------------------\nRan 39 tests in 0.689s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "4a9a1a0d60201589355d5766135c56518ee13f86",
+    "dirty": true
+  },
+  "source_hash": "c5f1a06934a106db9948fce92036472c5813b7c3ace92f4d91b7cbdb6ee80198",
+  "before_hash": "c5f1a06934a106db9948fce92036472c5813b7c3ace92f4d91b7cbdb6ee80198",
+  "config_hash": "a7d9065f37ce42960269436221ee82348abd4a2bc4f5ddb45de28d41453b5da5",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "47f421ba421c39f831ab5d5174d9ab82c7c17cd11113581b1f2cf093047ccfdd"
+}

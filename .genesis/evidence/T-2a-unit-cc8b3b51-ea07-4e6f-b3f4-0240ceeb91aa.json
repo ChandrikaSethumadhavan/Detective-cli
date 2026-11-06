@@ -1,0 +1,30 @@
+{
+  "task": "T-2a",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "cc8b3b51-ea07-4e6f-b3f4-0240ceeb91aa",
+  "command": "python3 -m unittest tests.test_remediation tests.test_detect",
+  "started_at": "2026-11-06T10:38:55.503Z",
+  "observed_at": "2026-11-06T10:38:55.792Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.004s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "4a9a1a0d60201589355d5766135c56518ee13f86",
+    "dirty": true
+  },
+  "source_hash": "33d70294eba092bc19dd5f4f9b85cf78d5ea5dfe4a9897cdb5e67f7a40ad0806",
+  "before_hash": "33d70294eba092bc19dd5f4f9b85cf78d5ea5dfe4a9897cdb5e67f7a40ad0806",
+  "config_hash": "0abbe9257fd71cc104a590903e794980859c4b26eb0d6ab00f820ebb6f34fe71",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "d5c8f78a1c9ffea2b9c32097efb5335866e0fa36d70776ee3f5fe081217ed33c"
+}

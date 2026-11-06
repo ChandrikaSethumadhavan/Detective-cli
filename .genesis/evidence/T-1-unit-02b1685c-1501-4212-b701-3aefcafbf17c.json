@@ -1,0 +1,30 @@
+{
+  "task": "T-1",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "02b1685c-1501-4212-b701-3aefcafbf17c",
+  "command": "python3 -m unittest tests.test_diffparse tests.test_inputs",
+  "started_at": "2026-11-04T13:46:52.869Z",
+  "observed_at": "2026-11-04T13:46:53.721Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.413s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "4a9a1a0d60201589355d5766135c56518ee13f86",
+    "dirty": true
+  },
+  "source_hash": "c157d6a07ec07832b626374b4f086781abc1f0cdf5bd354b54a3386f8faf1173",
+  "before_hash": "c157d6a07ec07832b626374b4f086781abc1f0cdf5bd354b54a3386f8faf1173",
+  "config_hash": "5a42576f4c9b11cdf8742abed62f1947dd8344026260ef029c9acf33e1cc5514",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "9e6d800e623c57e4312bc53ac2981641919809bb7ccbe393a9161cbdda2a9bb2"
+}

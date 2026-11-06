@@ -1,0 +1,30 @@
+{
+  "task": "T-4",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "fa6abe47-b6f7-4f82-b358-76e5673e0ddf",
+  "command": "python3 -m unittest tests.test_store tests.test_detect tests.test_cli",
+  "started_at": "2026-11-06T11:03:41.911Z",
+  "observed_at": "2026-11-06T11:03:42.671Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.288s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "4a9a1a0d60201589355d5766135c56518ee13f86",
+    "dirty": true
+  },
+  "source_hash": "f32056f5482b08e7834031eca01f1929b54f0d82b798134e0eb44dfc79fed817",
+  "before_hash": "f32056f5482b08e7834031eca01f1929b54f0d82b798134e0eb44dfc79fed817",
+  "config_hash": "80829e4f46d7fe03b42bb8357e9caa744918e110872787d33361ea05d15a37b0",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "3ba21a5810b06ea3be369cf91f915dd085bfdfc801303448cd88ad7bb8bfe81c"
+}

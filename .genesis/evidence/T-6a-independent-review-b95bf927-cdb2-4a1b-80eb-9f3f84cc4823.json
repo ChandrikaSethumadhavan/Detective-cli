@@ -1,0 +1,13 @@
+{
+  "task": "T-6a",
+  "gate": "independent-review",
+  "kind": "review",
+  "attempt": "b95bf927-cdb2-4a1b-80eb-9f3f84cc4823",
+  "human": "ChandrikaSethumadhavan",
+  "reason": "Reviewed final diff and proof in chat 2026-11-06 after Opus audit",
+  "observed_at": "2026-11-06T15:50:35.190Z",
+  "source_hash": "50005a94f5a07a36dafbe055965ac353a7bebbc35b526993070cc24acbea7400",
+  "config_hash": "39f967bdfb26172d5fba76cd072c03baaadc49d32124cd3bf8657ba1387e3a6d",
+  "reviewed_proofs": "f461bc9dbf88528feb9d07675e90dd8074bb5b2966d1dc5abec2ac0d14c401c1",
+  "hash": "9dc0dccfef9846669e2452d5e7591b1ba4a210dd07b5eb8e0516b55e4e6e52c5"
+}
