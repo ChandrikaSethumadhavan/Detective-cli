@@ -4,32 +4,70 @@ Selected prompts that shaped this project, quoted exactly as I typed them, typos
 
 ## 1. Plan and architecture
 
-> I need to first make a plan and plan the architecture to build the idea mentioned in info/pdf, create a detail html doducment mentioning the architecture you'll use (maybe for storage think of redis or tigercloud if needed) as well create a detailed flow diagram of the architecture and the flow of events, for aAI agents i would use google ai studio's free models or openrouter models. I'm making it for a company's case study
+nstall and use Genesis for this repository.
+My project goal is: "Refer to docs/*.html for the detailed plan that was crafted by me about what to build in this repo. Do not push or commit changes to GitHub without asking me. Do not write excessive comments, route to smaller models for smaller tasks and use opus or expensive models only when the task is critical. AI agents i would use google ai studio's free models or openrouter models and redis/tigercloud for storage if needed (refer to the document). Use the genesis tool to go in detail about planning the functional and non-functional requiremnets."
 
-## 2. Standing instructions for the whole build
+1. Check for Git, Node.js 18+, and the `genesis` CLI. If Genesis is already
+   installed, use that installation and inspect its help and installed skill.
+   Do not overwrite an existing installation or unrelated local changes.
 
-> Refer to docs/*.html for the detailed plan about what to build in this repo. Do not push or commot changes to GitHub without asking me. Do not write excessive comments, route to smaller models for smaller tasks and use opus or expensive models only when the task is critical
+2. If Genesis is missing, install the official kit:
+   - Clone https://github.com/ayush488-glitch/genesis-kit.git into
+     ~/.local/share/genesis-kit if that directory is absent.
+   - If it already contains the official repository, inspect its status and
+     update with a fast-forward-only pull when clean. Preserve local changes.
+   - Run bash ~/.local/share/genesis-kit/install.sh.
+   - Verify with ~/.local/bin/genesis help. Use that absolute CLI path if
+     ~/.local/bin is not on PATH; do not edit shell startup files.
+   - If prerequisites are missing or the existing directory belongs to
+     something else, explain the specific issue instead of replacing it.
 
-## 3. Feedback after trying the Docker image
+3. Load the installed Genesis skill and the bundled official Ponytail skill
+   at full. If this coding host cannot discover skills, read their SKILL.md
+   files directly from the kit's skills/genesis and skills/ponytail folders.
 
-> okay some feedback from me 1. When importing the cli, first print message should be regarding privacy of the repo that it is being instaleld to 2.A company trying this tool wont try this on their own repo, so should i create a dummy test case somehow? like a test repo or something easier??? 3.There should be more print outputs regarding the status of the repo because [image of the case study brief], since it says list of findings with line as well as short reason for each, combine this with the dummy test i mentioned
+4. Inspect this project. If it already has Genesis state, read
+   .genesis/KICKOFF.md and run `genesis status .` and `genesis brief .`.
+   Resume the existing workflow; do not initialize over it.
+   If it has implementation code but no Genesis state, run `genesis adopt .`
+   read-only, show the discovery report, and obtain approval for adoption
+   before using `genesis adopt . --write --objective "<my actual goal>"`.
+   If it is a new project, run
+   `genesis init . --workflow new-product --objective "<my actual goal>"`.
+   Use my actual goal above, not a placeholder.
 
-## 4. Making it easy for other people to run
+5. Run `genesis agent connect . --write` to connect repository instructions.
+   Report the current state, evidence, blocker and exact next action.
 
-> if somebody else wnats to use it, how will it work? should i dockerise it? what do u sugegst
+6. For a new product, clarify users, outcomes, constraints, non-goals,
+   acceptance criteria and unresolved assumptions. Record durable decisions
+   and knowledge through Genesis. Fill SPEC.md with FR-*, NFR-* and AC-*
+   identifiers. Run `genesis spec check .`, then obtain my specification
+   approval before implementation. Record only approval I actually gave.
 
-> like what if someone who does not even have python installed in the system runs it?
+7. Define bounded tasks linked to the approved requirements, with file scope,
+   dependencies and mandatory executable gates. Run `genesis plan check .`
+   and obtain my plan approval before activating implementation. Declare
+   observable actor/scope/environment/duration scenarios for autonomous work.
 
-> so how will someone else run it since you are saying it must be run inside my own repo
+8. Continue only authorized active work. Run current gates; obtain independent
+   review for non-low-risk tasks. Use `genesis task complete`, never a state
+   edit, to complete work. If I authorize a bounded host command, record a
+   task-scoped, expiring grant and use `genesis run`. Reuse valid authorization
+   and proof across sessions. Never invent a reviewer or approval.
 
-## 5. Scanning commits, not only uncommitted changes
+9. After interruption, inspect attempts and uncertain side effects before
+   recovery or retry. Record durable discoveries and checkpoint before stopping.
+   Treat learned rules as proposals until evaluation, review and promotion pass.
 
-> but why is notthing printed on the command line then? about the PR things? i want to see something likr no secrets fpound in the commits of this repo, or xyz found in the commits of this repo
 
-## 6. The interactive menu
 
-> okay i've tried everything, my quetsion is, now that you know its the ai-work directory im trying on so it works easily, byt for the recruiter we dont know what repo or folder he's gonna try it on right? so shouldnt it be easier? i feel like these are way too many steps, so when the image is built and then run, there should be 2 options popping up, 1. try demo 2.try it on your own folder and under this option 2 when selected, it should ask for the folder to try it on and then show 1.json 2.range of all commits 3.exit, when selected it shoud show the result and then go back to selecting 1 or 2 (json or range ) and 3.try demo 4.exit.. when demo is tried, it must land on these optiopns back again. all on command line. make these chnages, then tell me to commit and push and then try the steps. It must be really user friendly
 
-## 7. Checking the result against the brief
 
-> so is my project satiofying all of their requirements?
+
+
+## 2. The interactive menu
+
+> for the user we dont know what repo or folder he's gonna try it on right? so shouldnt it be easier? i feel like these are way too many steps, so when the docker image is built and then run, there should be 2 options popping up, 1. try demo 2.try it on your own folder and under this option 2 when selected, it should ask for the folder to try it on and then show 1.json 2.range of all commits 3.exit, when selected it shoud show the result and then go back to selecting 1 or 2 (json or range ) and 3.try demo 4.exit.. when demo is tried, it must land on these optiopns back again. all on command line. make these chnages, then tell me to commit and push and then try the steps. It must be really user friendly
+
+
