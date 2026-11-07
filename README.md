@@ -37,7 +37,7 @@ git diff main | secret-finder scan -   # a diff on stdin
 
 Hooks, CI, the allowlist, `--json`, `--quiet` and optional AI triage are in [docs/usage.md](docs/usage.md).
 
-## Where it fails (gaps in this project)
+## Shortcomings/ Place for further improvements
 
 - Only added lines are scanned, and untracked files are not covered in working-directory mode. `--range` skips merge commits, so a secret that appears only in a merge conflict resolution is missed.
 - Split or concatenated secrets, and encoded secrets such as a base64 key, are missed.
