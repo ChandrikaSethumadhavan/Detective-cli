@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-04T13:13:17.685Z",
-    "updated_at": "2026-11-06T17:10:00.687Z"
+    "updated_at": "2026-11-07T09:19:15.681Z"
   },
   "policy": {
     "ponytail": "full",
@@ -34,14 +34,17 @@
     "type": "new-product",
     "started_at": "2026-11-04T13:13:17.696Z",
     "spec_check": {
-      "at": "2026-11-06T17:07:50.908Z",
-      "source_hash": "0f5408cc787b54bbcd1b2761df24e6f3cf6971a6e08c3b0d305dc7d66e141b50",
+      "at": "2026-11-07T09:11:37.927Z",
+      "source_hash": "5b345c7cf5463181bba480b7cf8f6b8a5ac3efcdad15c9ce1c44a318aba0c873",
       "requirements": [
         "AC-1",
         "AC-10",
         "AC-11",
         "AC-12",
         "AC-13",
+        "AC-14",
+        "AC-15",
+        "AC-16",
         "AC-2",
         "AC-3",
         "AC-4",
@@ -62,6 +65,10 @@
         "FR-18",
         "FR-19",
         "FR-2",
+        "FR-20",
+        "FR-21",
+        "FR-22",
+        "FR-23",
         "FR-3",
         "FR-4",
         "FR-5",
@@ -79,14 +86,14 @@
       ]
     },
     "plan_check": {
-      "at": "2026-11-06T17:08:06.421Z",
-      "source_hash": "d007f3792ebba7e0482c8f912eab22966f5837bc64ebee4a65c81516b3dba084"
+      "at": "2026-11-07T09:16:36.473Z",
+      "source_hash": "bc64a5190b4f62a98ed4c8315eacca2672040dfa5c65eea52902e49a9279e668"
     },
     "plan_approval": {
       "human": "ChandrikaSethumadhavan",
-      "reason": "Approved in chat 2026-11-06: T-11 privacy notice, status line, demo",
-      "at": "2026-11-06T17:08:25.670Z",
-      "source_hash": "d007f3792ebba7e0482c8f912eab22966f5837bc64ebee4a65c81516b3dba084"
+      "reason": "Approved in chat 2026-11-07: T-12 range scanning and demo order",
+      "at": "2026-11-07T09:17:00.952Z",
+      "source_hash": "bc64a5190b4f62a98ed4c8315eacca2672040dfa5c65eea52902e49a9279e668"
     }
   },
   "artifacts": [
@@ -101,6 +108,9 @@
         "AC-11",
         "AC-12",
         "AC-13",
+        "AC-14",
+        "AC-15",
+        "AC-16",
         "AC-2",
         "AC-3",
         "AC-4",
@@ -121,6 +131,10 @@
         "FR-18",
         "FR-19",
         "FR-2",
+        "FR-20",
+        "FR-21",
+        "FR-22",
+        "FR-23",
         "FR-3",
         "FR-4",
         "FR-5",
@@ -136,12 +150,12 @@
         "NFR-6",
         "NFR-7"
       ],
-      "source_hash": "0f5408cc787b54bbcd1b2761df24e6f3cf6971a6e08c3b0d305dc7d66e141b50",
+      "source_hash": "5b345c7cf5463181bba480b7cf8f6b8a5ac3efcdad15c9ce1c44a318aba0c873",
       "approval": {
         "human": "ChandrikaSethumadhavan",
-        "reason": "Approved in chat 2026-11-06: FR-17 to FR-19, AC-11 to AC-13",
-        "at": "2026-11-06T17:08:04.434Z",
-        "source_hash": "0f5408cc787b54bbcd1b2761df24e6f3cf6971a6e08c3b0d305dc7d66e141b50"
+        "reason": "Approved in chat 2026-11-07: FR-20 to FR-23, AC-14 to AC-16",
+        "at": "2026-11-07T09:16:34.851Z",
+        "source_hash": "5b345c7cf5463181bba480b7cf8f6b8a5ac3efcdad15c9ce1c44a318aba0c873"
       }
     }
   ],
@@ -230,9 +244,9 @@
           "status": "pass",
           "evidence": {
             "human": "ChandrikaSethumadhavan",
-            "reason": "Approved in chat 2026-11-06: FR-17 to FR-19, AC-11 to AC-13",
-            "source_hash": "1525594db91538e472892e20a046decad4f94999afeae88c6ad16b78b8a0c881",
-            "observed_at": "2026-11-06T17:08:04.434Z"
+            "reason": "Approved in chat 2026-11-07: FR-20 to FR-23, AC-14 to AC-16",
+            "source_hash": "94e82473f156eba93ac1da4f918147c77c1fd5f2f57b2025ddd1f612561ffa3d",
+            "observed_at": "2026-11-07T09:16:34.851Z"
           },
           "kind": "review"
         }
@@ -243,7 +257,7 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-11-04T13:13:17.696Z",
-      "updated_at": "2026-11-06T17:08:04.434Z"
+      "updated_at": "2026-11-07T09:16:34.851Z"
     },
     {
       "id": "T-1",
@@ -1793,6 +1807,109 @@
         "tests/test_store.py": "529370d2fffddcd4a90228bbb03ab967c24c4349a317a1e65b655df515a6528b",
         "tests/test_triage.py": "0fa67be9e2ab2525e9f8b45b9444b88e5a43061c718673ca3022897eeaa28bec"
       }
+    },
+    {
+      "id": "T-12",
+      "outcome": "History scanning: scan --range scans every non-merge commit in a git range with findings grouped by commit (a commit key in JSON, no commit message printed), a commit-count status line, a --max-commits limit and clear errors; the demo prints on one stream so its output order is stable; README, architecture document and AI log updated",
+      "state": "done",
+      "risk": "low",
+      "owner": null,
+      "scope": [
+        "secret_finder/inputs.py",
+        "secret_finder/cli.py",
+        "secret_finder/report.py",
+        "secret_finder/demo.py",
+        "tests/test_inputs.py",
+        "tests/test_cli.py",
+        "tests/test_range.py",
+        "tests/test_demo.py",
+        "tests/test_docs.py",
+        "README.md",
+        "docs/architecture.html",
+        "docs/ai-log.md"
+      ],
+      "dependencies": [],
+      "requirements": [
+        "FR-18",
+        "FR-20",
+        "FR-21",
+        "FR-22",
+        "FR-23",
+        "AC-14",
+        "AC-15",
+        "AC-16"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "unit",
+          "kind": "command",
+          "command": "python3 -m unittest tests.test_range tests.test_cli tests.test_inputs tests.test_demo tests.test_docs tests.test_providers tests.test_triage tests.test_store",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/T-12-unit-922b9ec8-3054-4d8e-8e00-e793737f8d8a.json",
+            "hash": "52f2b56465ae4a9ec68fbf3ff2359c71afe1bb4438fcb800563745635f1c7ac6",
+            "source_hash": "1d7397ccfc0566bb3800c37bf8f5ac14806bd7ff1993ae2ab5fd6ed01340697f",
+            "config_hash": "97905ca02cf9d649506a986d2377b86b7cee78fc619573d8c6d332dbb571930d",
+            "observed_at": "2026-11-07T09:19:05.761Z"
+          }
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-07T09:16:35.733Z",
+      "updated_at": "2026-11-07T09:19:14.843Z",
+      "base_manifest": {
+        ".dockerignore": "a15359b59e3a8219572a5ea2bbe35347b91a39e89e4cff4216903ce188285c65",
+        ".gitignore": "28d6f5b6b176aa9ecb13c0ae2a71657d155cf008621d59daf7eec554d748eaf3",
+        ".secretfinder/allowlist": "9b720964589c3041e26cb1b82c5e66f14a5aeaea51ae684b2a6be624e11ef05f",
+        "AGENTS.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "CLAUDE.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "Dockerfile": "eb3018f18597ba0b7b761b820b9a61b0f9d8da83c48eea7a06b675c5b652e36f",
+        "README.md": "36b2a09af47138d40ed38088a5e517a62b9f28552e35daf45a733751092f37d8",
+        "SPEC.md": "2924f6dd54edf8ca447ac2757dbcedef2870a1d4bddb1001df7d0e003f12ded6",
+        "docs/ai-log.md": "667033d3e6e9217c138bfb7573b5c37d8a522e1c9ceeb47bdb247c765747df3d",
+        "docs/architecture.html": "32c01d6be27b3126ccedb2ad183a6452669baa5cc3c0680953192230110452b5",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf": "1643bb609324b3f529cf4e1dcb0b06f4f5c2108dd021644ad619a197a0e1cdba",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf:Zone.Identifier": "333fe318e900399484601469768ae576bdc3461e12cc258e27bb64d2ad04c52b",
+        "prompts/triage.txt": "9de376d49e275d92894a642e3deed244db58336c4efe5a3f2d7ac38aea2682e6",
+        "pyproject.toml": "373d94c65108a058911691c36e635eed2be1be7858a47b9a432bff07c0b6ec46",
+        "secret_finder/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "secret_finder/__main__.py": "1e83fdc33fa81c618835aadf804ae88ffeced9eebe988124bb14a16973f67009",
+        "secret_finder/ai/__init__.py": "b8c197945b010a5f4d5a43e7d9221fd3f92ae08d57b30648cf1c098a63d0486b",
+        "secret_finder/ai/base.py": "9fb23ce5a7f0e8949557100bef9f126b1918408f340b3ab41a33cbc65fd730f9",
+        "secret_finder/ai/google.py": "1ed4b72cf322efb2d4d403ac478bd18fbf350d40e2d2ee7b37162ad6220d80c7",
+        "secret_finder/ai/http.py": "227a62a66e230e1bf257406cf90824d49b3ff075af9347c28fda55cfcb20bf3b",
+        "secret_finder/ai/openrouter.py": "801b58e4108bcdafcb72ab4e7f5abed78364a2ca7e647f3d0ac0ccbafbc20ace",
+        "secret_finder/cli.py": "6d05356657b53c047593524dc63f5f9091086a43bfd6f0a19fde37dc5d49e13f",
+        "secret_finder/demo.py": "42ae0be6bc639fd12da1be9472c0c02225492f76a710ef38bca37eb959abb489",
+        "secret_finder/detect.py": "9b29bcfdee60793e1c353bd61ee9a7c049b050544335780bdd31abf35650c97c",
+        "secret_finder/diffparse.py": "2f7645306bd3462357622bdf65450fa28f9612276d7fe531d01e8344e307917c",
+        "secret_finder/entropy.py": "226687597242f26a3f96523696550b57426e3b41bd1b34fb98e4aeba97f8b6e2",
+        "secret_finder/inputs.py": "41017cf81dfaf2ff351b62c53ac1b5572c4b396f0d986b1eb29264cbfcfe0574",
+        "secret_finder/mask.py": "4440c3cbda28e181e7182d47eb243032fa3ac282ccb705bd2174bf577e9de86a",
+        "secret_finder/report.py": "890c9e682f4fbf34ce6890983b3bf06ad5d000d6cdb5fab1b673fb45dddcb7c6",
+        "secret_finder/rules.py": "476387ae387e895e228641d139bd84b38eb4f976ddec775907c45fd6ed9918b7",
+        "secret_finder/store.py": "10a5158b12099b8af68213ccee2681556d599d27ccd47678d4c8a0da26dce03f",
+        "secret_finder/triage.py": "0e50d2d381fbbe7c4ef803b35f2204feba1302aafcc34d1fd086db4ac64577f3",
+        "tests/test_cli.py": "36bfec8c05f126b471c42b0a20bf013a12d8d759686c6f9acc7129fbddda29c4",
+        "tests/test_demo.py": "25e81475a7e07e9a60ffa5edefbfd7f8af2ba26b9bcfef852bf1ac45a9b3d1e0",
+        "tests/test_detect.py": "b6d0196a25105943098b2a4c7c78440c65ff9c72dc32a075ffbc9896d4d897fd",
+        "tests/test_diffparse.py": "c94f4883146eec76c4cb1762efa765be6eea5ba7baf8d45b1d5faca0179199b3",
+        "tests/test_docs.py": "f8992a569150a3d8eabb0774b3ec24662f850ce5de83c3da59cd682936f71e9f",
+        "tests/test_inputs.py": "ac12e3322f40a4bb7a5c2284475e2e1ea80e342699d38dd930bbe30c19f11d9f",
+        "tests/test_packaging.py": "5a2daeaad7e6b2fb9f773705a63be65778f5f9d7f719b7f70c4792a7b54aa1d0",
+        "tests/test_providers.py": "2c41fca9fc97adea42bd9e2e2bc552caeb6f5cbaebd05cfedeeb70390bc18c18",
+        "tests/test_remediation.py": "a3a93bc01c06b362fcfadc98d3bab27d527ea081d575e2acea26d77509e4bef5",
+        "tests/test_store.py": "529370d2fffddcd4a90228bbb03ab967c24c4349a317a1e65b655df515a6528b",
+        "tests/test_triage.py": "0fa67be9e2ab2525e9f8b45b9444b88e5a43061c718673ca3022897eeaa28bec"
+      }
     }
   ],
   "learning_proposals": [],
@@ -2630,6 +2747,30 @@
       "cost": null,
       "stop_reason": null,
       "ended_at": "2026-11-06T17:09:50.379Z"
+    },
+    {
+      "id": "922b9ec8-3054-4d8e-8e00-e793737f8d8a",
+      "task": "T-12",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_range tests.test_cli tests.test_inputs tests.test_demo tests.test_docs tests.test_providers tests.test_triage tests.test_store",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 45494,
+      "child_pid": 45531,
+      "started_at": "2026-11-07T09:19:04.599Z",
+      "status": "passed",
+      "before_hash": "1d7397ccfc0566bb3800c37bf8f5ac14806bd7ff1993ae2ab5fd6ed01340697f",
+      "config_hash": "97905ca02cf9d649506a986d2377b86b7cee78fc619573d8c6d332dbb571930d",
+      "environment": {
+        "node": "v24.20.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-07T09:19:05.761Z"
     }
   ],
   "authorizations": [],
@@ -2637,11 +2778,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-06T17:10:00.632Z",
+    "at": "2026-11-07T09:19:15.625Z",
     "revision": {
-      "commit": "dc052bbaef254e0a6a3cbb6ff199bfefdf74eee1",
+      "commit": "7e9fe02ce4ea03562e412bc260d3c05635ec34a3",
       "dirty": true,
-      "source_hash": "5efef4aa0156971f9100b73ae895ceec0cb7edf8a364cc2156df85365675b806"
+      "source_hash": "1d7397ccfc0566bb3800c37bf8f5ac14806bd7ff1993ae2ab5fd6ed01340697f"
     },
     "active_task": null,
     "next_action": "Review completed work and choose the next bounded outcome."

@@ -4,7 +4,7 @@
 
 - workflow: new-product
 - phase: verify
-- plan approval: ChandrikaSethumadhavan at 2026-11-06T17:08:25.670Z
+- plan approval: ChandrikaSethumadhavan at 2026-11-07T09:17:00.952Z
 
 ## Tasks
 
@@ -158,5 +158,13 @@
 - requirements: FR-17, FR-18, FR-19, AC-11, AC-12, AC-13
 - scope: secret_finder/cli.py, secret_finder/demo.py, tests/test_cli.py, tests/test_demo.py, tests/test_docs.py, README.md, docs/architecture.html, docs/ai-log.md
 - gates: unit: python3 -m unittest tests.test_cli tests.test_demo tests.test_docs tests.test_providers tests.test_triage tests.test_store
+- next: Run the task pre-flight.
+
+### T-12 — History scanning: scan --range scans every non-merge commit in a git range with findings grouped by commit (a commit key in JSON, no commit message printed), a commit-count status line, a --max-commits limit and clear errors; the demo prints on one stream so its output order is stable; README, architecture document and AI log updated
+
+- state/risk: done / low
+- requirements: FR-18, FR-20, FR-21, FR-22, FR-23, AC-14, AC-15, AC-16
+- scope: secret_finder/inputs.py, secret_finder/cli.py, secret_finder/report.py, secret_finder/demo.py, tests/test_inputs.py, tests/test_cli.py, tests/test_range.py, tests/test_demo.py, tests/test_docs.py, README.md, docs/architecture.html, docs/ai-log.md
+- gates: unit: python3 -m unittest tests.test_range tests.test_cli tests.test_inputs tests.test_demo tests.test_docs tests.test_providers tests.test_triage tests.test_store
 - next: Run the task pre-flight.
 

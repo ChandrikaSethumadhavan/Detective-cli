@@ -130,6 +130,7 @@ svg.diagram{display:block;width:100%;min-width:860px;height:auto;color:var(--fg)
       <tr><td>Input: git diff from a file or stdin</td><td>Input resolver</td><td>Reads the path, or stdin when the argument is <code>-</code> or the input is piped.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Input: a commit hash</td><td>Input resolver + git adapter</td><td><code>git show --format= -m --first-parent -U0 &lt;hash&gt; --</code>. A root commit has no parent, so <code>git show</code> is used rather than <code>git diff a..b</code>.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Input: current changes in the working directory</td><td>Input resolver + git adapter</td><td><code>git diff HEAD</code> covers staged and unstaged edits. Untracked files are listed as a known limit, with <code>--include-untracked</code> as an extension.</td><td><span class="tag mvp">MVP</span></td></tr>
+      <tr><td>Output: findings across many commits (a PR or the history)</td><td>Range scan</td><td><code>--range</code> scans each non-merge commit and groups findings under <code>commit &lt;hash&gt;</code>.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Output: file and line for each finding</td><td>Diff parser</td><td>Reads <code>@@ -a,b +c,d @@</code> hunk headers and counts new-file line numbers. Only <code>+</code> lines are scanned.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Output: a short reason for each finding</td><td>Detector, then AI triage</td><td>Every rule carries a fixed reason string. With <code>--ai</code>, the model refines it and flags likely false positives.</td><td><span class="tag mvp">MVP</span> <span class="tag opt">Optional</span></td></tr>
       <tr><td>Try it without a real repository</td><td>Demo command</td><td><code>secret-finder demo</code> builds a throwaway repo with made-up secrets, scans it, explains the result and deletes it. It works in Docker with no mounted repo.</td><td><span class="tag mvp">MVP</span></td></tr>
@@ -314,6 +315,7 @@ svg.diagram{display:block;width:100%;min-width:860px;height:auto;color:var(--fg)
       <tr><td>Diff file</td><td><code>secret-finder scan change.diff</code></td><td>Read the file as text.</td><td>Missing file gives exit 2.</td></tr>
       <tr><td>stdin</td><td><code>git diff | secret-finder scan -</code></td><td>Read stdin to the end.</td><td>Empty input gives exit 0.</td></tr>
       <tr><td>Commit</td><td><code>secret-finder scan --commit &lt;hash&gt;</code></td><td><code>git show --format= -m --first-parent -U0 &lt;hash&gt; --</code></td><td>Root commit works. Merge commits show only the first-parent change, which is stated in the README.</td></tr>
+      <tr><td>Range</td><td><code>secret-finder scan --range origin/main..HEAD</code></td><td><code>git rev-list --no-merges --reverse &lt;range&gt;</code>, then <code>git show</code> for each commit.</td><td>Merge commits are skipped. A range over 1000 commits stops with a message. Commit messages are never printed.</td></tr>
       <tr><td>Working directory</td><td><code>secret-finder scan</code></td><td><code>git diff HEAD</code></td><td>Staged and unstaged are both covered. Untracked files are not. A repo with no commits yet falls back to <code>git diff --cached</code>.</td></tr>
     </tbody>
   </table></div>
@@ -465,9 +467,9 @@ SF_AI_API_KEY=&lt;key for the chosen provider&gt;
       <tr><td>Low-entropy passwords such as <code>Summer2026!</code></td><td>No format and low randomness. Only a credential-like name gives a clue.</td><td>Caught only through <code>generic-assignment</code>. Otherwise a miss.</td></tr>
       <tr><td>False positives on hashes, UUIDs, test fixtures, lock files</td><td>They look random.</td><td>Filters for UUIDs and git hashes, an allowlist, and optional AI triage.</td></tr>
       <tr><td>Untracked files in working-directory mode</td><td><code>git diff HEAD</code> only covers tracked files.</td><td>Documented. <code>--include-untracked</code> is an extension.</td></tr>
-      <tr><td>Secrets already in history</td><td>Only the given change is scanned.</td><td>Out of scope. Use <code>--commit</code> per commit, or a history scan tool.</td></tr>
+      <tr><td>Secrets already in history</td><td>Only the given change is scanned.</td><td>Use <code>--range HEAD</code> to scan the whole branch history, or <code>--range origin/main..HEAD</code> for a PR.</td></tr>
       <tr><td>Random hex keys</td><td>The random-string rule needs entropy of at least 4.2, and hex tops out near 4.0.</td><td>Known miss.</td></tr>
-      <tr><td>Merge commits</td><td>A commit scan shows the change against the first parent only.</td><td>By design.</td></tr>
+      <tr><td>Merge commits</td><td>A commit scan shows the change against the first parent only, and <code>--range</code> skips merge commits.</td><td>A secret that appears only in a merge conflict resolution is missed.</td></tr>
       <tr><td>Working-directory mode outside a git repository</td><td>git prints its usage text instead of a short error.</td><td>Exits 2. Known rough edge.</td></tr>
       <tr><td>Unquoted values (<code>.env</code>, YAML)</td><td>The generic rule needs a quoted value.</td><td>Known miss.</td></tr>
       <tr><td>Very long names or values</td><td>The generic rule bounds names to 64 and values to 1024 characters to stay linear-time.</td><td>Long base64-style values are still caught by the random-string rule.</td></tr>

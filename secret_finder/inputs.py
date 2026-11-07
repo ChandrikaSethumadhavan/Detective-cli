@@ -1,6 +1,6 @@
 import subprocess
 import sys
-from typing import Iterator, Optional
+from typing import Iterator, List, Optional
 
 
 class InputError(Exception):
@@ -26,6 +26,15 @@ def _has_head() -> bool:
     return subprocess.run(
         ["git", "rev-parse", "--verify", "-q", "HEAD"], capture_output=True
     ).returncode == 0
+
+
+def list_commits(rev_range: str, limit: int) -> List[str]:
+    if not rev_range or rev_range.startswith("-"):
+        raise InputError(f"invalid range: {rev_range}")
+    commits = [line.strip() for line in _git("rev-list", "--no-merges", "--reverse", f"--max-count={limit + 1}", rev_range, "--")]
+    if len(commits) > limit:
+        raise InputError(f"{rev_range} has more than {limit} commits; narrow the range or raise --max-commits")
+    return commits
 
 
 def read_diff(source: Optional[str] = None, commit: Optional[str] = None) -> Iterator[str]:

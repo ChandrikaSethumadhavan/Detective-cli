@@ -1,0 +1,30 @@
+{
+  "task": "T-12",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "922b9ec8-3054-4d8e-8e00-e793737f8d8a",
+  "command": "python3 -m unittest tests.test_range tests.test_cli tests.test_inputs tests.test_demo tests.test_docs tests.test_providers tests.test_triage tests.test_store",
+  "started_at": "2026-11-07T09:19:04.599Z",
+  "observed_at": "2026-11-07T09:19:05.761Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": "................................secret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 medium).\nsecret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 high).\n..secret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: AI triage skipped: boom\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 medium).\n..secret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 medium).\n...secret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 high).\nsecret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 medium).\nsecret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 medium).\nsecret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 medium).\nsecret-finder: --ai is on. Masked findings (rule, key name and masked value, never file paths or raw secrets) will be sent to the configured AI provider. Check its data-use terms first.\nsecret-finder: scanned 1 added line in 1 file from stdin: 1 finding (1 medium).\n..secret-finder: replacing invalid /tmp/tmpmrh0ia8j/.secretfinder/salt; fingerprint allowlist entries must be regenerated\nsecret-finder: replacing invalid /tmp/tmpmrh0ia8j/.secretfinder/salt; fingerprint allowlist entries must be regenerated\nsecret-finder: replacing invalid /tmp/tmpmrh0ia8j/.secretfinder/salt; fingerprint allowlist entries must be regenerated\n..secret-finder: runs locally on your machine. Your code is not uploaded and secrets are masked in the output.\nsecret-finder: scanned 1 added line in 1 file from stdin: no secrets found.\n...secret-finder: replacing invalid /tmp/tmp7xa_74sn/.secretfinder/salt; fingerprint allowlist entries must be regenerated\n.\n----------------------------------------------------------------------\nRan 47 tests in 2.762s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "7e9fe02ce4ea03562e412bc260d3c05635ec34a3",
+    "dirty": true
+  },
+  "source_hash": "1d7397ccfc0566bb3800c37bf8f5ac14806bd7ff1993ae2ab5fd6ed01340697f",
+  "before_hash": "1d7397ccfc0566bb3800c37bf8f5ac14806bd7ff1993ae2ab5fd6ed01340697f",
+  "config_hash": "97905ca02cf9d649506a986d2377b86b7cee78fc619573d8c6d332dbb571930d",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "52f2b56465ae4a9ec68fbf3ff2359c71afe1bb4438fcb800563745635f1c7ac6"
+}

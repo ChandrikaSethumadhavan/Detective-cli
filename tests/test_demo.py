@@ -24,8 +24,11 @@ class DemoTest(unittest.TestCase):
             self.assertIn(needle, text)
         self.assertNotIn("notes.py:", text)
         for raw in ("AKIAIOSFODNN7EXAMPLE", "hunter2hunter2", demo.TOKEN):
-            self.assertNotIn(raw, text + err.getvalue())
-        self.assertIn("3 findings", err.getvalue())
+            self.assertNotIn(raw, text)
+        self.assertEqual(err.getvalue(), "")
+        positions = [text.index(m) for m in ("Demo:", "runs locally", "config.py:1", "scanned 9 added lines", "What to notice")]
+        self.assertEqual(positions, sorted(positions))
+        self.assertIn("3 findings", text)
         self.assertEqual(glob.glob(os.path.join(tempfile.gettempdir(), "secret-finder-demo-*")), [])
 
     def test_demo_command_runs_from_the_module_entry_point(self):

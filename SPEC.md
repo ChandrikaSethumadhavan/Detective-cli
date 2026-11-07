@@ -32,6 +32,10 @@ Developers sometimes commit passwords or keys by mistake. Detective-cli (`secret
 - FR-17: Every scan prints a short privacy notice to stderr before any other output: the scan runs locally and nothing leaves the machine; with `--ai` the notice instead names the configured provider and says that masked findings will be sent to it. `--quiet` suppresses the notice and the status line.
 - FR-18: `secret-finder demo` creates a throwaway git repository with planted fake secrets, scans it, prints the findings with file, line, reason and fix, deletes the repository, and exits 0, so the tool can be tried without scanning a real repository. It needs only git and works in the Docker image without a mounted repository.
 - FR-19: After a scan, a status line on stderr says what was scanned (working directory, commit, file or stdin), how many added lines and files were examined, and the number of findings by confidence, or that no secrets were found. Stdout keeps only the findings, so pipes, `--json` and hooks are unaffected.
+- FR-20: `scan --range <revisions>` scans every non-merge commit in the range, one commit at a time. The range is any `git rev-list` expression, for example `origin/main..HEAD`, `HEAD~5..HEAD`, or `HEAD` for the whole history of the current branch. Merge commits are skipped because their changes are covered by the commits they merge.
+- FR-21: Range output identifies the commit for every finding: text groups findings under a `commit <short hash>` line and JSON adds a `commit` key to each finding. The commit message is never printed, because it can contain a secret.
+- FR-22: The status line for a range says how many commits were scanned and how many of them had findings, or that no secrets were found. A range that matches no commits exits 0 and says so.
+- FR-23: A range with more commits than `--max-commits` (default 1000) exits 2 with a message and prints no findings, instead of scanning part of it. An invalid range, or a range combined with a file, stdin or `--commit`, exits 2.
 
 ## Non-functional requirements
 
@@ -73,6 +77,9 @@ Developers sometimes commit passwords or keys by mistake. Detective-cli (`secret
 - AC-11: A clean scan prints nothing on stdout and a stderr status line that says no secrets were found and how many lines were scanned. `--quiet` prints neither the privacy notice nor the status line.
 - AC-12: `demo` exits 0, prints at least one high and one medium confidence finding with file, line, reason and fix, leaves no temporary repository behind, and does not change the current directory.
 - AC-13: Without `--ai` the notice says nothing is sent anywhere; with `--ai` it names the provider.
+- AC-14: In a repo with a clean commit, a commit that adds a key and a commit that removes it, `--range` over all three exits 1 and reports the key once, under the commit that added it. A range that holds only the clean commit exits 0 and says no secrets were found.
+- AC-15: A merge of a branch that contains a secret commit reports the secret once.
+- AC-16: JSON output has a `commit` key on every finding. A range with more commits than the limit exits 2 with no findings printed. A malformed range or one that starts with `-` exits 2.
 
 ## Risks
 

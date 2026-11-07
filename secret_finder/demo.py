@@ -1,3 +1,4 @@
+import contextlib
 import os
 import subprocess
 import sys
@@ -42,7 +43,9 @@ def run() -> int:
         print("Running: secret-finder scan\n")
         os.chdir(tmp)
         try:
-            main(["scan"])
+            with contextlib.redirect_stderr(sys.stdout):
+                main(["scan"])
+            sys.stdout.flush()
         finally:
             os.chdir(here)
         print("\nWhat to notice:")

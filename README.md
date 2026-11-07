@@ -57,11 +57,26 @@ Run these inside the git repo you want to check. Only lines you added are scanne
 ```
 secret-finder scan                     # your staged and unstaged changes
 secret-finder scan --commit <hash>     # the change made by one commit
+secret-finder scan --range origin/main..HEAD   # every commit in a PR or branch
+secret-finder scan --range HEAD        # the whole history of the current branch
 git diff main | secret-finder scan -   # any diff on stdin
 secret-finder scan change.diff         # a saved diff file
 secret-finder scan --json              # JSON instead of text
 secret-finder scan --quiet             # findings only, no notice or status line
 ```
+
+`--range` takes any `git rev-list` range and scans its commits one at a time, so a key that was added and later removed is still found, under the commit that added it:
+
+```
+$ secret-finder scan --range origin/main..HEAD
+commit 7e9fe02
+config.py:1  high  aws-access-key  Matches the AWS access key id format.
+    AWS_KEY = "AKIA****"
+    fix: Deactivate it: aws iam update-access-key ...
+secret-finder: scanned 3 commits (41 added lines in 5 files) from origin/main..HEAD: 1 finding (1 high) in 1 commit.
+```
+
+Commit messages are never printed, because they can contain secrets. Merge commits are skipped, since the commits they merge are scanned directly. A range of more than 1000 commits stops with a message instead of scanning part of it. Raise the limit with `--max-commits`. `--json` adds a `commit` field to every finding.
 
 Every scan starts with a privacy notice and ends with a status line saying what was scanned and what was found. Both go to stderr, so the output you pipe or parse (`--json` included) holds only the findings. With `--ai` the notice names the provider that will receive masked findings.
 
@@ -76,11 +91,13 @@ A pre-commit hook, in `.git/hooks/pre-commit` (then `chmod +x` it):
 secret-finder scan
 ```
 
-A CI step that checks everything a branch adds:
+A CI step that checks every commit a branch adds:
 
 ```
-git diff origin/main...HEAD | secret-finder scan -
+secret-finder scan --range origin/main..HEAD
 ```
+
+In CI, fetch enough history first (for example `fetch-depth: 0` in GitHub Actions), or the range cannot be resolved.
 
 ## Ignore known findings
 
@@ -113,7 +130,7 @@ secret-finder scan --ai
 
 ## Gaps in this project
 
-- Only added lines are scanned. Secrets already in history, or in untracked files in working-directory mode, are not found. A merge commit is scanned against its first parent only.
+- Only added lines are scanned, and untracked files are not covered in working-directory mode. `--range` skips merge commits, so a secret that appears only in a merge conflict resolution is missed, and `--commit` on a merge commit shows its change against the first parent only.
 - Split or concatenated secrets, and encoded secrets such as a base64 key, are missed.
 - Values must be quoted. `PASSWORD=hunter2hunter2` in an unquoted `.env` or YAML line is missed. The name must contain a credential word such as password, secret, token or key (up to 64 characters around it), and the value must be 8 to 1024 characters without spaces.
 - Low-entropy passwords with no credential-like name are missed. The random-string check only covers quoted base64-style strings of 20 or more characters, so random hex keys are missed.
