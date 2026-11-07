@@ -13,11 +13,22 @@ def read(*parts):
 
 
 class DocsTest(unittest.TestCase):
-    def test_readme_covers_install_use_and_ai(self):
+    def test_readme_is_short_and_covers_running_and_failures(self):
         text = read("README.md")
-        for needle in ("## Quick start", "pipx install", "docker build", "secret-finder scan", "--commit", "--range", "--json", "SF_AI_API_KEY", "secret-finder demo", "docker run --rm -it", "runs locally", "Try it on your own folder", "#master", "@master"):
+        self.assertLessEqual(len(text.splitlines()), 90)
+        for needle in ("## How to run", "docker build", "docker run --rm -it", "pipx install", "#master", "@master",
+                       "Try it on your own folder", "secret-finder scan --range HEAD", "runs locally",
+                       "## Where it fails (gaps in this project)", "docs/usage.md", "docs/prompts.md"):
             self.assertIn(needle, text)
-        self.assertIn("## Gaps in this project", text)
+
+    def test_usage_guide_covers_the_options_the_readme_leaves_out(self):
+        text = read("docs", "usage.md")
+        for needle in ("--json", "--quiet", "--commit", "--range", "secret-finder demo", "pre-commit", "allowlist", "SF_AI_API_KEY"):
+            self.assertIn(needle, text)
+
+    def test_prompts_are_quoted_and_the_challenge_folder_is_not_published(self):
+        self.assertIn("I need to first make a plan and plan the architecture", read("docs", "prompts.md"))
+        self.assertIn("info/", read(".gitignore").splitlines())
 
     def test_prompt_file_matches_the_prompt_in_code(self):
         self.assertEqual(read("prompts", "triage.txt").strip(), PROMPT.strip())

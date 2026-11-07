@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "project": "Detective-cli",
-  "revision": "fe41222b9478e71b183ffeb638f6ad51008863b5",
-  "sourceHash": "8f37167a96c78c05fc47bbfe6a1ddf00e6a861dd5604d0784528c06ae00e5a0d",
+  "revision": "2decddbcd491d41ad4856aeb2da60c8c896115d9",
+  "sourceHash": "00c89de88f906b29167e5106b25b189074b280c391833b786aa884955a7ba600",
   "provenance": {
     "tool": "genesis-graphizer",
     "method": "static-analysis",
@@ -247,7 +247,7 @@
       "language": "python",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "15f8716582dcae3155e316d50fe56cd311d4bc3fb30aac6ffa14cbc2dad9aa6f"
+      "contentHash": "4ef54b44548d23056e0c77b63bbff7e2be4ff296ce190cef9fd48d3ae4915fe2"
     },
     {
       "id": "file:tests/test_inputs.py",
@@ -1956,7 +1956,7 @@
       "name": "DocsTest.test_log_exists_and_architecture_lists_every_rule",
       "label": "DocsTest.test_log_exists_and_architecture_lists_every_rule",
       "path": "tests/test_docs.py",
-      "line": 25,
+      "line": 36,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "de8dd62904030dbedce5280835caf136ba602b767c18c0db4194cca9c5ab8b48"
@@ -1968,22 +1968,46 @@
       "name": "DocsTest.test_prompt_file_matches_the_prompt_in_code",
       "label": "DocsTest.test_prompt_file_matches_the_prompt_in_code",
       "path": "tests/test_docs.py",
-      "line": 22,
+      "line": 33,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "a37b672a55e0bfc78dd3a88ce7b243206047c428c6b7ac1dfb0286e30e53da6a"
     },
     {
-      "id": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai",
+      "id": "symbol:tests/test_docs.py#function:DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published",
       "type": "symbol",
       "kind": "function",
-      "name": "DocsTest.test_readme_covers_install_use_and_ai",
-      "label": "DocsTest.test_readme_covers_install_use_and_ai",
+      "name": "DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published",
+      "label": "DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published",
+      "path": "tests/test_docs.py",
+      "line": 29,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "0ab43881d9cbeaa5f04a169bfbf8423fc93eeaf040e35ec2a29fb48f279e6f73"
+    },
+    {
+      "id": "symbol:tests/test_docs.py#function:DocsTest.test_readme_is_short_and_covers_running_and_failures",
+      "type": "symbol",
+      "kind": "function",
+      "name": "DocsTest.test_readme_is_short_and_covers_running_and_failures",
+      "label": "DocsTest.test_readme_is_short_and_covers_running_and_failures",
       "path": "tests/test_docs.py",
       "line": 16,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
-      "contentHash": "6d919e0b41ecfb23cb317e1c4acd8834ecb4d56544192a6e066294b557408d2a"
+      "contentHash": "c06b981b0d7d5e347a0da26e912ebef234226bb0c132d86b43e7e0afe631fd12"
+    },
+    {
+      "id": "symbol:tests/test_docs.py#function:DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out",
+      "type": "symbol",
+      "kind": "function",
+      "name": "DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out",
+      "label": "DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out",
+      "path": "tests/test_docs.py",
+      "line": 24,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "5496edbd250d7726fa1193890b60d8f376e7267db717e76272041d55c9cf677e"
     },
     {
       "id": "symbol:tests/test_docs.py#function:read",
@@ -3116,12 +3140,12 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/ai/http.py#function:_read",
-      "target": "symbol:tests/test_providers.py#function:Resp.read",
+      "target": "symbol:tests/test_packaging.py#function:read",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read",
-        "symbol:tests/test_packaging.py#function:read"
+        "symbol:tests/test_docs.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3557,12 +3581,12 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/inputs.py#function:_git",
-      "target": "symbol:tests/test_providers.py#function:Resp.read",
+      "target": "symbol:tests/test_packaging.py#function:read",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read",
-        "symbol:tests/test_packaging.py#function:read"
+        "symbol:tests/test_docs.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3575,11 +3599,11 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:secret_finder/demo.py#function:run",
+        "symbol:secret_finder/menu.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:tests/test_range.py#function:run",
-        "symbol:secret_finder/menu.py#function:run"
+        "symbol:tests/test_range.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3822,12 +3846,12 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/store.py#function:LocalStore._load_allowlist",
-      "target": "symbol:tests/test_providers.py#function:Resp.read",
+      "target": "symbol:tests/test_packaging.py#function:read",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read",
-        "symbol:tests/test_packaging.py#function:read"
+        "symbol:tests/test_docs.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3836,12 +3860,12 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/store.py#function:LocalStore._read_salt",
-      "target": "symbol:tests/test_providers.py#function:Resp.read",
+      "target": "symbol:tests/test_packaging.py#function:read",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read",
-        "symbol:tests/test_packaging.py#function:read"
+        "symbol:tests/test_docs.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -4116,11 +4140,11 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:secret_finder/demo.py#function:run",
+        "symbol:secret_finder/menu.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:tests/test_range.py#function:run",
-        "symbol:secret_finder/menu.py#function:run"
+        "symbol:tests/test_range.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -4133,11 +4157,11 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:secret_finder/demo.py#function:run",
+        "symbol:secret_finder/menu.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:tests/test_range.py#function:run",
-        "symbol:secret_finder/menu.py#function:run"
+        "symbol:tests/test_range.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -4379,7 +4403,25 @@
     },
     {
       "type": "calls",
-      "source": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai",
+      "source": "symbol:tests/test_docs.py#function:DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published",
+      "target": "symbol:tests/test_docs.py#function:read",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_docs.py#function:DocsTest.test_readme_is_short_and_covers_running_and_failures",
+      "target": "symbol:tests/test_docs.py#function:read",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_docs.py#function:DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out",
       "target": "symbol:tests/test_docs.py#function:read",
       "tier": "proven",
       "resolved": true,
@@ -4402,11 +4444,11 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:secret_finder/demo.py#function:run",
+        "symbol:secret_finder/menu.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:tests/test_range.py#function:run",
-        "symbol:secret_finder/menu.py#function:run"
+        "symbol:tests/test_range.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -4632,11 +4674,11 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:secret_finder/demo.py#function:run",
+        "symbol:secret_finder/menu.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:tests/test_range.py#function:run",
-        "symbol:secret_finder/menu.py#function:run"
+        "symbol:tests/test_range.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -4649,11 +4691,11 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:secret_finder/demo.py#function:run",
+        "symbol:secret_finder/menu.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:tests/test_range.py#function:run",
-        "symbol:secret_finder/menu.py#function:run"
+        "symbol:tests/test_range.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -5423,12 +5465,12 @@
     {
       "type": "calls",
       "source": "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret",
-      "target": "symbol:tests/test_providers.py#function:Resp.read",
+      "target": "symbol:tests/test_packaging.py#function:read",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read",
-        "symbol:tests/test_packaging.py#function:read"
+        "symbol:tests/test_docs.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -5473,12 +5515,12 @@
     {
       "type": "calls",
       "source": "symbol:tests/test_store.py#function:StoreTest.test_local_state_is_gitignored",
-      "target": "symbol:tests/test_providers.py#function:Resp.read",
+      "target": "symbol:tests/test_packaging.py#function:read",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read",
-        "symbol:tests/test_packaging.py#function:read"
+        "symbol:tests/test_docs.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -6909,7 +6951,7 @@
       "type": "defines",
       "source": "file:tests/test_docs.py",
       "target": "symbol:tests/test_docs.py#function:DocsTest.test_log_exists_and_architecture_lists_every_rule",
-      "line": 25,
+      "line": 36,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -6918,7 +6960,7 @@
       "type": "defines",
       "source": "file:tests/test_docs.py",
       "target": "symbol:tests/test_docs.py#function:DocsTest.test_prompt_file_matches_the_prompt_in_code",
-      "line": 22,
+      "line": 33,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -6926,8 +6968,26 @@
     {
       "type": "defines",
       "source": "file:tests/test_docs.py",
-      "target": "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai",
+      "target": "symbol:tests/test_docs.py#function:DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published",
+      "line": 29,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_docs.py",
+      "target": "symbol:tests/test_docs.py#function:DocsTest.test_readme_is_short_and_covers_running_and_failures",
       "line": 16,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_docs.py",
+      "target": "symbol:tests/test_docs.py#function:DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out",
+      "line": 24,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -9596,6 +9656,6 @@
   ],
   "warnings": [],
   "stats": {
-    "unresolvedCalls": 575
+    "unresolvedCalls": 581
   }
 }

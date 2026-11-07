@@ -176,7 +176,9 @@ digraph genesis {
   "symbol:tests/test_docs.py#class:DocsTest" [label="DocsTest",class="symbol"];
   "symbol:tests/test_docs.py#function:DocsTest.test_log_exists_and_architecture_lists_every_rule" [label="DocsTest.test_log_exists_and_architecture_lists_every_rule",class="symbol"];
   "symbol:tests/test_docs.py#function:DocsTest.test_prompt_file_matches_the_prompt_in_code" [label="DocsTest.test_prompt_file_matches_the_prompt_in_code",class="symbol"];
-  "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai" [label="DocsTest.test_readme_covers_install_use_and_ai",class="symbol"];
+  "symbol:tests/test_docs.py#function:DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published" [label="DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published",class="symbol"];
+  "symbol:tests/test_docs.py#function:DocsTest.test_readme_is_short_and_covers_running_and_failures" [label="DocsTest.test_readme_is_short_and_covers_running_and_failures",class="symbol"];
+  "symbol:tests/test_docs.py#function:DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out" [label="DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out",class="symbol"];
   "symbol:tests/test_docs.py#function:read" [label="read",class="symbol"];
   "symbol:tests/test_inputs.py#class:InputsTest" [label="InputsTest",class="symbol"];
   "symbol:tests/test_inputs.py#function:git" [label="git",class="symbol"];
@@ -272,7 +274,7 @@ digraph genesis {
   "symbol:secret_finder/ai/google.py#function:Google.complete" -> "symbol:secret_finder/ai/base.py#class:ProviderError" [label="calls"];
   "symbol:secret_finder/ai/google.py#function:Google.complete" -> "symbol:secret_finder/ai/http.py#function:post_json" [label="calls"];
   "symbol:secret_finder/ai/http.py#function:_read" -> "symbol:secret_finder/ai/base.py#class:ProviderError" [label="calls"];
-  "symbol:secret_finder/ai/http.py#function:_read" -> "symbol:tests/test_providers.py#function:Resp.read" [label="calls"];
+  "symbol:secret_finder/ai/http.py#function:_read" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
   "symbol:secret_finder/ai/http.py#function:post_json" -> "symbol:secret_finder/ai/base.py#class:ProviderError" [label="calls"];
   "symbol:secret_finder/ai/http.py#function:post_json" -> "symbol:secret_finder/ai/http.py#function:_open" [label="calls"];
   "symbol:secret_finder/ai/http.py#function:post_json" -> "symbol:secret_finder/ai/http.py#function:_read" [label="calls"];
@@ -319,7 +321,7 @@ digraph genesis {
   "symbol:secret_finder/diffparse.py#function:parse" -> "symbol:secret_finder/diffparse.py#class:Added" [label="calls"];
   "symbol:secret_finder/diffparse.py#function:parse" -> "symbol:secret_finder/diffparse.py#function:_target" [label="calls"];
   "symbol:secret_finder/inputs.py#function:_git" -> "symbol:secret_finder/inputs.py#class:InputError" [label="calls"];
-  "symbol:secret_finder/inputs.py#function:_git" -> "symbol:tests/test_providers.py#function:Resp.read" [label="calls"];
+  "symbol:secret_finder/inputs.py#function:_git" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
   "symbol:secret_finder/inputs.py#function:_has_head" -> "symbol:secret_finder/demo.py#function:run" [label="calls"];
   "symbol:secret_finder/inputs.py#function:list_commits" -> "symbol:secret_finder/inputs.py#class:InputError" [label="calls"];
   "symbol:secret_finder/inputs.py#function:list_commits" -> "symbol:secret_finder/inputs.py#function:_git" [label="calls"];
@@ -347,8 +349,8 @@ digraph genesis {
   "symbol:secret_finder/report.py#function:as_text" -> "symbol:secret_finder/report.py#function:_lines" [label="calls"];
   "symbol:secret_finder/store.py#function:LocalStore.__init__" -> "symbol:secret_finder/store.py#function:LocalStore._load_allowlist" [label="calls"];
   "symbol:secret_finder/store.py#function:LocalStore.__init__" -> "symbol:secret_finder/store.py#function:LocalStore._read_cache" [label="calls"];
-  "symbol:secret_finder/store.py#function:LocalStore._load_allowlist" -> "symbol:tests/test_providers.py#function:Resp.read" [label="calls"];
-  "symbol:secret_finder/store.py#function:LocalStore._read_salt" -> "symbol:tests/test_providers.py#function:Resp.read" [label="calls"];
+  "symbol:secret_finder/store.py#function:LocalStore._load_allowlist" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
+  "symbol:secret_finder/store.py#function:LocalStore._read_salt" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
   "symbol:secret_finder/store.py#function:LocalStore._write_atomic" -> "symbol:tests/test_menu.py#function:write" [label="calls"];
   "symbol:secret_finder/store.py#function:LocalStore.get" -> "symbol:secret_finder/store.py#function:Store.get" [label="calls"];
   "symbol:secret_finder/store.py#function:LocalStore.put" -> "symbol:secret_finder/store.py#function:LocalStore._write_atomic" [label="calls"];
@@ -403,7 +405,9 @@ digraph genesis {
   "symbol:tests/test_diffparse.py#function:ParseTest.test_no_newline_marker_is_ignored" -> "symbol:secret_finder/diffparse.py#function:parse" [label="calls"];
   "symbol:tests/test_docs.py#function:DocsTest.test_log_exists_and_architecture_lists_every_rule" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
   "symbol:tests/test_docs.py#function:DocsTest.test_prompt_file_matches_the_prompt_in_code" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
-  "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
+  "symbol:tests/test_docs.py#function:DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
+  "symbol:tests/test_docs.py#function:DocsTest.test_readme_is_short_and_covers_running_and_failures" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
+  "symbol:tests/test_docs.py#function:DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
   "symbol:tests/test_docs.py#function:read" -> "symbol:tests/test_docs.py#function:read" [label="calls"];
   "symbol:tests/test_inputs.py#function:git" -> "symbol:secret_finder/demo.py#function:run" [label="calls"];
   "symbol:tests/test_inputs.py#function:InputsTest.commit" -> "symbol:tests/test_inputs.py#function:git" [label="calls"];
@@ -508,12 +512,12 @@ digraph genesis {
   "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret" -> "symbol:secret_finder/store.py#function:Store.get" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret" -> "symbol:secret_finder/store.py#function:Store.put" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret" -> "symbol:tests/test_menu.py#function:write" [label="calls"];
-  "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret" -> "symbol:tests/test_providers.py#function:Resp.read" [label="calls"];
+  "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret" -> "symbol:tests/test_store.py#function:findings" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_default_allowlist_is_read_from_cwd_by_detect_and_cli" -> "symbol:secret_finder/cli.py#function:main" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_default_allowlist_is_read_from_cwd_by_detect_and_cli" -> "symbol:tests/test_store.py#function:findings" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_default_allowlist_is_read_from_cwd_by_detect_and_cli" -> "symbol:tests/test_store.py#function:StoreTest.allowlist" [label="calls"];
-  "symbol:tests/test_store.py#function:StoreTest.test_local_state_is_gitignored" -> "symbol:tests/test_providers.py#function:Resp.read" [label="calls"];
+  "symbol:tests/test_store.py#function:StoreTest.test_local_state_is_gitignored" -> "symbol:tests/test_packaging.py#function:read" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_salt_is_private_stable_and_not_the_raw_value" -> "symbol:secret_finder/store.py#class:LocalStore" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_write_failures_leave_no_temp_files_and_never_raise" -> "symbol:secret_finder/store.py#class:LocalStore" [label="calls"];
   "symbol:tests/test_store.py#function:StoreTest.test_write_failures_leave_no_temp_files_and_never_raise" -> "symbol:secret_finder/store.py#function:Store.put" [label="calls"];
@@ -673,7 +677,9 @@ digraph genesis {
   "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#class:DocsTest" [label="defines"];
   "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_log_exists_and_architecture_lists_every_rule" [label="defines"];
   "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_prompt_file_matches_the_prompt_in_code" [label="defines"];
-  "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_readme_covers_install_use_and_ai" [label="defines"];
+  "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_prompts_are_quoted_and_the_challenge_folder_is_not_published" [label="defines"];
+  "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_readme_is_short_and_covers_running_and_failures" [label="defines"];
+  "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:DocsTest.test_usage_guide_covers_the_options_the_readme_leaves_out" [label="defines"];
   "file:tests/test_docs.py" -> "symbol:tests/test_docs.py#function:read" [label="defines"];
   "file:tests/test_inputs.py" -> "symbol:tests/test_inputs.py#class:InputsTest" [label="defines"];
   "file:tests/test_inputs.py" -> "symbol:tests/test_inputs.py#function:git" [label="defines"];

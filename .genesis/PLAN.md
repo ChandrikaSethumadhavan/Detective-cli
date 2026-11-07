@@ -4,7 +4,7 @@
 
 - workflow: new-product
 - phase: verify
-- plan approval: ChandrikaSethumadhavan at 2026-11-07T11:13:04.145Z
+- plan approval: ChandrikaSethumadhavan at 2026-11-07T12:30:11.359Z
 
 ## Tasks
 
@@ -174,5 +174,13 @@
 - requirements: FR-24, FR-25, FR-26, AC-17, AC-18, AC-19
 - scope: secret_finder/menu.py, secret_finder/cli.py, Dockerfile, tests/test_menu.py, tests/test_packaging.py, tests/test_cli.py, tests/test_docs.py, README.md, docs/architecture.html, docs/ai-log.md
 - gates: unit: python3 -m unittest tests.test_menu tests.test_cli tests.test_demo tests.test_range tests.test_packaging tests.test_docs
+- next: Run the task pre-flight.
+
+### T-14 — Submission fixes: a short README (quick start and a Where it fails section) with the long usage text moved to docs/usage.md, the challenge PDF folder info/ removed from the working tree, docs/prompts.md with the author's prompts quoted verbatim, and the docs tests and AI log updated
+
+- state/risk: done / low
+- requirements: FR-13
+- scope: README.md, docs/usage.md, docs/prompts.md, docs/ai-log.md, info, .gitignore, tests/test_docs.py
+- gates: docs: python3 -m unittest tests.test_docs tests.test_packaging
 - next: Run the task pre-flight.
 

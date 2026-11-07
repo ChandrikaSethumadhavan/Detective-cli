@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-11-04T13:13:17.685Z",
-    "updated_at": "2026-11-07T11:15:53.860Z"
+    "updated_at": "2026-11-07T12:31:17.603Z"
   },
   "policy": {
     "ponytail": "full",
@@ -92,14 +92,14 @@
       ]
     },
     "plan_check": {
-      "at": "2026-11-07T11:12:57.305Z",
-      "source_hash": "25184b41b14f3df1e25b34b6c3eed51a4e5ea34ec7c1596c3a3c103afcfd9040"
+      "at": "2026-11-07T12:27:37.801Z",
+      "source_hash": "05b9292ff75bfdecd5f7571a182e4f46ba0ef9f5f2f3c113354175a58b457050"
     },
     "plan_approval": {
       "human": "ChandrikaSethumadhavan",
-      "reason": "Approved in chat 2026-11-07: T-13 interactive menu",
-      "at": "2026-11-07T11:13:04.145Z",
-      "source_hash": "25184b41b14f3df1e25b34b6c3eed51a4e5ea34ec7c1596c3a3c103afcfd9040"
+      "reason": "Approved in chat 2026-11-07: T-14 submission fixes",
+      "at": "2026-11-07T12:30:11.359Z",
+      "source_hash": "05b9292ff75bfdecd5f7571a182e4f46ba0ef9f5f2f3c113354175a58b457050"
     }
   },
   "artifacts": [
@@ -2022,6 +2022,100 @@
         "tests/test_store.py": "529370d2fffddcd4a90228bbb03ab967c24c4349a317a1e65b655df515a6528b",
         "tests/test_triage.py": "0fa67be9e2ab2525e9f8b45b9444b88e5a43061c718673ca3022897eeaa28bec"
       }
+    },
+    {
+      "id": "T-14",
+      "outcome": "Submission fixes: a short README (quick start and a Where it fails section) with the long usage text moved to docs/usage.md, the challenge PDF folder info/ removed from the working tree, docs/prompts.md with the author's prompts quoted verbatim, and the docs tests and AI log updated",
+      "state": "done",
+      "risk": "low",
+      "owner": null,
+      "scope": [
+        "README.md",
+        "docs/usage.md",
+        "docs/prompts.md",
+        "docs/ai-log.md",
+        "info",
+        ".gitignore",
+        "tests/test_docs.py"
+      ],
+      "dependencies": [],
+      "requirements": [
+        "FR-13"
+      ],
+      "inputs": [],
+      "environment": [],
+      "scenarios": [],
+      "gates": [
+        {
+          "id": "docs",
+          "kind": "command",
+          "command": "python3 -m unittest tests.test_docs tests.test_packaging",
+          "mandatory": true,
+          "status": "pass",
+          "evidence": {
+            "path": ".genesis/evidence/T-14-docs-1ca4bc83-1f2a-4408-bf70-5b6d6f5585fc.json",
+            "hash": "23dbf6a5ac8d7577d6e593ae5874be47c8d005687d7355b509b6bac473d6bf35",
+            "source_hash": "707ef8679f4ccfc97406966f6f93eee0b28c1b7a359961e99183a28cb347b424",
+            "config_hash": "46bb729f46820a6e96f10af742338af66f351cab6fa112ba5573a5612d4d7478",
+            "observed_at": "2026-11-07T12:31:16.085Z"
+          }
+        }
+      ],
+      "next_action": "Run the task pre-flight.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-11-07T12:27:36.801Z",
+      "updated_at": "2026-11-07T12:31:16.936Z",
+      "base_manifest": {
+        ".dockerignore": "a15359b59e3a8219572a5ea2bbe35347b91a39e89e4cff4216903ce188285c65",
+        ".gitignore": "28d6f5b6b176aa9ecb13c0ae2a71657d155cf008621d59daf7eec554d748eaf3",
+        ".secretfinder/allowlist": "9b720964589c3041e26cb1b82c5e66f14a5aeaea51ae684b2a6be624e11ef05f",
+        "AGENTS.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "CLAUDE.md": "a67615d8ed1ed3dd1b0d2cbf874ceb8d4a285c3335cdfc2d785ec80a06daecc1",
+        "Dockerfile": "a685aca3744b14aafb1cdfd25a28e895311ebdfab8f8adc18449b8573e5b493a",
+        "README.md": "578d84f36d19356249a121a1c91dd73b02cc93cf032e4e97e6edd5c1580c7149",
+        "SPEC.md": "5952316e0ecfe61d08a0b4940e18ba3d928eb71dfc8ccfcee93f6e138f3f3fec",
+        "docs/ai-log.md": "e57fd631e22b3bd570b5fba9494f316f436045c7c4d695c18f7347878ddf1854",
+        "docs/architecture.html": "e59ad620a288204529df4b558884c150313b3c6852a983f100bae18b603398ac",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf": "1643bb609324b3f529cf4e1dcb0b06f4f5c2108dd021644ad619a197a0e1cdba",
+        "info/Mini Case Study_AI-Native Software Engineer (Human).pdf:Zone.Identifier": "333fe318e900399484601469768ae576bdc3461e12cc258e27bb64d2ad04c52b",
+        "prompts/triage.txt": "9de376d49e275d92894a642e3deed244db58336c4efe5a3f2d7ac38aea2682e6",
+        "pyproject.toml": "373d94c65108a058911691c36e635eed2be1be7858a47b9a432bff07c0b6ec46",
+        "secret_finder/__init__.py": "78fb5f112b9e331e6d45cc7ba20c364344137c40dce44296fbdbe7854ba5bea2",
+        "secret_finder/__main__.py": "1e83fdc33fa81c618835aadf804ae88ffeced9eebe988124bb14a16973f67009",
+        "secret_finder/ai/__init__.py": "b8c197945b010a5f4d5a43e7d9221fd3f92ae08d57b30648cf1c098a63d0486b",
+        "secret_finder/ai/base.py": "9fb23ce5a7f0e8949557100bef9f126b1918408f340b3ab41a33cbc65fd730f9",
+        "secret_finder/ai/google.py": "1ed4b72cf322efb2d4d403ac478bd18fbf350d40e2d2ee7b37162ad6220d80c7",
+        "secret_finder/ai/http.py": "227a62a66e230e1bf257406cf90824d49b3ff075af9347c28fda55cfcb20bf3b",
+        "secret_finder/ai/openrouter.py": "801b58e4108bcdafcb72ab4e7f5abed78364a2ca7e647f3d0ac0ccbafbc20ace",
+        "secret_finder/cli.py": "f3ae6d575521b8217e72f3ca277f422feda35a9728847ab15afa30c79ba48a32",
+        "secret_finder/demo.py": "b40efcf18c67c3cd44521daf281616e1a996df27686fe3a2ac917c12b662dbdd",
+        "secret_finder/detect.py": "9b29bcfdee60793e1c353bd61ee9a7c049b050544335780bdd31abf35650c97c",
+        "secret_finder/diffparse.py": "2f7645306bd3462357622bdf65450fa28f9612276d7fe531d01e8344e307917c",
+        "secret_finder/entropy.py": "226687597242f26a3f96523696550b57426e3b41bd1b34fb98e4aeba97f8b6e2",
+        "secret_finder/inputs.py": "88b0a0de546d54b15037e4c603a8a849bf754eb810c5ae033885966661c09c5b",
+        "secret_finder/mask.py": "4440c3cbda28e181e7182d47eb243032fa3ac282ccb705bd2174bf577e9de86a",
+        "secret_finder/menu.py": "626146953ae856cc338cb40c69a2acc9d318b9fb3c57d1a34dda397f5002af57",
+        "secret_finder/report.py": "d9e5fb0d373722038bbbfb803b85619034c27cc012096a647d71d0559457d47a",
+        "secret_finder/rules.py": "476387ae387e895e228641d139bd84b38eb4f976ddec775907c45fd6ed9918b7",
+        "secret_finder/store.py": "10a5158b12099b8af68213ccee2681556d599d27ccd47678d4c8a0da26dce03f",
+        "secret_finder/triage.py": "0e50d2d381fbbe7c4ef803b35f2204feba1302aafcc34d1fd086db4ac64577f3",
+        "tests/test_cli.py": "36bfec8c05f126b471c42b0a20bf013a12d8d759686c6f9acc7129fbddda29c4",
+        "tests/test_demo.py": "c71fb09a8fb2649c3182f354d26b69f2b2e93df4cff2eb26b86e8cbbaf8ddb7b",
+        "tests/test_detect.py": "b6d0196a25105943098b2a4c7c78440c65ff9c72dc32a075ffbc9896d4d897fd",
+        "tests/test_diffparse.py": "c94f4883146eec76c4cb1762efa765be6eea5ba7baf8d45b1d5faca0179199b3",
+        "tests/test_docs.py": "81f218938ee806f86efc7788e250d544b74039d0ce6227a1b662ab7c5f116a44",
+        "tests/test_inputs.py": "ac12e3322f40a4bb7a5c2284475e2e1ea80e342699d38dd930bbe30c19f11d9f",
+        "tests/test_menu.py": "27348982aeea958f5d6665cd3dede33cc7a99bab8b90c7057272f197ea82a4a7",
+        "tests/test_packaging.py": "6a651497631bdb25bfbc1e95d0b626feeadf9cfd7294c3a2eb30cddb61605dc3",
+        "tests/test_providers.py": "2c41fca9fc97adea42bd9e2e2bc552caeb6f5cbaebd05cfedeeb70390bc18c18",
+        "tests/test_range.py": "979a1159f45c69dc4bc33525e1643051469958a8c3a16cf8e868207ebef2c134",
+        "tests/test_remediation.py": "a3a93bc01c06b362fcfadc98d3bab27d527ea081d575e2acea26d77509e4bef5",
+        "tests/test_store.py": "529370d2fffddcd4a90228bbb03ab967c24c4349a317a1e65b655df515a6528b",
+        "tests/test_triage.py": "0fa67be9e2ab2525e9f8b45b9444b88e5a43061c718673ca3022897eeaa28bec"
+      }
     }
   ],
   "learning_proposals": [],
@@ -2931,6 +3025,54 @@
       "cost": null,
       "stop_reason": null,
       "ended_at": "2026-11-07T11:15:45.104Z"
+    },
+    {
+      "id": "e1049c2a-ff93-48f6-98a0-386b64e9470c",
+      "task": "T-14",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_docs tests.test_packaging",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 7905,
+      "child_pid": 7944,
+      "started_at": "2026-11-07T12:31:06.729Z",
+      "status": "passed",
+      "before_hash": "775e43139590e088d7dc179acf9fea9bb6f1d1cbf40fd58f3ab1566cc6c7442d",
+      "config_hash": "46bb729f46820a6e96f10af742338af66f351cab6fa112ba5573a5612d4d7478",
+      "environment": {
+        "node": "v24.20.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-07T12:31:07.817Z"
+    },
+    {
+      "id": "1ca4bc83-1f2a-4408-bf70-5b6d6f5585fc",
+      "task": "T-14",
+      "kind": "gate",
+      "command": "python3 -m unittest tests.test_docs tests.test_packaging",
+      "timeout": 120000,
+      "authorization": null,
+      "pid": 8070,
+      "child_pid": 8113,
+      "started_at": "2026-11-07T12:31:14.758Z",
+      "status": "passed",
+      "before_hash": "707ef8679f4ccfc97406966f6f93eee0b28c1b7a359961e99183a28cb347b424",
+      "config_hash": "46bb729f46820a6e96f10af742338af66f351cab6fa112ba5573a5612d4d7478",
+      "environment": {
+        "node": "v24.20.0",
+        "platform": "linux",
+        "arch": "x64",
+        "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+        "variables": {}
+      },
+      "cost": null,
+      "stop_reason": null,
+      "ended_at": "2026-11-07T12:31:16.085Z"
     }
   ],
   "authorizations": [],
@@ -2938,11 +3080,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-11-07T11:15:53.818Z",
+    "at": "2026-11-07T12:31:17.564Z",
     "revision": {
-      "commit": "fe41222b9478e71b183ffeb638f6ad51008863b5",
+      "commit": "2decddbcd491d41ad4856aeb2da60c8c896115d9",
       "dirty": true,
-      "source_hash": "443fdc8c39ae6dd4880c5ea38a9e83842379a00a557a70a77f89918205133807"
+      "source_hash": "707ef8679f4ccfc97406966f6f93eee0b28c1b7a359961e99183a28cb347b424"
     },
     "active_task": null,
     "next_action": "Review completed work and choose the next bounded outcome."

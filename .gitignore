@@ -222,3 +222,6 @@ __marimo__/
 # secret-finder local state
 .secretfinder/cache.json
 .secretfinder/salt
+
+# challenge brief, not part of this project
+info/

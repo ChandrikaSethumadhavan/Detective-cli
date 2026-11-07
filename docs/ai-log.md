@@ -1,6 +1,6 @@
 # AI log
 
-How AI was used to build Detective-cli, what it produced, and what was checked. The runtime prompt the tool sends to a model is in `prompts/triage.txt`.
+How AI was used to build Detective-cli, what it produced, and what was checked. The prompts as typed are in [prompts.md](prompts.md). The runtime prompt the tool sends to a model is in `prompts/triage.txt`.
 
 ## Tools and roles
 
@@ -19,6 +19,7 @@ How AI was used to build Detective-cli, what it produced, and what was checked. 
 | 4 | Approve the spec, then the plan. | Seven tasks, later extended to 15 task records (see below). |
 | 5 | Add a remediation step to each finding as a natural part of the tool. | FR-14, NFR-7, AC-9 and task T-2a: a fixed fix string per rule with exact revoke or rotate commands. |
 | 6 | Approve each task after review, one at a time. | Each medium-risk task needed the author's independent-review approval. |
+| 11 | Asked whether the project meets the brief and the recruiter email: README must be short with a where-it-fails section, the company PDF must not be published, and prompts should be quoted. | A short README, `docs/usage.md` for the rest, `docs/prompts.md` with verbatim prompts, and `info/` (the PDF) removed from the working tree and gitignored. |
 | 10 | Said the steps were too many for a stranger: wanted a single command that opens a menu (try the demo, or try it on your own folder with JSON, all commits, demo, exit), returning to the menu after every result. | An interactive menu (`secret-finder` with no arguments, or `secret-finder menu`), repository discovery under the current folder, and a Docker image whose default is the menu (spec FR-24 to FR-26, AC-17 to AC-19). |
 | 9 | Asked to scan the commits of a repo or PR and report them, not just uncommitted changes. | `scan --range` (spec FR-20 to FR-23, AC-14 to AC-16): per-commit scanning, grouped output, JSON `commit` key, commit-count status line, a size limit. The demo output order was fixed in the same task. |
 | 8 | Feedback after trying the Docker image: print a privacy message first, add a way to try the tool without a real repo, and print clearer status so a clean scan does not look empty. | A stderr privacy notice, a stderr status line, `--quiet`, and `secret-finder demo` (spec FR-17 to FR-19, AC-11 to AC-13). |
@@ -37,6 +38,7 @@ How AI was used to build Detective-cli, what it produced, and what was checked. 
 | T-7c | README, this log, runtime prompt, documentation update |
 | T-8 | pyproject.toml, Dockerfile, README rewrite, documentation update |
 | T-9 | README section "Gaps in this project" restored at the author's request, listing known limitations |
+| T-14 | Submission fixes: short README, usage guide, verbatim prompts, challenge PDF folder removed |
 | T-13 | Interactive menu, Docker default entrypoint, README quick start |
 | T-12 | History scanning with --range, and the demo output order |
 | T-11 | Privacy notice, status line and the demo command |

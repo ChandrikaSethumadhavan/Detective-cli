@@ -1,0 +1,30 @@
+{
+  "task": "T-14",
+  "gate": "docs",
+  "kind": "command",
+  "attempt": "e1049c2a-ff93-48f6-98a0-386b64e9470c",
+  "command": "python3 -m unittest tests.test_docs tests.test_packaging",
+  "started_at": "2026-11-07T12:31:06.729Z",
+  "observed_at": "2026-11-07T12:31:07.817Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "",
+  "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.002s\n\nOK\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "2decddbcd491d41ad4856aeb2da60c8c896115d9",
+    "dirty": true
+  },
+  "source_hash": "775e43139590e088d7dc179acf9fea9bb6f1d1cbf40fd58f3ab1566cc6c7442d",
+  "before_hash": "775e43139590e088d7dc179acf9fea9bb6f1d1cbf40fd58f3ab1566cc6c7442d",
+  "config_hash": "46bb729f46820a6e96f10af742338af66f351cab6fa112ba5573a5612d4d7478",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "f71a944ff13b8fddc62c7707f81ac3a7ff1ddd8bdcf0ce69a55868896c4c4baf"
+}
