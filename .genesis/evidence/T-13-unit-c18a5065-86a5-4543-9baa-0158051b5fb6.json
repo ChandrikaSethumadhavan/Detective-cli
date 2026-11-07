@@ -1,0 +1,30 @@
+{
+  "task": "T-13",
+  "gate": "unit",
+  "kind": "command",
+  "attempt": "c18a5065-86a5-4543-9baa-0158051b5fb6",
+  "command": "python3 -m unittest tests.test_menu tests.test_cli tests.test_demo tests.test_range tests.test_packaging tests.test_docs",
+  "started_at": "2026-11-07T11:15:04.204Z",
+  "observed_at": "2026-11-07T11:15:07.583Z",
+  "exit_code": 1,
+  "signal": null,
+  "stdout": "",
+  "stderr": ".........................F..\n======================================================================\nFAIL: test_log_exists_and_architecture_lists_every_rule (tests.test_docs.DocsTest.test_log_exists_and_architecture_lists_every_rule)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/chan/Detective-cli/tests/test_docs.py\", line 29, in test_log_exists_and_architecture_lists_every_rule\n    self.assertIn(f\"<code>{rule.id}</code>\", html)\nAssertionError: '<code>aws-access-key</code>' not found in '<!doctype html>\\n<html lang=\"en\">\\n<meta charset=\"utf-8\">\\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\\n\\n</html>\\n'\n\n----------------------------------------------------------------------\nRan 28 tests in 2.578s\n\nFAILED (failures=1)\n",
+  "failure": "command-failed",
+  "receipt": null,
+  "revision": {
+    "commit": "fe41222b9478e71b183ffeb638f6ad51008863b5",
+    "dirty": true
+  },
+  "source_hash": "fb2669eee795bec4e79b2a896babbb187ab0d697679c1e6a916293d2be017bae",
+  "before_hash": "fb2669eee795bec4e79b2a896babbb187ab0d697679c1e6a916293d2be017bae",
+  "config_hash": "f8548f5d06576f2b103750e2ddb67ce536fdd3f55547dfd7cebae078a58675cd",
+  "environment": {
+    "node": "v24.20.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "cbdddbf25e5ed5f3406b93881ae54f64d11a8c54f0bfe177d19d9d9946a6a971",
+    "variables": {}
+  },
+  "hash": "4e7be68a971fd8337e33279099828145e5b2c08ff15423168f657dec42498ecc"
+}

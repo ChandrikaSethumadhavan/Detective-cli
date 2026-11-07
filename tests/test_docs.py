@@ -15,7 +15,7 @@ def read(*parts):
 class DocsTest(unittest.TestCase):
     def test_readme_covers_install_use_and_ai(self):
         text = read("README.md")
-        for needle in ("## Install", "pipx install", "docker build", "secret-finder scan", "--commit", "--range", "--json", "SF_AI_API_KEY", "secret-finder demo", "docker run --rm secret-finder demo", "runs locally"):
+        for needle in ("## Quick start", "pipx install", "docker build", "secret-finder scan", "--commit", "--range", "--json", "SF_AI_API_KEY", "secret-finder demo", "docker run --rm -it", "runs locally", "Try it on your own folder", "#master", "@master"):
             self.assertIn(needle, text)
         self.assertIn("## Gaps in this project", text)
 

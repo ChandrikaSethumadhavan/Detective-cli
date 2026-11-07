@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "project": "Detective-cli",
-  "revision": "7e9fe02ce4ea03562e412bc260d3c05635ec34a3",
-  "sourceHash": "3687b283a444a24da451a51b20e1419cab4cbd53e47e7bc0811d4c81eb459a49",
+  "revision": "fe41222b9478e71b183ffeb638f6ad51008863b5",
+  "sourceHash": "8f37167a96c78c05fc47bbfe6a1ddf00e6a861dd5604d0784528c06ae00e5a0d",
   "provenance": {
     "tool": "genesis-graphizer",
     "method": "static-analysis",
@@ -87,7 +87,7 @@
       "language": "python",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "a077b510b56d9735634f7e34bb6d6cfa921c1ca73a2c9b42167ea7e5eefc0214"
+      "contentHash": "2eaf5859cc63da7c56e732061247dff98d1d741be1c847e0985521edd81ce435"
     },
     {
       "id": "file:secret_finder/demo.py",
@@ -148,6 +148,16 @@
       "confidence": 1,
       "extractor": "filesystem",
       "contentHash": "0089dda6b39b9bef2641fdf940db009e5be22dd54450e710a633b60f74eaec88"
+    },
+    {
+      "id": "file:secret_finder/menu.py",
+      "type": "file",
+      "label": "secret_finder/menu.py",
+      "path": "secret_finder/menu.py",
+      "language": "python",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "84d3aa581bfeb4c343c162097947586c29713e733c70236311fcce00484ab656"
     },
     {
       "id": "file:secret_finder/report.py",
@@ -237,7 +247,7 @@
       "language": "python",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "0b4a25cac62a7e3a16e54b5ed9fc065803adde65808372c548ae333086dcc008"
+      "contentHash": "15f8716582dcae3155e316d50fe56cd311d4bc3fb30aac6ffa14cbc2dad9aa6f"
     },
     {
       "id": "file:tests/test_inputs.py",
@@ -250,6 +260,16 @@
       "contentHash": "7f2ba2cbf222f5be286d7bb5651947c8ad53e680b2108cfcd0bc8d8e47a4aedd"
     },
     {
+      "id": "file:tests/test_menu.py",
+      "type": "file",
+      "label": "tests/test_menu.py",
+      "path": "tests/test_menu.py",
+      "language": "python",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "7e6869ebcbf3047b2b3ad97d3a1061e39e082df2a4288761c88f05386e4329f0"
+    },
+    {
       "id": "file:tests/test_packaging.py",
       "type": "file",
       "label": "tests/test_packaging.py",
@@ -257,7 +277,7 @@
       "language": "python",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "cadb18184224434073287b1d90ca7585fd7413d19069e13c2475ff256145f972"
+      "contentHash": "e4a8f32f36f74b84c201ab63dfd633aeefe5464aeaf9505ae20458b8f6234516"
     },
     {
       "id": "file:tests/test_providers.py",
@@ -712,7 +732,7 @@
       "name": "_Count",
       "label": "_Count",
       "path": "secret_finder/cli.py",
-      "line": 60,
+      "line": 61,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "358eaadf7b9a9b5fdb7be3144149a761a1e864355e60178973b39691a40bd048"
@@ -724,7 +744,7 @@
       "name": "_Count.__init__",
       "label": "_Count.__init__",
       "path": "secret_finder/cli.py",
-      "line": 61,
+      "line": 62,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "1a4342955e7548a2cd9f4ed770e8d82b07a5c469512264f039fa1c0d56fb1d60"
@@ -736,7 +756,7 @@
       "name": "_Count.added",
       "label": "_Count.added",
       "path": "secret_finder/cli.py",
-      "line": 64,
+      "line": 65,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "9ba0f5adf56db524817bd0e69e87b3a6eb863891be1fd26a56bfccb7828a09e1"
@@ -748,7 +768,7 @@
       "name": "_counts",
       "label": "_counts",
       "path": "secret_finder/cli.py",
-      "line": 40,
+      "line": 41,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "9a836f63375ae7fdd2490b47954efcd53173c85bdb3f011c5fc9550399056d43"
@@ -760,7 +780,7 @@
       "name": "_notice",
       "label": "_notice",
       "path": "secret_finder/cli.py",
-      "line": 20,
+      "line": 21,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "7dd1a517f20ecdc543eb66f3b307e52ee3f4491aca2e4c55c28286e2b9644185"
@@ -772,7 +792,7 @@
       "name": "_parser",
       "label": "_parser",
       "path": "secret_finder/cli.py",
-      "line": 89,
+      "line": 90,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "aa5fd5ce1621a417c12f853268a6bb17efc8ff01fd7c0b3a21d4d14895d05221"
@@ -784,7 +804,7 @@
       "name": "_plural",
       "label": "_plural",
       "path": "secret_finder/cli.py",
-      "line": 36,
+      "line": 37,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "b6aae72bd69ec1c4566e24f3eeff258806f3131df6407c944438af7ecd104b70"
@@ -796,7 +816,7 @@
       "name": "_scan",
       "label": "_scan",
       "path": "secret_finder/cli.py",
-      "line": 71,
+      "line": 72,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "a3bfd0ee8edde9abe0fcb06e0e5f8a76c932eb8a04408bb1b8a7c83a72a61f27"
@@ -808,7 +828,7 @@
       "name": "_scan.masked",
       "label": "_scan.masked",
       "path": "secret_finder/cli.py",
-      "line": 72,
+      "line": 73,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "a45560d0c7dd9738fd8e645ff26b2fbb0984f46a1f9b424bcef1910fb7f46aab"
@@ -820,7 +840,7 @@
       "name": "_source",
       "label": "_source",
       "path": "secret_finder/cli.py",
-      "line": 28,
+      "line": 29,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "eb07ead1124beaef7847d23dbd62f1ad8ddb3a5a1799de6927b576fb40761965"
@@ -832,7 +852,7 @@
       "name": "_status",
       "label": "_status",
       "path": "secret_finder/cli.py",
-      "line": 45,
+      "line": 46,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "7b75726ae15039baa84b3764ef93ef9aa9fe83ea6fab677b7ae22aae79c7ac2f"
@@ -844,7 +864,7 @@
       "name": "main",
       "label": "main",
       "path": "secret_finder/cli.py",
-      "line": 105,
+      "line": 107,
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "f583c61a40c09d3bfca9b3e6ef3e28a4f4dfaced58f9b895d0d76c0d77a8dd4c"
@@ -1076,6 +1096,114 @@
       "confidence": 1,
       "extractor": "python-stdlib-ast",
       "contentHash": "643abefa5548f9e263aaee44fdbba3a6cb7cd7f0881d331e5a4b03befe57ea6c"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#class:Quit",
+      "type": "symbol",
+      "kind": "class",
+      "name": "Quit",
+      "label": "Quit",
+      "path": "secret_finder/menu.py",
+      "line": 13,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "6b1d6fe7ea48390849df2f5f2ae33374dcfb0f769022b05102a2abac0d925426"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#function:_ask",
+      "type": "symbol",
+      "kind": "function",
+      "name": "_ask",
+      "label": "_ask",
+      "path": "secret_finder/menu.py",
+      "line": 48,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "0fcde051b2dba16c20f1c64f0b8fa60d8948e940c0bbca30f8bfb29a49572a33"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#function:_choose",
+      "type": "symbol",
+      "kind": "function",
+      "name": "_choose",
+      "label": "_choose",
+      "path": "secret_finder/menu.py",
+      "line": 55,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "09c325812c845309b090c24fa8c2de079438e73756208353fdce61a08bd557bd"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#function:_git_ok",
+      "type": "symbol",
+      "kind": "function",
+      "name": "_git_ok",
+      "label": "_git_ok",
+      "path": "secret_finder/menu.py",
+      "line": 41,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "bc13eb038e543cf10228e285f4c309acb49c3fd1daaf5454e3e3de3c7fa79c7f"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#function:_pick_repo",
+      "type": "symbol",
+      "kind": "function",
+      "name": "_pick_repo",
+      "label": "_pick_repo",
+      "path": "secret_finder/menu.py",
+      "line": 73,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "bc60b14ba25aecee974f4538d7d87410636db6138c352307462a12a4c2289be8"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#function:_scan",
+      "type": "symbol",
+      "kind": "function",
+      "name": "_scan",
+      "label": "_scan",
+      "path": "secret_finder/menu.py",
+      "line": 96,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "a3bfd0ee8edde9abe0fcb06e0e5f8a76c932eb8a04408bb1b8a7c83a72a61f27"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#function:find_repos",
+      "type": "symbol",
+      "kind": "function",
+      "name": "find_repos",
+      "label": "find_repos",
+      "path": "secret_finder/menu.py",
+      "line": 17,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "c025496ab77a5990c4711bc577a8b3c95a2b2e997d41d2acbca2b81f2726af4e"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#function:find_repos.walk",
+      "type": "symbol",
+      "kind": "function",
+      "name": "find_repos.walk",
+      "label": "find_repos.walk",
+      "path": "secret_finder/menu.py",
+      "line": 20,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "c6498cae38dc2db63f81288aa720d6c31851a8d0ed8b2b0115d5d7d3ca5455d4"
+    },
+    {
+      "id": "symbol:secret_finder/menu.py#function:run",
+      "type": "symbol",
+      "kind": "function",
+      "name": "run",
+      "label": "run",
+      "path": "secret_finder/menu.py",
+      "line": 107,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "8d0b6bf00d06e33e1ec0e8955ce3bc8c37c0363cab2e9c63707d2c69c6b70294"
     },
     {
       "id": "symbol:secret_finder/report.py#function:_clean",
@@ -1990,6 +2118,150 @@
       "contentHash": "831a638ee26b16b0d1b9eb690c0301f6c63a5f7c340cdda795d5903c7e5dff2d"
     },
     {
+      "id": "symbol:tests/test_menu.py#class:MenuTest",
+      "type": "symbol",
+      "kind": "class",
+      "name": "MenuTest",
+      "label": "MenuTest",
+      "path": "tests/test_menu.py",
+      "line": 40,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "6cead09cd6cdf503a0fc8ce7e34107a7dcb687488a36b7275219251415f621e4"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:drive",
+      "type": "symbol",
+      "kind": "function",
+      "name": "drive",
+      "label": "drive",
+      "path": "tests/test_menu.py",
+      "line": 32,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "91df3dcbc49341431447550acbae2738e86159ba27535e9c2db0293e29a4920a"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:git",
+      "type": "symbol",
+      "kind": "function",
+      "name": "git",
+      "label": "git",
+      "path": "tests/test_menu.py",
+      "line": 22,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "665b17b8c32fecf12438a08b01587755f01fd592611e4e8cf0572b4aa8dc055d"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:MenuTest.setUp",
+      "type": "symbol",
+      "kind": "function",
+      "name": "MenuTest.setUp",
+      "label": "MenuTest.setUp",
+      "path": "tests/test_menu.py",
+      "line": 41,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "6d4bec91f7269d7a5d7af02f93775a50d9315c1c199fb43bb16d40d34c5754fc"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:MenuTest.test_bad_input_never_ends_the_menu",
+      "type": "symbol",
+      "kind": "function",
+      "name": "MenuTest.test_bad_input_never_ends_the_menu",
+      "label": "MenuTest.test_bad_input_never_ends_the_menu",
+      "path": "tests/test_menu.py",
+      "line": 76,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "69eae18c8855c6c1b6cba93e406506e5c3a09840a7f1c4a8fdf670a488fb6284"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:MenuTest.test_ctrl_c_and_end_of_input_say_goodbye",
+      "type": "symbol",
+      "kind": "function",
+      "name": "MenuTest.test_ctrl_c_and_end_of_input_say_goodbye",
+      "label": "MenuTest.test_ctrl_c_and_end_of_input_say_goodbye",
+      "path": "tests/test_menu.py",
+      "line": 91,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "243abc14f4ddd47056c9da1d9e4734a6b8c383bfefdb0533107238191e4a304b"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:MenuTest.test_empty_repo_explains_instead_of_failing_and_f_changes_folder",
+      "type": "symbol",
+      "kind": "function",
+      "name": "MenuTest.test_empty_repo_explains_instead_of_failing_and_f_changes_folder",
+      "label": "MenuTest.test_empty_repo_explains_instead_of_failing_and_f_changes_folder",
+      "path": "tests/test_menu.py",
+      "line": 83,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "afd9d198895f89cd3982eaa1a281529aeb01dce71556279643e8b0f3c175d522"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:MenuTest.test_find_repos_skips_hidden_and_vendor_folders_and_respects_limits",
+      "type": "symbol",
+      "kind": "function",
+      "name": "MenuTest.test_find_repos_skips_hidden_and_vendor_folders_and_respects_limits",
+      "label": "MenuTest.test_find_repos_skips_hidden_and_vendor_folders_and_respects_limits",
+      "path": "tests/test_menu.py",
+      "line": 97,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "c1685ca625f4b5b1330d1f250b0f1af6a0f0267da2fab32314f2959d01979fa5"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:MenuTest.test_full_walkthrough_returns_to_the_menu_after_every_step",
+      "type": "symbol",
+      "kind": "function",
+      "name": "MenuTest.test_full_walkthrough_returns_to_the_menu_after_every_step",
+      "label": "MenuTest.test_full_walkthrough_returns_to_the_menu_after_every_step",
+      "path": "tests/test_menu.py",
+      "line": 63,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "c708fa266ab7885e61bc77dee6fef48b98bf9f10453c9d47d0f9fbf7253da077"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:MenuTest.test_menu_command_works_without_a_terminal",
+      "type": "symbol",
+      "kind": "function",
+      "name": "MenuTest.test_menu_command_works_without_a_terminal",
+      "label": "MenuTest.test_menu_command_works_without_a_terminal",
+      "path": "tests/test_menu.py",
+      "line": 112,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "35b6258a2aad1263c9073f9a834d767a18351b264499bb20a46ed44ced6e57cc"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:MenuTest.test_no_arguments_without_a_terminal_prints_usage_and_the_docker_hint",
+      "type": "symbol",
+      "kind": "function",
+      "name": "MenuTest.test_no_arguments_without_a_terminal_prints_usage_and_the_docker_hint",
+      "label": "MenuTest.test_no_arguments_without_a_terminal_prints_usage_and_the_docker_hint",
+      "path": "tests/test_menu.py",
+      "line": 104,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "99199f2ad5740b19e70b0caf451e70d1769d1f9583be2fc0df3f809e8449c268"
+    },
+    {
+      "id": "symbol:tests/test_menu.py#function:write",
+      "type": "symbol",
+      "kind": "function",
+      "name": "write",
+      "label": "write",
+      "path": "tests/test_menu.py",
+      "line": 26,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast",
+      "contentHash": "0629560f8d7748ba124edddde409a11f778b04a4e147571b052dcc019c73dc41"
+    },
+    {
       "id": "symbol:tests/test_packaging.py#class:PackagingTest",
       "type": "symbol",
       "kind": "class",
@@ -2844,12 +3116,12 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/ai/http.py#function:_read",
-      "target": "symbol:tests/test_packaging.py#function:read",
+      "target": "symbol:tests/test_providers.py#function:Resp.read",
       "tier": "ambiguous",
       "candidates": [
-        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read"
+        "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3122,6 +3394,18 @@
     },
     {
       "type": "calls",
+      "source": "symbol:secret_finder/cli.py#function:main",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
       "source": "symbol:secret_finder/demo.py#function:_git",
       "target": "symbol:secret_finder/demo.py#function:run",
       "tier": "proven",
@@ -3154,6 +3438,18 @@
       "tier": "proven",
       "resolved": true,
       "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/demo.py#function:run",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
       "extractor": "python-stdlib-ast-calls"
     },
     {
@@ -3261,12 +3557,12 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/inputs.py#function:_git",
-      "target": "symbol:tests/test_packaging.py#function:read",
+      "target": "symbol:tests/test_providers.py#function:Resp.read",
       "tier": "ambiguous",
       "candidates": [
-        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read"
+        "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3275,14 +3571,15 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/inputs.py#function:_has_head",
-      "target": "symbol:tests/test_cli.py#function:run",
+      "target": "symbol:secret_finder/demo.py#function:run",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:secret_finder/demo.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:secret_finder/demo.py#function:run",
-        "symbol:tests/test_range.py#function:run"
+        "symbol:tests/test_range.py#function:run",
+        "symbol:secret_finder/menu.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3362,6 +3659,123 @@
     },
     {
       "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:_choose",
+      "target": "symbol:secret_finder/menu.py#function:_ask",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:_git_ok",
+      "target": "symbol:secret_finder/menu.py#function:run",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:_pick_repo",
+      "target": "symbol:secret_finder/menu.py#function:_ask",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:_pick_repo",
+      "target": "symbol:secret_finder/menu.py#function:_git_ok",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:_pick_repo",
+      "target": "symbol:secret_finder/menu.py#function:find_repos",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:_scan",
+      "target": "symbol:secret_finder/cli.py#function:main",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:find_repos",
+      "target": "symbol:secret_finder/menu.py#function:find_repos.walk",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:find_repos.walk",
+      "target": "symbol:secret_finder/menu.py#function:find_repos.walk",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:run",
+      "target": "symbol:secret_finder/menu.py#function:_choose",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:run",
+      "target": "symbol:secret_finder/menu.py#function:_git_ok",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:run",
+      "target": "symbol:secret_finder/menu.py#function:_pick_repo",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:run",
+      "target": "symbol:secret_finder/menu.py#function:_scan",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/menu.py#function:run",
+      "target": "symbol:secret_finder/menu.py#function:run",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
       "source": "symbol:secret_finder/report.py#function:_lines",
       "target": "symbol:secret_finder/report.py#function:_clean",
       "tier": "proven",
@@ -3408,12 +3822,12 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/store.py#function:LocalStore._load_allowlist",
-      "target": "symbol:tests/test_packaging.py#function:read",
+      "target": "symbol:tests/test_providers.py#function:Resp.read",
       "tier": "ambiguous",
       "candidates": [
-        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read"
+        "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3422,12 +3836,24 @@
     {
       "type": "calls",
       "source": "symbol:secret_finder/store.py#function:LocalStore._read_salt",
-      "target": "symbol:tests/test_packaging.py#function:read",
+      "target": "symbol:tests/test_providers.py#function:Resp.read",
       "tier": "ambiguous",
       "candidates": [
-        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read"
+        "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:secret_finder/store.py#function:LocalStore._write_atomic",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3610,6 +4036,18 @@
     },
     {
       "type": "calls",
+      "source": "symbol:tests/test_cli.py#function:CliTest.test_commit_and_working_dir_modes",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
       "source": "symbol:tests/test_cli.py#function:CliTest.test_json_output_has_fix_and_no_raw_secret",
       "target": "symbol:tests/test_cli.py#function:run",
       "tier": "proven",
@@ -3674,14 +4112,15 @@
     {
       "type": "calls",
       "source": "symbol:tests/test_demo.py#function:DemoTest.test_demo_command_runs_from_the_module_entry_point",
-      "target": "symbol:tests/test_cli.py#function:run",
+      "target": "symbol:secret_finder/demo.py#function:run",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:secret_finder/demo.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:secret_finder/demo.py#function:run",
-        "symbol:tests/test_range.py#function:run"
+        "symbol:tests/test_range.py#function:run",
+        "symbol:secret_finder/menu.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3690,14 +4129,15 @@
     {
       "type": "calls",
       "source": "symbol:tests/test_demo.py#function:DemoTest.test_demo_lists_findings_cleans_up_and_leaves_the_cwd_alone",
-      "target": "symbol:tests/test_cli.py#function:run",
+      "target": "symbol:secret_finder/demo.py#function:run",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:secret_finder/demo.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:secret_finder/demo.py#function:run",
-        "symbol:tests/test_range.py#function:run"
+        "symbol:tests/test_range.py#function:run",
+        "symbol:secret_finder/menu.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3958,14 +4398,15 @@
     {
       "type": "calls",
       "source": "symbol:tests/test_inputs.py#function:git",
-      "target": "symbol:tests/test_cli.py#function:run",
+      "target": "symbol:secret_finder/demo.py#function:run",
       "tier": "ambiguous",
       "candidates": [
+        "symbol:secret_finder/demo.py#function:run",
         "symbol:tests/test_cli.py#function:run",
         "symbol:tests/test_detect.py#function:run",
         "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
-        "symbol:secret_finder/demo.py#function:run",
-        "symbol:tests/test_range.py#function:run"
+        "symbol:tests/test_range.py#function:run",
+        "symbol:secret_finder/menu.py#function:run"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -3978,6 +4419,18 @@
       "tier": "proven",
       "resolved": true,
       "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_inputs.py#function:InputsTest.commit",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
       "extractor": "python-stdlib-ast-calls"
     },
     {
@@ -4027,6 +4480,18 @@
     },
     {
       "type": "calls",
+      "source": "symbol:tests/test_inputs.py#function:InputsTest.test_file_and_stdin",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
       "source": "symbol:tests/test_inputs.py#function:InputsTest.test_root_and_normal_commit",
       "target": "symbol:secret_finder/diffparse.py#class:Added",
       "tier": "proven",
@@ -4090,6 +4555,18 @@
     },
     {
       "type": "calls",
+      "source": "symbol:tests/test_inputs.py#function:InputsTest.test_working_dir_covers_staged_and_unstaged",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
       "source": "symbol:tests/test_inputs.py#function:InputsTest.test_working_dir_without_commits_uses_index",
       "target": "symbol:secret_finder/diffparse.py#class:Added",
       "tier": "proven",
@@ -4113,6 +4590,18 @@
       "tier": "proven",
       "resolved": true,
       "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_inputs.py#function:InputsTest.test_working_dir_without_commits_uses_index",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
       "extractor": "python-stdlib-ast-calls"
     },
     {
@@ -4131,6 +4620,145 @@
       "tier": "ambiguous",
       "candidates": [
         "symbol:secret_finder/inputs.py#function:read_diff"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:drive",
+      "target": "symbol:secret_finder/demo.py#function:run",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:secret_finder/demo.py#function:run",
+        "symbol:tests/test_cli.py#function:run",
+        "symbol:tests/test_detect.py#function:run",
+        "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
+        "symbol:tests/test_range.py#function:run",
+        "symbol:secret_finder/menu.py#function:run"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:git",
+      "target": "symbol:secret_finder/demo.py#function:run",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:secret_finder/demo.py#function:run",
+        "symbol:tests/test_cli.py#function:run",
+        "symbol:tests/test_detect.py#function:run",
+        "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key.run",
+        "symbol:tests/test_range.py#function:run",
+        "symbol:secret_finder/menu.py#function:run"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.setUp",
+      "target": "symbol:tests/test_menu.py#function:git",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.setUp",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.test_bad_input_never_ends_the_menu",
+      "target": "symbol:tests/test_menu.py#function:drive",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.test_ctrl_c_and_end_of_input_say_goodbye",
+      "target": "symbol:tests/test_menu.py#function:drive",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.test_empty_repo_explains_instead_of_failing_and_f_changes_folder",
+      "target": "symbol:tests/test_menu.py#function:drive",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.test_find_repos_skips_hidden_and_vendor_folders_and_respects_limits",
+      "target": "symbol:secret_finder/menu.py#function:find_repos",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:secret_finder/menu.py#function:find_repos"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.test_full_walkthrough_returns_to_the_menu_after_every_step",
+      "target": "symbol:tests/test_menu.py#function:drive",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.test_menu_command_works_without_a_terminal",
+      "target": "symbol:secret_finder/cli.py#function:main",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:MenuTest.test_no_arguments_without_a_terminal_prints_usage_and_the_docker_hint",
+      "target": "symbol:secret_finder/cli.py#function:main",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_menu.py#function:write",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_packaging.py#function:PackagingTest.test_console_script_points_at_a_real_function_and_all_packages_are_listed",
+      "target": "symbol:secret_finder/menu.py#function:find_repos.walk",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:secret_finder/menu.py#function:find_repos.walk"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -4457,6 +5085,18 @@
     {
       "type": "calls",
       "source": "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key",
+      "target": "symbol:secret_finder/menu.py#function:find_repos.walk",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:secret_finder/menu.py#function:find_repos.walk"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_providers.py#function:ProviderTest.test_unreachable_provider_leaves_output_and_exit_code_unchanged_and_writes_no_key",
       "target": "symbol:tests/test_providers.py#class:Net",
       "tier": "proven",
       "resolved": true,
@@ -4515,6 +5155,18 @@
       "tier": "proven",
       "resolved": true,
       "confidence": 1,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_range.py#function:RangeTest.commit",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
       "extractor": "python-stdlib-ast-calls"
     },
     {
@@ -4672,6 +5324,18 @@
     },
     {
       "type": "calls",
+      "source": "symbol:tests/test_store.py#function:StoreTest.allowlist",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
       "source": "symbol:tests/test_store.py#function:StoreTest.test_allowlist_by_rule_glob_wildcard_and_fingerprint",
       "target": "symbol:tests/test_store.py#function:findings",
       "tier": "proven",
@@ -4695,6 +5359,18 @@
       "tier": "proven",
       "resolved": true,
       "confidence": 0.7,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_store.py#function:StoreTest.test_bad_salt_and_allowlist_files_never_crash_or_change_between_runs",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "tier": "ambiguous",
+      "candidates": [
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
       "extractor": "python-stdlib-ast-calls"
     },
     {
@@ -4735,12 +5411,24 @@
     {
       "type": "calls",
       "source": "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret",
-      "target": "symbol:tests/test_packaging.py#function:read",
+      "target": "symbol:tests/test_menu.py#function:write",
       "tier": "ambiguous",
       "candidates": [
-        "symbol:tests/test_packaging.py#function:read",
+        "symbol:tests/test_menu.py#function:write"
+      ],
+      "resolved": false,
+      "confidence": 0.3,
+      "extractor": "python-stdlib-ast-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:tests/test_store.py#function:StoreTest.test_cache_round_trip_survives_corruption_and_holds_no_secret",
+      "target": "symbol:tests/test_providers.py#function:Resp.read",
+      "tier": "ambiguous",
+      "candidates": [
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read"
+        "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -4785,12 +5473,12 @@
     {
       "type": "calls",
       "source": "symbol:tests/test_store.py#function:StoreTest.test_local_state_is_gitignored",
-      "target": "symbol:tests/test_packaging.py#function:read",
+      "target": "symbol:tests/test_providers.py#function:Resp.read",
       "tier": "ambiguous",
       "candidates": [
-        "symbol:tests/test_packaging.py#function:read",
         "symbol:tests/test_providers.py#function:Resp.read",
-        "symbol:tests/test_docs.py#function:read"
+        "symbol:tests/test_docs.py#function:read",
+        "symbol:tests/test_packaging.py#function:read"
       ],
       "resolved": false,
       "confidence": 0.3,
@@ -5303,15 +5991,6 @@
       "type": "defines",
       "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#class:_Count",
-      "line": 60,
-      "resolved": true,
-      "confidence": 1,
-      "extractor": "python-stdlib-ast"
-    },
-    {
-      "type": "defines",
-      "source": "file:secret_finder/cli.py",
-      "target": "symbol:secret_finder/cli.py#function:_Count.__init__",
       "line": 61,
       "resolved": true,
       "confidence": 1,
@@ -5320,8 +5999,17 @@
     {
       "type": "defines",
       "source": "file:secret_finder/cli.py",
+      "target": "symbol:secret_finder/cli.py#function:_Count.__init__",
+      "line": 62,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:_Count.added",
-      "line": 64,
+      "line": 65,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5330,7 +6018,7 @@
       "type": "defines",
       "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:_counts",
-      "line": 40,
+      "line": 41,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5339,7 +6027,7 @@
       "type": "defines",
       "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:_notice",
-      "line": 20,
+      "line": 21,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5348,7 +6036,7 @@
       "type": "defines",
       "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:_parser",
-      "line": 89,
+      "line": 90,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5357,7 +6045,7 @@
       "type": "defines",
       "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:_plural",
-      "line": 36,
+      "line": 37,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5366,15 +6054,6 @@
       "type": "defines",
       "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:_scan",
-      "line": 71,
-      "resolved": true,
-      "confidence": 1,
-      "extractor": "python-stdlib-ast"
-    },
-    {
-      "type": "defines",
-      "source": "file:secret_finder/cli.py",
-      "target": "symbol:secret_finder/cli.py#function:_scan.masked",
       "line": 72,
       "resolved": true,
       "confidence": 1,
@@ -5383,8 +6062,17 @@
     {
       "type": "defines",
       "source": "file:secret_finder/cli.py",
+      "target": "symbol:secret_finder/cli.py#function:_scan.masked",
+      "line": 73,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:_source",
-      "line": 28,
+      "line": 29,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5393,7 +6081,7 @@
       "type": "defines",
       "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:_status",
-      "line": 45,
+      "line": 46,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5402,7 +6090,7 @@
       "type": "defines",
       "source": "file:secret_finder/cli.py",
       "target": "symbol:secret_finder/cli.py#function:main",
-      "line": 105,
+      "line": 107,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -5574,6 +6262,87 @@
       "source": "file:secret_finder/mask.py",
       "target": "symbol:secret_finder/mask.py#function:safe_snippet",
       "line": 38,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#class:Quit",
+      "line": 13,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#function:_ask",
+      "line": 48,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#function:_choose",
+      "line": 55,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#function:_git_ok",
+      "line": 41,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#function:_pick_repo",
+      "line": 73,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#function:_scan",
+      "line": 96,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#function:find_repos",
+      "line": 17,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#function:find_repos.walk",
+      "line": 20,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:secret_finder/menu.py",
+      "target": "symbol:secret_finder/menu.py#function:run",
+      "line": 107,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -6258,6 +7027,114 @@
       "source": "file:tests/test_inputs.py",
       "target": "symbol:tests/test_inputs.py#function:scan",
       "line": 23,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#class:MenuTest",
+      "line": 40,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:drive",
+      "line": 32,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:git",
+      "line": 22,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:MenuTest.setUp",
+      "line": 41,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:MenuTest.test_bad_input_never_ends_the_menu",
+      "line": 76,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:MenuTest.test_ctrl_c_and_end_of_input_say_goodbye",
+      "line": 91,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:MenuTest.test_empty_repo_explains_instead_of_failing_and_f_changes_folder",
+      "line": 83,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:MenuTest.test_find_repos_skips_hidden_and_vendor_folders_and_respects_limits",
+      "line": 97,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:MenuTest.test_full_walkthrough_returns_to_the_menu_after_every_step",
+      "line": 63,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:MenuTest.test_menu_command_works_without_a_terminal",
+      "line": 112,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:MenuTest.test_no_arguments_without_a_terminal_prints_usage_and_the_docker_hint",
+      "line": 104,
+      "resolved": true,
+      "confidence": 1,
+      "extractor": "python-stdlib-ast"
+    },
+    {
+      "type": "defines",
+      "source": "file:tests/test_menu.py",
+      "target": "symbol:tests/test_menu.py#function:write",
+      "line": 26,
       "resolved": true,
       "confidence": 1,
       "extractor": "python-stdlib-ast"
@@ -7061,7 +7938,7 @@
       "source": "file:secret_finder/cli.py",
       "target": "file:secret_finder/demo.py",
       "specifier": ".demo",
-      "line": 108,
+      "line": 119,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -7102,6 +7979,16 @@
       "target": "file:secret_finder/mask.py",
       "specifier": ".mask",
       "line": 11,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:secret_finder/cli.py",
+      "target": "file:secret_finder/menu.py",
+      "specifier": ".menu",
+      "line": 116,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -7442,6 +8329,56 @@
       "target": "runtime:python:re",
       "specifier": "re",
       "line": 1,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:secret_finder/menu.py",
+      "target": "file:secret_finder/__init__.py",
+      "specifier": ".",
+      "line": 5,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:secret_finder/menu.py",
+      "target": "file:secret_finder/cli.py",
+      "specifier": ".cli",
+      "line": 6,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:secret_finder/menu.py",
+      "target": "runtime:python:os",
+      "specifier": "os",
+      "line": 1,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:secret_finder/menu.py",
+      "target": "runtime:python:subprocess",
+      "specifier": "subprocess",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:secret_finder/menu.py",
+      "target": "runtime:python:sys",
+      "specifier": "sys",
+      "line": 3,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "python-imports"
@@ -8038,6 +8975,96 @@
     },
     {
       "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "file:secret_finder/__init__.py",
+      "specifier": "secret_finder",
+      "line": 10,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "file:secret_finder/cli.py",
+      "specifier": "secret_finder.cli",
+      "line": 11,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "runtime:python:contextlib",
+      "specifier": "contextlib",
+      "line": 1,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "runtime:python:glob",
+      "specifier": "glob",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "runtime:python:io",
+      "specifier": "io",
+      "line": 3,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "runtime:python:os",
+      "specifier": "os",
+      "line": 4,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "runtime:python:subprocess",
+      "specifier": "subprocess",
+      "line": 5,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "runtime:python:tempfile",
+      "specifier": "tempfile",
+      "line": 6,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:tests/test_menu.py",
+      "target": "runtime:python:unittest",
+      "specifier": "unittest",
+      "line": 8,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "python-imports"
+    },
+    {
+      "type": "imports",
       "source": "file:tests/test_packaging.py",
       "target": "file:secret_finder/__init__.py",
       "specifier": "secret_finder",
@@ -8569,6 +9596,6 @@
   ],
   "warnings": [],
   "stats": {
-    "unresolvedCalls": 504
+    "unresolvedCalls": 575
   }
 }

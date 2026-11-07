@@ -133,6 +133,7 @@ svg.diagram{display:block;width:100%;min-width:860px;height:auto;color:var(--fg)
       <tr><td>Output: findings across many commits (a PR or the history)</td><td>Range scan</td><td><code>--range</code> scans each non-merge commit and groups findings under <code>commit &lt;hash&gt;</code>.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Output: file and line for each finding</td><td>Diff parser</td><td>Reads <code>@@ -a,b +c,d @@</code> hunk headers and counts new-file line numbers. Only <code>+</code> lines are scanned.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Output: a short reason for each finding</td><td>Detector, then AI triage</td><td>Every rule carries a fixed reason string. With <code>--ai</code>, the model refines it and flags likely false positives.</td><td><span class="tag mvp">MVP</span> <span class="tag opt">Optional</span></td></tr>
+      <tr><td>Easy to try for someone with no setup</td><td>Interactive menu</td><td><code>secret-finder</code> with no arguments, or the Docker image run with <code>-it</code>, opens a menu: demo, or your own folder (found automatically, then JSON of uncommitted changes, all commits, demo, exit). It returns to the menu after every result.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>Try it without a real repository</td><td>Demo command</td><td><code>secret-finder demo</code> builds a throwaway repo with made-up secrets, scans it, explains the result and deletes it. It works in Docker with no mounted repo.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>CLI only, any language, any tools</td><td>Python entry point</td><td>One command, <code>secret-finder scan</code>, installed with pipx or run from a Docker image. <code>python3 -m secret_finder scan</code> works from a clone. No runtime dependencies.</td><td><span class="tag mvp">MVP</span></td></tr>
       <tr><td>README with how to run and where it fails</td><td>Docs</td><td>README covers install, use, hooks, AI and the allowlist. Where it fails is documented in the failure modes table in this document.</td><td><span class="tag mvp">MVP</span></td></tr>
@@ -304,6 +305,8 @@ svg.diagram{display:block;width:100%;min-width:860px;height:auto;color:var(--fg)
   </table></div>
   <h3>Notices, status line and demo</h3>
   <p>Every scan starts with a privacy notice on stderr: the scan runs locally and nothing is uploaded. With <code>--ai</code> the notice names the provider that will receive masked findings. After the scan, a status line on stderr says what was scanned, how many added lines and files were examined, and the findings by confidence, or that nothing was found. Stdout carries only the findings, so pipes, <code>--json</code> and hooks are unaffected. <code>--quiet</code> hides both lines. <code>secret-finder demo</code> runs the same scan against a throwaway repo with made-up credentials, including a placeholder and an environment lookup that must not be reported.</p>
+  <h3>Interactive menu</h3>
+  <p>With no arguments in a terminal, <code>secret-finder</code> opens a menu instead of an error. The first screen offers the demo, a scan of your own folder, or exit. For your own folder it lists the git repositories found under the current directory, up to three levels deep, and also accepts a typed path. For the chosen repository the choices are a JSON scan of uncommitted changes, a report on all commits (<code>--range HEAD</code>), the demo, or exit, and the menu returns after each result. Bad input, a folder that is not a repository and a repository with no commits all produce a short message and never a traceback. The Docker image defaults to the menu, so a stranger needs only one <code>docker run -it</code> command after building. Docker can only share the folder it is started from, so the menu can only see repositories inside it.</p>
 </section>
 
 <section id="inputs">
@@ -537,5 +540,6 @@ README.md</code></pre>
 </section>
 
 </div>
+
 
 </html>

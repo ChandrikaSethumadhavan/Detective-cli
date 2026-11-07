@@ -13,46 +13,53 @@ secret-finder: scanned 1 added line in 1 file from working-directory changes: 1 
 
 Secrets are never printed in full. The exit code is `0` when nothing is found and `1` when something is, so it can block a commit or fail a CI job.
 
-## Try it first
+## Quick start (Docker, two commands)
 
-You do not need a repo of your own. The demo builds a throwaway repo with made-up credentials, scans it, shows what it found and why, and deletes it:
-
-```
-secret-finder demo
-docker run --rm secret-finder demo     # with Docker only, nothing to mount
-```
-
-## Install
-
-Pick one.
-
-**With Python 3.9+ and git** (recommended):
+You only need Docker. Build it once:
 
 ```
-pipx install git+https://github.com/ChandrikaSethumadhavan/Detective-cli
+docker build -t secret-finder "https://github.com/ChandrikaSethumadhavan/Detective-cli.git#master"
 ```
 
-`pip install git+https://github.com/ChandrikaSethumadhavan/Detective-cli` works too. This gives you the `secret-finder` command.
-
-**With Docker only** (no Python needed):
+Then, from the folder that holds your project (or a folder that contains several projects), run:
 
 ```
-docker build -t secret-finder https://github.com/ChandrikaSethumadhavan/Detective-cli.git
-alias secret-finder='docker run --rm -i -v "$PWD":/repo -u "$(id -u):$(id -g)" -e SF_AI_PROVIDER -e SF_AI_MODEL -e SF_AI_API_KEY secret-finder'
+docker run --rm -it -v "$PWD":/repo -u "$(id -u):$(id -g)" secret-finder
 ```
 
-The alias mounts your current folder, so run it from inside the repo you want to scan.
-
-**From a clone**, with no install:
+A menu opens and guides you:
 
 ```
-git clone https://github.com/ChandrikaSethumadhavan/Detective-cli && cd Detective-cli
-python3 -m secret_finder scan
+What would you like to do?
+  1) Try the demo (no repo needed)
+  2) Try it on your own folder
+  3) Exit
 ```
 
-## Use
+- **Try the demo** builds a throwaway repo with made-up credentials, scans it and shows what it found and why. Nothing real is touched.
+- **Try it on your own folder** lists the git repositories found under the folder you started in. Pick one by number or type a path. Then choose a **JSON** scan of your uncommitted changes, a report on **all commits**, the demo again, or exit. After every result you are back at the menu.
 
-Run these inside the git repo you want to check. Only lines you added are scanned.
+The menu can only see the folder you ran the command from, because Docker only shares that folder. Run it from the folder that contains your project.
+
+## Other ways to install
+
+**With Python 3.9+ and git**, no Docker:
+
+```
+pipx install "git+https://github.com/ChandrikaSethumadhavan/Detective-cli@master"
+secret-finder          # opens the same menu
+```
+
+`pip install` works too. **From a clone**, with no install:
+
+```
+git clone -b master https://github.com/ChandrikaSethumadhavan/Detective-cli && cd Detective-cli
+python3 -m secret_finder
+```
+
+## Use it directly
+
+Skip the menu when you know what you want. Run these inside the git repo you want to check. Only lines you added are scanned.
 
 ```
 secret-finder scan                     # your staged and unstaged changes
@@ -63,6 +70,13 @@ git diff main | secret-finder scan -   # any diff on stdin
 secret-finder scan change.diff         # a saved diff file
 secret-finder scan --json              # JSON instead of text
 secret-finder scan --quiet             # findings only, no notice or status line
+secret-finder demo                     # the demo, without the menu
+```
+
+With Docker, add the same prefix as above and the command, for example:
+
+```
+docker run --rm -v "$PWD":/repo -u "$(id -u):$(id -g)" secret-finder scan --range HEAD
 ```
 
 `--range` takes any `git rev-list` range and scans its commits one at a time, so a key that was added and later removed is still found, under the commit that added it:
@@ -80,7 +94,7 @@ Commit messages are never printed, because they can contain secrets. Merge commi
 
 Every scan starts with a privacy notice and ends with a status line saying what was scanned and what was found. Both go to stderr, so the output you pipe or parse (`--json` included) holds only the findings. With `--ai` the notice names the provider that will receive masked findings.
 
-Exit codes: `0` nothing found, `1` findings, `2` could not run (not a git repo, bad commit, unreadable file, bad flags).
+Exit codes: `0` nothing found, `1` findings, `2` could not run (not a git repo, bad commit or range, unreadable file, bad flags).
 
 ## Stop secrets before they are committed
 
@@ -142,7 +156,8 @@ secret-finder scan --ai
 
 ```
 python3 -m unittest tests.test_diffparse tests.test_inputs tests.test_detect tests.test_remediation \
-  tests.test_cli tests.test_store tests.test_triage tests.test_providers tests.test_docs tests.test_packaging
+  tests.test_cli tests.test_store tests.test_triage tests.test_providers tests.test_docs \
+  tests.test_packaging tests.test_demo tests.test_range tests.test_menu
 ```
 
 Design, rules and known limitations are in [docs/architecture.html](docs/architecture.html). How AI was used to build this is in [docs/ai-log.md](docs/ai-log.md).

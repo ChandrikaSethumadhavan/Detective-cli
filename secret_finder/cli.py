@@ -14,6 +14,7 @@ from .store import LocalStore
 from .triage import blocks, triage
 
 
+DOCKER_MENU = 'docker run --rm -it -v "$PWD":/repo -u "$(id -u):$(id -g)" secret-finder'
 LOCAL_NOTICE = "secret-finder: runs locally on your machine. Your code is not uploaded and secrets are masked in the output."
 
 
@@ -88,7 +89,7 @@ def _scan(args, store, count):
 
 def _parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="secret-finder", description="Find secrets in a git change.")
-    sub = p.add_subparsers(dest="cmd", required=True)
+    sub = p.add_subparsers(dest="cmd")
     scan = sub.add_parser("scan", help="scan a diff, a commit, or the working directory")
     scan.add_argument("source", nargs="?", help="diff file, or - for stdin; omit to scan working-directory changes")
     scan.add_argument("--commit", metavar="HASH", help="scan the change made by this commit")
@@ -98,12 +99,22 @@ def _parser() -> argparse.ArgumentParser:
     scan.add_argument("--ai", action="store_true", help="triage medium and low confidence findings with a hosted model")
     scan.add_argument("-q", "--quiet", action="store_true", help="hide the privacy notice and the status line")
     scan.add_argument("--ai-max-calls", type=int, default=5, metavar="N", help="cap on model requests per run")
+    sub.add_parser("menu", help="open the interactive menu")
     sub.add_parser("demo", help="try the tool on a throwaway repo with planted fake secrets")
     return p
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    args = _parser().parse_args(argv)
+    parser = _parser()
+    args = parser.parse_args(argv)
+    if args.cmd is None and not sys.stdin.isatty():
+        parser.print_usage(sys.stderr)
+        print("Run it in a terminal to open the interactive menu. With Docker, add -it:\n"
+              f"  {DOCKER_MENU}", file=sys.stderr)
+        return 2
+    if args.cmd in (None, "menu"):
+        from .menu import run
+        return run()
     if args.cmd == "demo":
         from .demo import run
         return run()

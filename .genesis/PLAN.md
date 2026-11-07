@@ -4,7 +4,7 @@
 
 - workflow: new-product
 - phase: verify
-- plan approval: ChandrikaSethumadhavan at 2026-11-07T09:17:00.952Z
+- plan approval: ChandrikaSethumadhavan at 2026-11-07T11:13:04.145Z
 
 ## Tasks
 
@@ -166,5 +166,13 @@
 - requirements: FR-18, FR-20, FR-21, FR-22, FR-23, AC-14, AC-15, AC-16
 - scope: secret_finder/inputs.py, secret_finder/cli.py, secret_finder/report.py, secret_finder/demo.py, tests/test_inputs.py, tests/test_cli.py, tests/test_range.py, tests/test_demo.py, tests/test_docs.py, README.md, docs/architecture.html, docs/ai-log.md
 - gates: unit: python3 -m unittest tests.test_range tests.test_cli tests.test_inputs tests.test_demo tests.test_docs tests.test_providers tests.test_triage tests.test_store
+- next: Run the task pre-flight.
+
+### T-13 — Interactive menu: secret-finder with no arguments in a terminal (or secret-finder menu) offers the demo or a folder chosen from discovered git repos, then JSON of uncommitted changes, all-commit history, demo or exit, returning to the menu after every result; the Docker image opens the menu with a single docker run -it command; README, tests, architecture document and AI log updated
+
+- state/risk: done / low
+- requirements: FR-24, FR-25, FR-26, AC-17, AC-18, AC-19
+- scope: secret_finder/menu.py, secret_finder/cli.py, Dockerfile, tests/test_menu.py, tests/test_packaging.py, tests/test_cli.py, tests/test_docs.py, README.md, docs/architecture.html, docs/ai-log.md
+- gates: unit: python3 -m unittest tests.test_menu tests.test_cli tests.test_demo tests.test_range tests.test_packaging tests.test_docs
 - next: Run the task pre-flight.
 

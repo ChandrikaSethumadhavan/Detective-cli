@@ -36,6 +36,9 @@ Developers sometimes commit passwords or keys by mistake. Detective-cli (`secret
 - FR-21: Range output identifies the commit for every finding: text groups findings under a `commit <short hash>` line and JSON adds a `commit` key to each finding. The commit message is never printed, because it can contain a secret.
 - FR-22: The status line for a range says how many commits were scanned and how many of them had findings, or that no secrets were found. A range that matches no commits exits 0 and says so.
 - FR-23: A range with more commits than `--max-commits` (default 1000) exits 2 with a message and prints no findings, instead of scanning part of it. An invalid range, or a range combined with a file, stdin or `--commit`, exits 2.
+- FR-24: `secret-finder` with no arguments in a terminal (or `secret-finder menu`) opens an interactive menu: 1) try the demo, 2) try it on your own folder, 3) exit. Choosing a folder lists the git repositories found under the current directory (up to 3 levels deep) to pick by number, or accepts a typed path. A folder that is not a git repository is rejected with a clear message and the prompt repeats.
+- FR-25: For a chosen folder the menu offers 1) scan uncommitted changes with JSON output, 2) scan all commits (`--range HEAD`, readable report), 3) try the demo, 4) exit, and returns to this menu after every result, including after the demo. Invalid input never ends the menu, and Ctrl-C or end of input exits with a short goodbye.
+- FR-26: Running the Docker image with `-it` and the current directory mounted at `/repo` opens the menu with no other arguments. Without a terminal it prints usage and the exact `docker run` command for the menu. The image trusts any mounted repository (`safe.directory '*'`).
 
 ## Non-functional requirements
 
@@ -80,6 +83,9 @@ Developers sometimes commit passwords or keys by mistake. Detective-cli (`secret
 - AC-14: In a repo with a clean commit, a commit that adds a key and a commit that removes it, `--range` over all three exits 1 and reports the key once, under the commit that added it. A range that holds only the clean commit exits 0 and says no secrets were found.
 - AC-15: A merge of a branch that contains a secret commit reports the secret once.
 - AC-16: JSON output has a `commit` key on every finding. A range with more commits than the limit exits 2 with no findings printed. A malformed range or one that starts with `-` exits 2.
+- AC-17: With scripted input the menu runs demo, then own folder, pick a discovered repo, JSON scan, all-commits scan, demo and exit, returning to the menu after each step, and leaves the working directory unchanged.
+- AC-18: Invalid choices, a non-repository path, an empty repository and end of input do not crash the menu or print a traceback.
+- AC-19: No arguments and no terminal prints usage and the docker hint and exits 2. `secret-finder scan` and `secret-finder demo` behave as before.
 
 ## Risks
 
